@@ -16,7 +16,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@pa-pos/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@pa-pos/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@pa-pos/ui": ["libs/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
