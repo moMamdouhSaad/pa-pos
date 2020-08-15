@@ -61,7 +61,7 @@ Run `nx generate @nrwl/angular:library --name=ui --style=scss --directory=user -
 
 - Generate a UI component:
 
-Run `nx generate @schematics/angular:component --name=employeeForm --project=user-ui --style=scss --changeDetection=OnPush --displayBlock --export --no-interactive`
+Run `nx generate @schematics/angular:component --name=buttonGroup --project=ui --style=scss --changeDetection=OnPush --displayBlock --export --no-interactive`
 
 ### Generate a Data-Access library :
 
@@ -122,12 +122,6 @@ Nx Cloud pairs with Nx in order to enable you to build and test code more rapidl
 Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
 
 Visit [Nx Cloud](https://nx.app/) to learn more.
-
-
-
-
-
-
 
 # PaPos
 

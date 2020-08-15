@@ -4,13 +4,12 @@ import {
   Input,
   Renderer2,
   ElementRef,
-  HostBinding,
 } from '@angular/core';
 import {
   BootstrapButtonMainColors,
   BootstrapButtonSizes,
   BootstrapButtonStates,
-} from '../../../utils/utils';
+} from '../../utils/utils';
 
 @Component({
   // tslint:disable-next-line: component-selector
