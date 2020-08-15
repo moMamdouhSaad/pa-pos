@@ -41,6 +41,8 @@
     "@nestjs/core": "^7.0.0",
     "@nestjs/platform-express": "^7.0.0",
     "@nrwl/angular": "9.5.1",
+    "bootstrap": "^4.5.2",
+    "jquery": "^3.5.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^6.5.5",
     "rxjs-tslint-rules": "^4.34.0",
