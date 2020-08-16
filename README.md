@@ -61,7 +61,7 @@ Run `nx generate @nrwl/angular:library --name=ui --style=scss --directory=user -
 
 - Generate a UI component:
 
-Run `nx generate @schematics/angular:component --name=buttonGroup --project=ui --style=scss --changeDetection=OnPush --displayBlock --export --no-interactive`
+Run `nx generate @schematics/angular:component --name=buttonGroup --project=ui-elements --style=scss --changeDetection=OnPush --displayBlock --export --no-interactive`
 
 ### Generate a Data-Access library :
 
