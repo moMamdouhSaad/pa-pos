@@ -5,7 +5,7 @@ import {
   ElementRef,
   Input,
 } from '@angular/core';
-import { AlertsColors } from '../../utils/utils';
+import { AlertColors } from '../../utils/utils';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -20,10 +20,10 @@ export class AlertComponent {
     private readonly el: ElementRef
   ) {}
 
-  @Input() public set alertColor(color: AlertsColors) {
+  @Input() public set alertColor(color: AlertColors) {
     this.renderer.addClass(this.el.nativeElement, 'alert');
-    if (color && AlertsColors[color]) {
-      this.renderer.addClass(this.el.nativeElement, AlertsColors[color]);
+    if (color && AlertColors[color]) {
+      this.renderer.addClass(this.el.nativeElement, AlertColors[color]);
     }
   }
 }

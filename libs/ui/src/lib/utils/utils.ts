@@ -30,7 +30,7 @@ export enum BootstrapButtonStates {
   disabled = 'disabled',
 }
 
-export enum AlertsColors {
+export enum AlertColors {
   primary = 'alert-primary',
   secondary = 'alert-secondary',
   success = 'alert-success',
@@ -40,4 +40,16 @@ export enum AlertsColors {
   light = 'alert-light',
   dark = 'alert-dark',
   link = 'alert-link',
+}
+
+export enum BadgeColors {
+  primary = 'badge-primary',
+  secondary = 'badge-secondary',
+  success = 'badge-success',
+  danger = 'badge-danger',
+  warning = 'badge-warning',
+  info = 'badge-info',
+  light = 'badge-light',
+  dark = 'badge-dark',
+  link = 'badge-link',
 }
