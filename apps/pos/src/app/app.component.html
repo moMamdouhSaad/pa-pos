@@ -4,15 +4,18 @@
   Alert content
 </div>
 
+<hr />
 <!-- Badge -->
 <h1>Example heading <badge color="danger">New</badge></h1>
 <button type="button" class="btn btn-primary">
   Notifications <badge color="light">4</badge>
 </button>
 
+<hr />
 <!-- Breadcrumb -->
 <breadcrumb [links]="links"></breadcrumb>
 
+<hr />
 <!-- Button and button group -->
 <pa-pos-button-group>
   <button btnColor="success" btnSize="large">
@@ -25,3 +28,49 @@
     Button
   </button>
 </pa-pos-button-group>
+
+<hr />
+<!-- Card -->
+<card>
+  <card-header>Card header</card-header>
+
+  <card-body>
+    <card-text
+      >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
+      erat a ante.
+    </card-text>
+    <button btnColor="primary" btnSize="small">
+      Button
+    </button>
+  </card-body>
+
+  <card-footer>Card Footer</card-footer>
+</card>
+
+<hr />
+<card [isCentered]="true">
+  <card-header>
+    <card-tabs>
+      <card-tab [active]="true">
+        tab 1
+      </card-tab>
+      <card-tab>
+        tab 2
+      </card-tab>
+
+      <card-tab>
+        tab 3
+      </card-tab>
+    </card-tabs>
+  </card-header>
+  <card-body>
+    <card-text
+      >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
+      erat a ante.
+    </card-text>
+    <button btnColor="primary" btnSize="small">
+      Button
+    </button>
+  </card-body>
+</card>
+<hr />

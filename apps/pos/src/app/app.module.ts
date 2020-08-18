@@ -8,6 +8,7 @@ import {
   AlertModule,
   BadgeModule,
   BreadcrumbModule,
+  CardModule,
 } from '@pa-pos/ui';
 
 @NgModule({
@@ -19,6 +20,7 @@ import {
     AlertModule,
     BadgeModule,
     BreadcrumbModule,
+    CardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
