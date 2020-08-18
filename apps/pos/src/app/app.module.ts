@@ -3,7 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ButtonModule, AlertModule, BadgeModule } from '@pa-pos/ui';
+import {
+  ButtonModule,
+  AlertModule,
+  BadgeModule,
+  BreadcrumbModule,
+} from '@pa-pos/ui';
 
 @NgModule({
   declarations: [AppComponent],
@@ -13,6 +18,7 @@ import { ButtonModule, AlertModule, BadgeModule } from '@pa-pos/ui';
     ButtonModule,
     AlertModule,
     BadgeModule,
+    BreadcrumbModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
