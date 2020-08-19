@@ -1,0 +1,14 @@
+<div
+  data-toggle="collapse"
+  data-target="#collapseExample"
+  aria-expanded="false"
+  aria-controls="collapseExample"
+>
+  <ng-content select="[collabse-btn]"></ng-content>
+</div>
+
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+    <ng-content select="[collabse-content]"></ng-content>
+  </div>
+</div>

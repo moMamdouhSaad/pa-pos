@@ -9,6 +9,7 @@ import {
   BadgeModule,
   BreadcrumbModule,
   CardModule,
+  CollabseModule,
 } from '@pa-pos/ui';
 
 @NgModule({
@@ -21,6 +22,7 @@ import {
     BadgeModule,
     BreadcrumbModule,
     CardModule,
+    CollabseModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

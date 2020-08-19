@@ -23,7 +23,10 @@
             "aot": true,
             "assets": ["apps/pos/src/favicon.ico", "apps/pos/src/assets"],
             "styles": ["apps/pos/src/styles.scss"],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.js"
+            ]
           },
           "configurations": {
             "production": {
