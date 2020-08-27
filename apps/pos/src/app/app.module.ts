@@ -10,6 +10,7 @@ import {
   BreadcrumbModule,
   CardModule,
   CollabseModule,
+  DropdownModule,
 } from '@pa-pos/ui';
 
 @NgModule({
@@ -23,6 +24,7 @@ import {
     BreadcrumbModule,
     CardModule,
     CollabseModule,
+    DropdownModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

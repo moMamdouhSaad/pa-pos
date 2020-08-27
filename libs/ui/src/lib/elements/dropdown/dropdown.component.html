@@ -1,0 +1,14 @@
+<div class="dropdown">
+  <div
+    type="button"
+    id="dropdownMenuButton"
+    data-toggle="dropdown"
+    aria-haspopup="true"
+    aria-expanded="false"
+  >
+    <ng-content select="[dropdown-btn]"></ng-content>
+  </div>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <ng-content select="[dropdown-item]"></ng-content>
+  </div>
+</div>
