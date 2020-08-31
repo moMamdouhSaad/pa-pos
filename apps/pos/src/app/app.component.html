@@ -93,7 +93,25 @@
   <button dropdown-btn btnColor="primary" btnSize="medium">
     Dropdown Button
   </button>
-  <dropdown-item dropdown-item> asd </dropdown-item>
-  <dropdown-item dropdown-item> asd </dropdown-item>
-  <dropdown-item dropdown-item> asd </dropdown-item>
+  <dropdown-item dropdown-item> Dropdown item 1 </dropdown-item>
+  <dropdown-item dropdown-item> Dropdown item 2 </dropdown-item>
+  <dropdown-item dropdown-item> Dropdown item 3 </dropdown-item>
 </dropdown>
+
+<pa-input
+  [placeholder]="'Enter ur name'"
+  [id]="'name'"
+  [label]="'Name'"
+  [formControl]="testInput"
+  [errMsg]="'Error is here'"
+></pa-input>
+
+<pa-input
+  [placeholder]="'Enter ur name'"
+  [id]="'name'"
+  [leftLabel]="'Name'"
+  [formControl]="testInput"
+  [helpText]="
+    '  Your password spaces, special dasdasdas gfdhfgh fghgfhfgh fghfghfg characters, or emoji.'
+  "
+></pa-input>

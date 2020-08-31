@@ -1,0 +1,22 @@
+<control-container
+  [helpText]="helpText"
+  [leftLabel]="leftLabel"
+  [id]="id"
+  [label]="label"
+  [errMsg]="errMsg"
+>
+  <input
+    [id]="id"
+    [type]="inputType"
+    [placeholder]="placeholder"
+    [value]="value"
+    class="form-control rounded-right"
+    [class.is-disabled]="isDisabled"
+    [class.is-invalid]="hasError()"
+    [class.is-valid]="hasValue()"
+    (change)="onChange($event.target.value)"
+    (keyup)="onChange($event.target.value)"
+    (blur)="onTouched()"
+    (input)="onTouched()"
+  />
+</control-container>

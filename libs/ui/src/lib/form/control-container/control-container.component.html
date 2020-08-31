@@ -1,0 +1,24 @@
+<ng-container>
+  <div class="input-group">
+    <label
+      *ngIf="label"
+      style="display: inline;"
+      class="col-form-label"
+      [for]="id"
+      >{{ label + ' :' }}</label
+    >
+
+    <div *ngIf="leftLabel" class="input-group-prepend">
+      <div class="input-group-text">{{ leftLabel }}</div>
+    </div>
+
+    <ng-content></ng-content>
+
+    <small *ngIf="helpText" class="help-text text-muted">
+      {{ helpText }}
+    </small>
+    <div class="invalid-feedback">
+      {{ errMsg }}
+    </div>
+  </div>
+</ng-container>

@@ -1,0 +1,20 @@
+.is-disabled {
+  pointer-events: none;
+  background-color: rgba(197, 194, 194, 0.575);
+}
+.has-error {
+  border-color: #dc3545;
+}
+.has-value {
+  border-color: #019220;
+}
+
+.form-control:focus {
+  //   border-color: inherit;
+  //   -webkit-box-shadow: none;
+  //   box-shadow: none;
+}
+
+input {
+  padding-left: 30px;
+}

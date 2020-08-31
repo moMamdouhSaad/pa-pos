@@ -11,6 +11,7 @@ import {
   CardModule,
   CollabseModule,
   DropdownModule,
+  FormModule,
 } from '@pa-pos/ui';
 
 @NgModule({
@@ -25,6 +26,7 @@ import {
     CardModule,
     CollabseModule,
     DropdownModule,
+    FormModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
