@@ -101,17 +101,16 @@
 <pa-input
   [placeholder]="'Enter ur name'"
   [id]="'name'"
-  [label]="'Name'"
-  [formControl]="testInput"
-  [errMsg]="'Error is here'"
-></pa-input>
-
-<pa-input
-  [placeholder]="'Enter ur name'"
-  [id]="'name'"
   [leftLabel]="'Name'"
   [formControl]="testInput"
   [helpText]="
     '  Your password spaces, special dasdasdas gfdhfgh fghgfhfgh fghfghfg characters, or emoji.'
   "
 ></pa-input>
+
+<pa-select
+  [displayValue]="'name'"
+  [arrayList]="testArray"
+  [leftLabel]="'Name'"
+  (selectionChange)="selectItem($event)"
+></pa-select>

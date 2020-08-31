@@ -12,7 +12,17 @@ export class AppComponent {
       Validators.required,
       Validators.minLength(3),
     ]);
+    this.testInput2 = new FormControl('', Validators.required);
   }
   public links = ['Home', 'Products', 'Edit'];
   public testInput: FormControl;
+  public testInput2: FormControl;
+  public testArray = [
+    { id: 1, name: 'Mohamed' },
+    { id: 2, name: 'Ahmed' },
+    { id: 3, name: 'Nour' },
+  ];
+  public testArray2 = ['ahmed', 'mohamed', 'saad'];
+
+  public selectItem(event): void {}
 }

@@ -3,10 +3,11 @@ import { ControlContainerComponent } from './control-container/control-container
 import { InputComponent } from './input/input.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { SelectComponent } from './select/select.component';
 
 @NgModule({
-  declarations: [ControlContainerComponent, InputComponent],
-  exports: [InputComponent, FormsModule, ReactiveFormsModule],
+  declarations: [ControlContainerComponent, InputComponent, SelectComponent],
+  exports: [InputComponent, FormsModule, ReactiveFormsModule, SelectComponent],
   imports: [CommonModule, FormsModule, ReactiveFormsModule],
 })
 export class FormModule {}

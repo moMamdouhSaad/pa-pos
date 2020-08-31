@@ -1,0 +1,19 @@
+<control-container
+  [helpText]="helpText"
+  [leftLabel]="leftLabel"
+  [id]="id"
+  [label]="label"
+  [errMsg]="errMsg"
+>
+  <select
+    class="form-control"
+    [id]="id"
+    (change)="onSelectValue(arrayList[$event.target.value])"
+    (input)="ontypeEvent($event)"
+    (blur)="onTouched()"
+  >
+    <option *ngFor="let item of arrayList; let i = index" [value]="i">
+      {{ displayValue ? item[displayValue] : item }}
+    </option>
+  </select>
+</control-container>
