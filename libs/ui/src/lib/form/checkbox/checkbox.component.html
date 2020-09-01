@@ -1,0 +1,16 @@
+<div class="form-check">
+  <input
+    [name]="name"
+    (change)="onChange($event)"
+    [checked]="checked"
+    [disabled]="isDisabled"
+    (blur)="onTouched()"
+    class="form-check-input"
+    type="checkbox"
+    value=""
+    [id]="id"
+  />
+  <label class="form-check-label" [id]="id">
+    {{ label }}
+  </label>
+</div>

@@ -25,4 +25,7 @@ export class AppComponent {
   public testArray2 = ['ahmed', 'mohamed', 'saad'];
 
   public selectItem(event): void {}
+  public testFunc(): void {
+    console.log(this.testInput2.value);
+  }
 }
