@@ -119,7 +119,28 @@
   [formControl]="testInput2"
   id="che"
   name="name"
+  value="myValue"
   label="name"
+  type="radio"
+></pa-checkbox>
+<pa-checkbox
+  [formControl]="testInput2"
+  id="che"
+  name="name"
+  value="myValue2"
+  label="name"
+  type="checkbox"
 ></pa-checkbox>
 
 <button (click)="testFunc()">byy</button>
+
+<pa-input-group>
+  <pa-input
+    [placeholder]="'Enter ur name'"
+    [id]="'name'"
+    [formControl]="testInput"
+  ></pa-input>
+  <button btnColor="outlineDanger">
+    Button
+  </button>
+</pa-input-group>

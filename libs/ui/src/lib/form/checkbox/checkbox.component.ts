@@ -22,26 +22,28 @@ export class CheckboxComponent implements ControlValueAccessor {
   @Input() public id: string | null = null;
   @Input() public name: string | null = null;
   @Input() public isDisabled: boolean = null;
+  @Input() public value: boolean = null;
+  @Input() public type: 'checkbox' | 'radio' = 'checkbox';
 
-  public value = false;
+  public _value = false;
 
   public get checked(): boolean {
-    return this.value || false;
+    return this._value || false;
   }
   public set checked(value: boolean) {
-    this.value = value;
+    this._value = value;
   }
   // tslint:disable-next-line: no-any
   public onChange = (event: any) => {
-    this.value = event.target.checked;
-    this.onModelChange(event.target.checked);
+    this._value = event.target.value;
+    this.onModelChange(event.target.value);
   };
 
   private onModelChange = (_value: boolean) => {};
   public onTouched = () => {};
 
   public writeValue(value: boolean): void {
-    this.value = value;
+    this._value = value;
   }
   public registerOnChange(fn: () => {}): void {
     this.onModelChange = fn;

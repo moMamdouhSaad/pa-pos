@@ -6,8 +6,8 @@
     [disabled]="isDisabled"
     (blur)="onTouched()"
     class="form-check-input"
-    type="checkbox"
-    value=""
+    [type]="type"
+    [value]="value"
     [id]="id"
   />
   <label class="form-check-label" [id]="id">
