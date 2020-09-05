@@ -14,6 +14,7 @@ import {
   FormModule,
   JumbotronModule,
   ListGroupModule,
+  MediaObjectModule,
 } from '@pa-pos/ui';
 
 @NgModule({
@@ -31,6 +32,7 @@ import {
     FormModule,
     JumbotronModule,
     ListGroupModule,
+    MediaObjectModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

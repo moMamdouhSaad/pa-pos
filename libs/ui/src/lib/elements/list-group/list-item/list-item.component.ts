@@ -14,7 +14,5 @@ import {
 })
 export class ListItemComponent {
   @HostBinding('class.list-group-item') public defaultClass = true;
-  @HostBinding('class.list-group-item-action')
-  @Input()
-  public isClickable = false;
+  @HostBinding('class.list-group-item-action') @Input() public hover = false;
 }

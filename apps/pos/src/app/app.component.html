@@ -162,10 +162,6 @@
 
 <pa-jumbotron>dos</pa-jumbotron>
 
-<div class="jumbotron">
-  dos
-</div>
-
 <!--  -->
 
 <!-- list group -->
@@ -175,11 +171,22 @@
 </pa-listgroup>
 
 <pa-listgroup [isHorizintal]="true">
-  <list-item [isClickable]="true">item a</list-item>
-  <list-item [isClickable]="true">item b</list-item>
-
-  <list-item [isClickable]="true" class="active">item c</list-item>
-
-  <list-item [isClickable]="true">item e</list-item>
+  <list-item [hover]="true">item a</list-item>
+  <list-item [hover]="true">item b</list-item>
+  <list-item [hover]="true" class="active">item c</list-item>
+  <list-item [hover]="true">item e</list-item>
 </pa-listgroup>
+<!--  -->
+<!-- Media object -->
+<pa-media-object>
+  <img src="./assets/img.jpg" height="64" width="64" class="mr-3" alt="..." />
+
+  <div class="media-body">
+    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
+    ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus
+    viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec
+    lacinia congue felis in faucibus.
+  </div>
+</pa-media-object>
+
 <!--  -->
