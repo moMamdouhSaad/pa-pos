@@ -15,6 +15,7 @@ import {
   JumbotronModule,
   ListGroupModule,
   MediaObjectModule,
+  ProgressModule,
 } from '@pa-pos/ui';
 
 @NgModule({
@@ -33,6 +34,7 @@ import {
     JumbotronModule,
     ListGroupModule,
     MediaObjectModule,
+    ProgressModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

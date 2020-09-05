@@ -8,3 +8,4 @@ export * from './dropdown/dropdown.module';
 export * from './jumbotron/jumbotron.module';
 export * from './list-group/list-group.module';
 export * from './media-object/media-object.module';
+export * from './progress/progress.module';
