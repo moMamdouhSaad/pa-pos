@@ -12,6 +12,8 @@ import {
   CollabseModule,
   DropdownModule,
   FormModule,
+  JumbotronModule,
+  ListGroupModule,
 } from '@pa-pos/ui';
 
 @NgModule({
@@ -27,6 +29,8 @@ import {
     CollabseModule,
     DropdownModule,
     FormModule,
+    JumbotronModule,
+    ListGroupModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

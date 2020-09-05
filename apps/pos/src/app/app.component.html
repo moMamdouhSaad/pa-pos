@@ -97,7 +97,8 @@
   <dropdown-item dropdown-item> Dropdown item 2 </dropdown-item>
   <dropdown-item dropdown-item> Dropdown item 3 </dropdown-item>
 </dropdown>
-
+<!--  -->
+<!-- input -->
 <pa-input
   [placeholder]="'Enter ur name'"
   [id]="'name'"
@@ -107,14 +108,16 @@
     '  Your password spaces, special dasdasdas gfdhfgh fghgfhfgh fghfghfg characters, or emoji.'
   "
 ></pa-input>
-
+<!--  -->
+<!-- select -->
 <pa-select
   [displayValue]="'name'"
   [arrayList]="testArray"
   [leftLabel]="'Name'"
   (selectionChange)="selectItem($event)"
 ></pa-select>
-
+<!--  -->
+<!-- checkbox and radio button -->
 <pa-checkbox
   [formControl]="testInput2"
   id="che"
@@ -131,9 +134,9 @@
   label="name"
   type="checkbox"
 ></pa-checkbox>
+<!--  -->
 
-<button (click)="testFunc()">byy</button>
-
+<!-- pa input group -->
 <pa-input-group>
   <pa-input
     [placeholder]="'Enter ur name'"
@@ -144,3 +147,39 @@
     Button
   </button>
 </pa-input-group>
+<!--  -->
+
+<!-- jumbotron  -->
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Fluid jumbotron</h1>
+    <p class="lead">
+      This is a modified jumbotron that occupies the entire horizontal space of
+      its parent.
+    </p>
+  </div>
+</div>
+
+<pa-jumbotron>dos</pa-jumbotron>
+
+<div class="jumbotron">
+  dos
+</div>
+
+<!--  -->
+
+<!-- list group -->
+<pa-listgroup>
+  <list-item class="active">item a</list-item>
+  <list-item>item b</list-item>
+</pa-listgroup>
+
+<pa-listgroup [isHorizintal]="true">
+  <list-item [isClickable]="true">item a</list-item>
+  <list-item [isClickable]="true">item b</list-item>
+
+  <list-item [isClickable]="true" class="active">item c</list-item>
+
+  <list-item [isClickable]="true">item e</list-item>
+</pa-listgroup>
+<!--  -->

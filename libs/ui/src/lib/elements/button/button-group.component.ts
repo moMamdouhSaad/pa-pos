@@ -1,9 +1,4 @@
-import {
-  Component,
-  OnInit,
-  ChangeDetectionStrategy,
-  HostBinding,
-} from '@angular/core';
+import { Component, ChangeDetectionStrategy, HostBinding } from '@angular/core';
 
 @Component({
   selector: 'pa-pos-button-group',
@@ -11,9 +6,8 @@ import {
   styleUrls: ['./button-group.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ButtonGroupComponent implements OnInit {
+export class ButtonGroupComponent {
   public constructor() {}
 
-  @HostBinding('class.btn-group')
-  public ngOnInit(): void {}
+  @HostBinding('class.btn-group') public defaultClass = true;
 }
