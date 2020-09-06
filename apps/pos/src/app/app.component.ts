@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { ModalService } from 'libs/ui/src/lib/elements/modal/modal.service';
+import { TestComponent } from './test/test.component';
 
 @Component({
   selector: 'pa-pos-root',
@@ -7,13 +9,14 @@ import { FormControl, Validators } from '@angular/forms';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  public constructor() {
+  public constructor(private readonly modalService: ModalService) {
     this.testInput = new FormControl('', [
       Validators.required,
       Validators.minLength(3),
     ]);
     this.testInput2 = new FormControl('', Validators.required);
   }
+  public tes;
   public links = ['Home', 'Products', 'Edit'];
   public testInput: FormControl;
   public testInput2: FormControl;
@@ -26,6 +29,7 @@ export class AppComponent {
 
   public selectItem(event): void {}
   public testFunc(): void {
-    console.log(this.testInput2.value);
+    this.modalService.showOverlay(TestComponent);
+    this.tes = TestComponent;
   }
 }

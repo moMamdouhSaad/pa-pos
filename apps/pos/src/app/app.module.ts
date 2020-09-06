@@ -16,10 +16,12 @@ import {
   ListGroupModule,
   MediaObjectModule,
   ProgressModule,
+  ModalModule,
 } from '@pa-pos/ui';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, TestComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -35,6 +37,7 @@ import {
     ListGroupModule,
     MediaObjectModule,
     ProgressModule,
+    ModalModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

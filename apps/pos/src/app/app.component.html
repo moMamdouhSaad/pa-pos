@@ -48,6 +48,12 @@
 </card>
 
 <hr />
+
+<!-- <mat-tab-group>
+  <mat-tab *ngFor="let tab of dynamicTabs" label="{{ tab.label }}">
+    <ng-container *ngComponentOutlet="tab.component"> </ng-container>
+  </mat-tab>
+</mat-tab-group> -->
 <card [isCentered]="true">
   <card-header>
     <card-tabs>
@@ -101,7 +107,7 @@
 <!-- input -->
 <pa-input
   [placeholder]="'Enter ur name'"
-  [id]="'name'"
+  [id]="'nasme'"
   [leftLabel]="'Name'"
   [formControl]="testInput"
   [helpText]="
@@ -193,3 +199,34 @@
 <!-- progress bar -->
 <pa-progress [value]="'75%'"></pa-progress>
 <!--  -->
+
+<button (click)="testFunc()">Teeeeeest</button>
+
+<!-- <modal>dasd</modal> -->
+
+<!-- <div class="modal show" style="display: block;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Modal body text goes here.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div> -->
