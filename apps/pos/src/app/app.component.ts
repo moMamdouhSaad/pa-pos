@@ -29,7 +29,7 @@ export class AppComponent {
 
   public selectItem(event): void {}
   public testFunc(): void {
-    this.modalService.showOverlay(TestComponent);
+    this.modalService.showOverlay({ data: 'hello' }, TestComponent);
     this.tes = TestComponent;
   }
 }

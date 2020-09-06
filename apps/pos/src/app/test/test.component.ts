@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalRef } from '@pa-pos/ui';
 
 @Component({
   templateUrl: './test.component.html',
@@ -6,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
   providers: [],
 })
 export class TestComponent implements OnInit {
-  public constructor() {}
+  public constructor(private readonly modalRef: ModalRef) {}
 
-  public ngOnInit(): void {}
+  public ngOnInit(): void {
+    console.log(this.modalRef.data);
+  }
 }
