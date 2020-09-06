@@ -17,6 +17,8 @@ import {
   MediaObjectModule,
   ProgressModule,
   ModalModule,
+  NavModule,
+  NavbarModule,
 } from '@pa-pos/ui';
 import { TestComponent } from './test/test.component';
 
@@ -38,6 +40,8 @@ import { TestComponent } from './test/test.component';
     MediaObjectModule,
     ProgressModule,
     ModalModule,
+    NavModule,
+    NavbarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
