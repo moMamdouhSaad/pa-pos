@@ -1,0 +1,28 @@
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th *ngFor="let column of columns">{{ column.header }}</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let row of data">
+      <td *ngFor="let column of columns">
+        <ng-container *ngIf="column.template; else rawValue">
+          <ng-container
+            *ngTemplateOutlet="
+              column.template;
+              context: {
+                row: row,
+                $implicit: column.enableFullObject ? row : row[column.key]
+              }
+            "
+          ></ng-container>
+        </ng-container>
+        <ng-template #rawValue>
+          <span [class]="column.classes">{{ row[column.key] }}</span>
+        </ng-template>
+      </td>
+    </tr>
+  </tbody>
+</table>

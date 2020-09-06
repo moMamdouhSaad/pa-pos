@@ -26,6 +26,10 @@ export class AppComponent {
     { id: 3, name: 'Nour' },
   ];
   public testArray2 = ['ahmed', 'mohamed', 'saad'];
+  public tableData = [
+    { id: '1', name: 'mo', class: 'class a', section: 'section b' },
+    { id: '2', name: 'papy', class: 'class d', section: 'section c' },
+  ];
 
   public selectItem(event): void {}
   public testFunc(): void {

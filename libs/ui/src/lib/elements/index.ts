@@ -17,3 +17,4 @@ export * from './modal/models/modal.model';
 export * from './modal/modal.module';
 export * from './nav/nav.module';
 export * from './navbar/navbar.module';
+export * from './table/table.module';

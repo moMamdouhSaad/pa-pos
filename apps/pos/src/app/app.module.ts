@@ -19,6 +19,7 @@ import {
   ModalModule,
   NavModule,
   NavbarModule,
+  TableModule,
 } from '@pa-pos/ui';
 import { TestComponent } from './test/test.component';
 
@@ -42,6 +43,7 @@ import { TestComponent } from './test/test.component';
     ModalModule,
     NavModule,
     NavbarModule,
+    TableModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
