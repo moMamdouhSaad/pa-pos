@@ -3,7 +3,16 @@
 $fa-font-path: '../../../node_modules/font-awesome/fonts';
 @import '~font-awesome/scss/font-awesome.scss';
 @import '~@angular/cdk/overlay-prebuilt.css';
+@import './variables.scss';
+@import './typography.scss';
 button:focus {
   outline: none !important;
   box-shadow: none !important;
+}
+
+html,
+body {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+  background-color: $background-color;
 }

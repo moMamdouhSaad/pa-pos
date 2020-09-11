@@ -49,11 +49,11 @@ When using Nx, you can create multiple applications and libraries in the same wo
 
 ### Generate a Feature library :
 
-Run `nx generate @nrwl/angular:library --name=feature --style=scss --directory=user --lazy --prefix=sm --routing --tags=scope:user,type:feature --no-interactive --dry-run` .
+Run `nx generate @nrwl/angular:library --name=ui --style=scss --directory=core --tags=scope:core,type:feature --no-interactive` .
 
 - Generate a Feature component:
 
-Run `nx generate @schematics/angular:component --style=scss --name=removeEmployee --project=user-feature --no-interactive`
+Run `nx generate @schematics/angular:component --style=scss --name=sideNav --project=core-feature --no-interactive`
 
 ### Generate a UI library :
 

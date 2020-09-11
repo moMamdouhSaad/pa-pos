@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalRef } from '@pa-pos/ui';
 
 @Component({
+  // tslint:disable-next-line: component-selector
+  selector: 'test',
   templateUrl: './test.component.html',
   styleUrls: ['./test.component.scss'],
   providers: [],
 })
 export class TestComponent implements OnInit {
-  public constructor(private readonly modalRef: ModalRef) {}
+  public constructor() {}
 
-  public ngOnInit(): void {
-    console.log(this.modalRef.data);
-  }
+  public ngOnInit(): void {}
 }

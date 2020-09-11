@@ -2,7 +2,7 @@
   "extends": "../../tslint.json",
   "rules": {
     "directive-selector": [true, "attribute", "paPos", "camelCase"],
-    "component-selector": [true, "element", "pa-pos", "kebab-case"]
+    "component-selector": [false, "element", "pa-pos", "kebab-case"]
   },
   "linterOptions": {
     "exclude": ["!**/*"]

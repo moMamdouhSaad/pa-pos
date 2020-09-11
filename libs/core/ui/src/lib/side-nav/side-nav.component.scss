@@ -1,0 +1,8 @@
+@import '../../../../../../apps/pos/src/variables.scss';
+#sidebar-container {
+  height: 100%;
+
+  .active {
+    color: $main-blue !important;
+  }
+}

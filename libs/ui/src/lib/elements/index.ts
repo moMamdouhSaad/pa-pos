@@ -18,3 +18,6 @@ export * from './modal/modal.module';
 export * from './nav/nav.module';
 export * from './navbar/navbar.module';
 export * from './table/table.module';
+export * from './image/image.module';
+export * from './icon/icon.module';
+export * from './injectable-content/injectable-content.module';

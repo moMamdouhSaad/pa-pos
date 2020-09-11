@@ -26,7 +26,6 @@
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/popper.js/dist/umd/popper.min.js",
-
               "node_modules/bootstrap/dist/js/bootstrap.js"
             ]
           },
@@ -231,6 +230,38 @@
             "tsConfig": "libs/ui/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "libs/ui/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "core-ui": {
+      "projectType": "library",
+      "root": "libs/core/ui",
+      "sourceRoot": "libs/core/ui/src",
+      "prefix": "pa-pos",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/core/ui/tsconfig.lib.json",
+              "libs/core/ui/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/core/ui/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/core/ui/jest.config.js",
+            "tsConfig": "libs/core/ui/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/core/ui/src/test-setup.ts"
           }
         }
       },

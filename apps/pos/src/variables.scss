@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=PT+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Cairo:300;400;600;700&display=swap');
+
+@function size($pixels) {
+  $rems: $pixels / 16;
+  @return #{$rems}rem;
+}
+
+// Set your brand colors
+
+$background-color: #f7f9fd;
+
+$gray-1: #9c9fa5;
+$main-blue: #2f80ed;
+
+$gray-2: #f4f6fb;
+$gray-3: #dadfea;
+$gray-4: #939da2;
+$gray-5: #656f79;
+$gray-6: #2b2b2b;
+$gray-7: #2b304b;
+
+$black: #181c32;
+$white: #ffffff;
+$white-2: #eef0f8;

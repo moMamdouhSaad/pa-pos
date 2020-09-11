@@ -1,0 +1,45 @@
+<div
+  fxLayout="column"
+  fxLayoutAlign="space-around center"
+  id="sidebar-container"
+>
+  <side-nav-item style="margin-top: 20px;">
+    <icon icon="dashboard" slot="icon" size="30" color="#2F80ED"></icon>
+    <span [class.active]="1 == 1" slot="title">{{ 'Dashboard' }}</span>
+  </side-nav-item>
+
+  <side-nav-item>
+    <icon icon="inventory" slot="icon" size="30" color="#9C9FA5"></icon>
+    <span slot="title">{{ 'Inventory' }}</span>
+  </side-nav-item>
+
+  <side-nav-item>
+    <icon icon="invoice" slot="icon" size="30" color="#9C9FA5"></icon>
+    <span slot="title">{{ 'Purchases' }}</span>
+  </side-nav-item>
+
+  <side-nav-item>
+    <icon icon="money" slot="icon" size="30" color="#9C9FA5"></icon>
+    <span slot="title">{{ 'Sales' }}</span>
+  </side-nav-item>
+
+  <side-nav-item>
+    <icon icon="seo-report" slot="icon" size="30" color="#9C9FA5"></icon>
+    <span slot="title">{{ 'Reports' }}</span>
+  </side-nav-item>
+
+  <side-nav-item>
+    <icon icon="accounting" slot="icon" size="30" color="#9C9FA5"></icon>
+    <span slot="title">{{ 'Accounts' }}</span>
+  </side-nav-item>
+
+  <side-nav-item>
+    <icon icon="items" slot="icon" size="30" color="#9C9FA5"></icon>
+    <span slot="title">{{ 'Basic Data' }}</span>
+  </side-nav-item>
+
+  <side-nav-item>
+    <icon icon="settings" slot="icon" size="30" color="#9C9FA5"></icon>
+    <span slot="title">{{ 'Configurations' }}</span>
+  </side-nav-item>
+</div>

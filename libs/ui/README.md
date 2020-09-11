@@ -1,6 +1,330 @@
 # ui
 
-This library was generated with [Nx](https://nx.dev).
+<!-- Alert -->
+<div alertColor="danger">
+  <h4 class="alert-heading">Alert Header</h4>
+  Alert content
+</div>
+
+<hr />
+<!-- Badge -->
+<h1>Example heading <badge color="danger">New</badge></h1>
+<button type="button" class="btn btn-primary">
+  Notifications <badge color="light">4</badge>
+</button>
+
+<hr />
+<!-- Breadcrumb -->
+<breadcrumb [links]="links"></breadcrumb>
+
+<hr />
+<!-- Button and button group -->
+<pa-pos-button-group>
+  <button btnColor="success" btnSize="large">
+    Button
+  </button>
+  <button btnColor="success" btnState="active" btnSize="large">
+    Button
+  </button>
+  <button btnColor="success" btnState="null" btnSize="large">
+    Button
+  </button>
+</pa-pos-button-group>
+
+<hr />
+<!-- Card -->
+<card>
+  <card-header>Card header</card-header>
+
+  <card-body>
+    <card-text
+      >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
+      erat a ante.
+    </card-text>
+    <button btnColor="primary" btnSize="small">
+      Button
+    </button>
+  </card-body>
+
+<card-footer>Card Footer</card-footer>
+</card>
+
+<hr />
+
+<!-- <mat-tab-group>
+  <mat-tab *ngFor="let tab of dynamicTabs" label="{{ tab.label }}">
+    <ng-container *ngComponentOutlet="tab.component"> </ng-container>
+  </mat-tab>
+</mat-tab-group> -->
+
+<card [isCentered]="true">
+<card-header>
+<card-tabs>
+<card-tab [active]="true">
+tab 1
+</card-tab>
+<card-tab>
+tab 2
+</card-tab>
+
+      <card-tab>
+        tab 3
+      </card-tab>
+    </card-tabs>
+
+  </card-header>
+  <card-body>
+    <card-text
+      >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
+      erat a ante.
+    </card-text>
+    <button btnColor="primary" btnSize="small">
+      Button
+    </button>
+  </card-body>
+</card>
+<hr />
+
+<!-- Button collabse -->
+<div collabse>
+  <button collabse-btn btnColor="success" btnSize="medium">
+    Collabse Button
+  </button>
+
+  <div collabse-content>
+    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+    richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes
+    anderson cred nesciunt sapiente ea proident.
+  </div>
+</div>
+
+<!-- Button dropdown -->
+<dropdown>
+  <button dropdown-btn btnColor="primary" btnSize="medium">
+    Dropdown Button
+  </button>
+  <dropdown-item dropdown-item> Dropdown item 1 </dropdown-item>
+  <dropdown-item dropdown-item> Dropdown item 2 </dropdown-item>
+  <dropdown-item dropdown-item> Dropdown item 3 </dropdown-item>
+</dropdown>
+<!--  -->
+<!-- input -->
+<pa-input
+  [placeholder]="'Enter ur name'"
+  [id]="'nasme'"
+  [leftLabel]="'Name'"
+  [formControl]="testInput"
+  [helpText]="
+    '  Your password spaces, special dasdasdas gfdhfgh fghgfhfgh fghfghfg characters, or emoji.'
+  "
+></pa-input>
+<!--  -->
+<!-- select -->
+<pa-select
+  [displayValue]="'name'"
+  [arrayList]="testArray"
+  [leftLabel]="'Name'"
+  (selectionChange)="selectItem($event)"
+></pa-select>
+<!--  -->
+<!-- checkbox and radio button -->
+<pa-checkbox
+  [formControl]="testInput2"
+  id="che"
+  name="name"
+  value="myValue"
+  label="name"
+  type="radio"
+></pa-checkbox>
+<pa-checkbox
+  [formControl]="testInput2"
+  id="che"
+  name="name"
+  value="myValue2"
+  label="name"
+  type="checkbox"
+></pa-checkbox>
+<!--  -->
+
+<!-- pa input group -->
+<pa-input-group>
+  <pa-input
+    [placeholder]="'Enter ur name'"
+    [id]="'name'"
+    [formControl]="testInput"
+  ></pa-input>
+  <button btnColor="outlineDanger">
+    Button
+  </button>
+</pa-input-group>
+<!--  -->
+
+<!-- jumbotron  -->
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Fluid jumbotron</h1>
+    <p class="lead">
+      This is a modified jumbotron that occupies the entire horizontal space of
+      its parent.
+    </p>
+  </div>
+</div>
+
+<pa-jumbotron>dos</pa-jumbotron>
+
+<!--  -->
+
+<!-- list group -->
+<pa-listgroup>
+  <list-item class="active">item a</list-item>
+  <list-item>item b</list-item>
+</pa-listgroup>
+
+<pa-listgroup [isHorizintal]="true">
+<list-item [hover]="true">item a</list-item>
+<list-item [hover]="true">item b</list-item>
+<list-item [hover]="true" class="active">item c</list-item>
+<list-item [hover]="true">item e</list-item>
+</pa-listgroup>
+
+<!--  -->
+<!-- Media object -->
+<pa-media-object>
+  <img src="./assets/img.jpg" height="64" width="64" class="mr-3" alt="..." />
+
+  <div class="media-body">
+    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
+    ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus
+    viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec
+    lacinia congue felis in faucibus.
+  </div>
+</pa-media-object>
+
+<!--  -->
+<!-- progress bar -->
+
+<pa-progress [value]="'75%'"></pa-progress>
+
+<!--  -->
+
+<button (click)="testFunc()">Teeeeeest</button>
+
+<!-- nav -->
+
+<pa-nav>
+  <nav-item>Home</nav-item>
+  <nav-item>About</nav-item>
+  <nav-item>Services</nav-item>
+</pa-nav>
+
+<pa-nav [pills]="true" [justifiy]="true" [center]="true">
+<nav-item [active]="true">Home</nav-item>
+<nav-item>About</nav-item>
+<nav-item>Services</nav-item>
+</pa-nav>
+
+<pa-nav [tabs]="true" [end]="true">
+<nav-item>Home</nav-item>
+<nav-item [active]="true">About</nav-item>
+<nav-item>Services</nav-item>
+</pa-nav>
+
+<pa-nav [vertical]="true">
+<nav-item>Home</nav-item>
+<nav-item>About</nav-item>
+<nav-item>Services</nav-item>
+</pa-nav>
+
+<!--  -->
+
+<nav navbar [navbarDark]="true" [bgColor]="'black'">
+  <a class="navbar-brand" href="#">Navbar w/ text</a>
+  <navbar-items>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Features</a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="#">Features</a>
+    </li>
+
+  </navbar-items>
+</nav>
+
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#"
+          >Home <span class="sr-only">(current)</span></a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"
+          >Disabled</a
+        >
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input
+        class="form-control mr-sm-2"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+      />
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+        Search
+      </button>
+    </form>
+  </div>
+</nav>
+
+<!-- table -->
+
+<pa-table [data]="tableData">
+
+  <div paTableColumn [header]="'id'" key="id"></div>
+  <div paTableColumn [header]="'name'" key="name"></div>
+  <div paTableColumn [header]="'class'" key="class"></div>
+  <div paTableColumn [header]="'section'" key="section"></div>
+</pa-table>
+
+<!--  -->
 
 ## Running unit tests
 

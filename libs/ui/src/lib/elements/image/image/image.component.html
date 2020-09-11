@@ -1,0 +1,18 @@
+<figure
+  class="image"
+  [style.width]="width + 'px'"
+  [style.height]="width + 'px'"
+>
+  <div
+    *ngIf="src; else emptyHolder"
+    class="image-container"
+    [class.is-rounded]="isRounded"
+    [style.background-image]="'url(' + src + ')'"
+  ></div>
+
+  <ng-template #emptyHolder>
+    <div [ngClass]="background" [ngStyle]="{ 'font-size': initialsFontSize }">
+      {{ placeholder }}
+    </div>
+  </ng-template>
+</figure>

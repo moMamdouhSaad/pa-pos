@@ -37,6 +37,9 @@
     },
     "ui": {
       "tags": []
+    },
+    "core-ui": {
+      "tags": ["scope:core", "type:feature"]
     }
   }
 }
