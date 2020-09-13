@@ -1,16 +1,26 @@
 <div
-  class="row justify-content-center align-items-center"
+  fxLayout="row"
+  fxLayoutAlign="center center"
   style="height: 100%;"
+  class="m-0 p-0"
 >
   <!-- logo wrapper -->
   <div
-    class="col-1 d-flex justify-content-center align-items-center"
-    fxLayoutAlign="center center"
+    class="col-1"
     id="logo-wrapper"
-    style="height: 100%;"
+    fxLayout="row"
+    fxLayoutAlign="center center"
   >
     <img src="./assets/logo.png" height="70px" />
   </div>
 
-  <div class="col-11"></div>
+  <div id="user-wrapper" class="col-11" fxLayout="row" fxLayoutAlign="end end">
+    <div fxLayout="row" fxLayoutAlign="center center">
+      <icon icon="user-1" slot="icon" size="15" color="#1D3557"></icon>
+    </div>
+    <div style="padding: 0 5px;" fxLayout="row" fxLayoutAlign="end end">
+      <span class="m-0" style="padding: 0 3px;" id="user-name">mamdouh</span>
+      <icon icon="arrow-down" slot="icon" size="8" color="#1D3557"></icon>
+    </div>
+  </div>
 </div>

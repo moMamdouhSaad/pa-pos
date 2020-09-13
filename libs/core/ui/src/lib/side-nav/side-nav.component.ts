@@ -14,6 +14,7 @@ import {
 })
 export class SideNavComponent implements OnInit {
   public constructor() {}
+  public hoveredIcon = 'asda';
 
   public ngOnInit(): void {}
 }
