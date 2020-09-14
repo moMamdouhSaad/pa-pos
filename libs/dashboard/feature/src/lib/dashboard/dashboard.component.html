@@ -8,4 +8,532 @@
 
 <!-- // injectables -->
 
-dashboard component
+<!-- First row -->
+<div class="row mb-4">
+  <div class="col-2">
+    <box
+      class="px-3 py-2"
+      fxLayout="column"
+      fxLayoutAlign="start start"
+      radius="10px"
+      width="100%"
+      height="120px"
+      bgColor="white"
+    >
+      <span fxLayout="column" fxLayoutAlign="start start" class="mb-2">
+        <box radius="10px" bgColor="#ffad99">
+          <icon icon="database" slot="icon" size="30" color="#ff3300"></icon>
+        </box>
+        <span class="title-stats">Customers</span>
+      </span>
+      <span fxLayout="row" fxLayoutAlign="start start">
+        <span class="number-stats mr-4">
+          3400
+        </span>
+
+        <span class="green-text">
+          <icon icon="up-arrow" slot="icon" size="10" color="#46cba5"></icon>
+          55
+        </span>
+      </span>
+    </box>
+  </div>
+
+  <div class="col-2">
+    <box
+      class="px-3 py-2"
+      fxLayout="column"
+      fxLayoutAlign="start start"
+      radius="10px"
+      width="100%"
+      height="120px"
+      bgColor="white"
+    >
+      <span fxLayout="column" fxLayoutAlign="start start" class="mb-2">
+        <box radius="10px" bgColor="#b3c6ff">
+          <icon icon="database" slot="icon" size="30" color="#1a53ff"></icon>
+        </box>
+        <span class="title-stats">Customers</span>
+      </span>
+      <span fxLayout="row" fxLayoutAlign="start start">
+        <span class="number-stats mr-4">
+          3400
+        </span>
+
+        <span class="green-text">
+          <icon icon="up-arrow" slot="icon" size="10" color="#46cba5"></icon>
+          55
+        </span>
+      </span>
+    </box>
+  </div>
+
+  <div class="col-2">
+    <box
+      class="px-3 py-2"
+      fxLayout="column"
+      fxLayoutAlign="start start"
+      radius="10px"
+      width="100%"
+      height="120px"
+      bgColor="white"
+    >
+      <span fxLayout="column" fxLayoutAlign="start start" class="mb-2">
+        <box radius="10px" bgColor="#99ffcc">
+          <icon icon="database" slot="icon" size="30" color="#00cc66"></icon>
+        </box>
+        <span class="title-stats">Customers</span>
+      </span>
+      <span fxLayout="row" fxLayoutAlign="start start">
+        <span class="number-stats mr-4">
+          3400
+        </span>
+
+        <span class="green-text">
+          <icon icon="up-arrow" slot="icon" size="10" color="#46cba5"></icon>
+          55
+        </span>
+      </span>
+    </box>
+  </div>
+
+  <div class="col-2">
+    <box
+      class="px-3 py-2"
+      fxLayout="column"
+      fxLayoutAlign="start start"
+      radius="10px"
+      width="100%"
+      height="120px"
+      bgColor="white"
+    >
+      <span fxLayout="column" fxLayoutAlign="start start" class="mb-2">
+        <box radius="10px" bgColor="#ffe699">
+          <icon icon="database" slot="icon" size="30" color="#cc9900"></icon>
+        </box>
+        <span class="title-stats">Customers</span>
+      </span>
+      <span fxLayout="row" fxLayoutAlign="start start">
+        <span class="number-stats mr-4">
+          3400
+        </span>
+
+        <span class="green-text">
+          <icon icon="up-arrow" slot="icon" size="10" color="#46cba5"></icon>
+          55
+        </span>
+      </span>
+    </box>
+  </div>
+
+  <div class="col-2">
+    <box
+      class="px-3 py-2"
+      fxLayout="column"
+      fxLayoutAlign="start start"
+      radius="10px"
+      width="100%"
+      height="120px"
+      bgColor="white"
+    >
+      <span fxLayout="column" fxLayoutAlign="start start" class="mb-2">
+        <box radius="10px" bgColor="#eb99ff">
+          <icon icon="database" slot="icon" size="30" color="#cc00ff"></icon>
+        </box>
+        <span class="title-stats">Customers</span>
+      </span>
+      <span fxLayout="row" fxLayoutAlign="start start">
+        <span class="number-stats mr-4">
+          3400
+        </span>
+
+        <span class="green-text">
+          <icon icon="up-arrow" slot="icon" size="10" color="#46cba5"></icon>
+          55
+        </span>
+      </span>
+    </box>
+  </div>
+
+  <div class="col-2">
+    <box
+      class="px-3 py-2"
+      fxLayout="column"
+      fxLayoutAlign="start start"
+      radius="10px"
+      width="100%"
+      height="120px"
+      bgColor="white"
+    >
+      <span fxLayout="column" fxLayoutAlign="start start" class="mb-2">
+        <box radius="10px" bgColor="#c2c2d6">
+          <icon icon="database" slot="icon" size="30" color="#666699"></icon>
+        </box>
+        <span class="title-stats">Customers</span>
+      </span>
+      <span fxLayout="row" fxLayoutAlign="start start">
+        <span class="number-stats mr-4">
+          3400
+        </span>
+
+        <span class="green-text">
+          <icon icon="up-arrow" slot="icon" size="10" color="#46cba5"></icon>
+          55
+        </span>
+      </span>
+    </box>
+  </div>
+</div>
+
+<!-- Second row -->
+<div class="row mb-4">
+  <div class="col-8">
+    <box
+      fxLayout="column"
+      fxLayoutAlign="center start"
+      radius="10px"
+      width="100%"
+      height="350px"
+      bgColor="white"
+      style="padding: 15px;"
+    >
+      <span class="chart-title">
+        Title
+      </span>
+      <canvas
+        height="240"
+        width="700"
+        baseChart
+        [datasets]="lineChartData"
+        [labels]="lineChartLabels"
+        [options]="lineChartOptions"
+        [colors]="lineChartColors"
+        [legend]="lineChartLegend"
+        [chartType]="lineChartType"
+        [plugins]="lineChartPlugins"
+      >
+      </canvas>
+    </box>
+  </div>
+
+  <div class="col-4">
+    <box
+      fxLayout="column"
+      fxLayoutAlign="start start"
+      radius="10px"
+      width="100%"
+      height="350px"
+      bgColor="white"
+      style="padding: 15px;"
+    >
+      <div
+        class="w-100 mb-2"
+        fxLayout="row"
+        fxLayoutAlign="space-between center"
+      >
+        <span class="chart-title">
+          Tasks
+        </span>
+        <button btnColor="outlinePrimary" btnSize="small">
+          Create Task
+        </button>
+      </div>
+
+      <div class="w-100" fxLayout="row" fxLayoutAlign="space-between end">
+        <icon icon="calendar" slot="icon" size="25" color="#656f79"></icon>
+
+        <span id="see-all">See All</span>
+      </div>
+
+      <div class="w-100 mt-2" fxLayout="column" fxLayoutAlign="center start">
+        <box
+          fxLayout="row"
+          fxLayoutAlign="space-between center"
+          radius="5px"
+          width="100%"
+          height="40px"
+          bgColor="#F0F6FE"
+        >
+          <div>
+            <icon
+              icon="check"
+              slot="icon"
+              size="25"
+              class="mr-3"
+              color="white"
+            ></icon>
+            <span class="task-name">Meeting with shareholders</span>
+          </div>
+
+          <div>
+            <span>
+              <icon
+                icon="pencil"
+                slot="icon"
+                size="18"
+                class="m-1"
+                color="#656f79"
+              ></icon>
+              <icon
+                icon="delete"
+                slot="icon"
+                size="18"
+                class="m-1"
+                color="#ef6f6c"
+              ></icon>
+            </span>
+          </div>
+        </box>
+      </div>
+
+      <div class="w-100 mt-2" fxLayout="column" fxLayoutAlign="center start">
+        <box
+          fxLayout="row"
+          fxLayoutAlign="space-between center"
+          radius="5px"
+          width="100%"
+          height="40px"
+          bgColor="#F0F6FE"
+        >
+          <div>
+            <icon
+              icon="check"
+              slot="icon"
+              size="25"
+              class="mr-3"
+              color="white"
+            ></icon>
+            <span class="task-name">Meeting with shareholders</span>
+          </div>
+
+          <div>
+            <span>
+              <icon
+                icon="pencil"
+                slot="icon"
+                size="18"
+                class="m-1"
+                color="#656f79"
+              ></icon>
+              <icon
+                icon="delete"
+                slot="icon"
+                size="18"
+                class="m-1"
+                color="#ef6f6c"
+              ></icon>
+            </span>
+          </div>
+        </box>
+      </div>
+
+      <div class="w-100 mt-2" fxLayout="column" fxLayoutAlign="center start">
+        <box
+          fxLayout="row"
+          fxLayoutAlign="space-between center"
+          radius="5px"
+          width="100%"
+          height="40px"
+          bgColor="#F0F6FE"
+        >
+          <div>
+            <icon
+              icon="check"
+              slot="icon"
+              size="25"
+              class="mr-3"
+              color="white"
+            ></icon>
+            <span class="task-name">Meeting with shareholders</span>
+          </div>
+
+          <div>
+            <span>
+              <icon
+                icon="pencil"
+                slot="icon"
+                size="18"
+                class="m-1"
+                color="#656f79"
+              ></icon>
+              <icon
+                icon="delete"
+                slot="icon"
+                size="18"
+                class="m-1"
+                color="#ef6f6c"
+              ></icon>
+            </span>
+          </div>
+        </box>
+      </div>
+
+      <div class="w-100 mt-2" fxLayout="column" fxLayoutAlign="center start">
+        <box
+          fxLayout="row"
+          fxLayoutAlign="space-between center"
+          radius="5px"
+          width="100%"
+          height="40px"
+          bgColor="#F0F6FE"
+        >
+          <div>
+            <icon
+              icon="check"
+              slot="icon"
+              size="25"
+              class="mr-3"
+              color="white"
+            ></icon>
+            <span class="task-name">Meeting with shareholders</span>
+          </div>
+
+          <div>
+            <span>
+              <icon
+                icon="pencil"
+                slot="icon"
+                size="18"
+                class="m-1"
+                color="#656f79"
+              ></icon>
+              <icon
+                icon="delete"
+                slot="icon"
+                size="18"
+                class="m-1"
+                color="#ef6f6c"
+              ></icon>
+            </span>
+          </div>
+        </box>
+      </div>
+
+      <div class="w-100 mt-2" fxLayout="column" fxLayoutAlign="center start">
+        <box
+          fxLayout="row"
+          fxLayoutAlign="space-between center"
+          radius="5px"
+          width="100%"
+          height="40px"
+          bgColor="#F0F6FE"
+        >
+          <div>
+            <icon
+              icon="check"
+              slot="icon"
+              size="25"
+              class="mr-3"
+              color="white"
+            ></icon>
+            <span class="task-name">Meeting with shareholders</span>
+          </div>
+
+          <div>
+            <span>
+              <icon
+                icon="pencil"
+                slot="icon"
+                size="18"
+                class="m-1"
+                color="#656f79"
+              ></icon>
+              <icon
+                icon="delete"
+                slot="icon"
+                size="18"
+                class="m-1"
+                color="#ef6f6c"
+              ></icon>
+            </span>
+          </div>
+        </box>
+      </div>
+    </box>
+  </div>
+</div>
+
+<!-- Third row -->
+<div class="row">
+  <div class="col-4">
+    <box
+      fxLayout="column"
+      fxLayoutAlign="center first"
+      radius="10px"
+      width="100%"
+      height="220px"
+      bgColor="white"
+      style="padding: 15px;"
+    >
+      <span class="chart-title">
+        Title
+      </span>
+      <canvas
+        baseChart
+        height="120"
+        [datasets]="lineChartData"
+        [labels]="lineChartLabels"
+        [options]="lineChartOptions"
+        [colors]="lineChartColors"
+        [legend]="lineChartLegend"
+        [chartType]="lineChartType"
+        [plugins]="lineChartPlugins"
+      >
+      </canvas>
+    </box>
+  </div>
+
+  <div class="col-4">
+    <box
+      fxLayout="column"
+      fxLayoutAlign="center start"
+      radius="10px"
+      width="100%"
+      height="220px"
+      bgColor="white"
+      style="padding: 15px;"
+    >
+      <span class="chart-title">
+        Title
+      </span>
+      <canvas
+        baseChart
+        height="120"
+        [datasets]="barChartData"
+        [labels]="barChartLabels"
+        [options]="barChartOptions"
+        [plugins]="barChartPlugins"
+        [legend]="barChartLegend"
+        [chartType]="barChartType"
+      >
+      </canvas>
+    </box>
+  </div>
+
+  <div class="col-4">
+    <box
+      fxLayout="column"
+      fxLayoutAlign="center start"
+      radius="10px"
+      width="100%"
+      height="220px"
+      bgColor="white"
+      style="padding: 15px;"
+    >
+      <span class="chart-title">
+        Revenua
+      </span>
+      <canvas
+        baseChart
+        height="120"
+        [data]="pieChartData"
+        [labels]="pieChartLabels"
+        [chartType]="pieChartType"
+        [options]="pieChartOptions"
+        [plugins]="pieChartPlugins"
+        [legend]="pieChartLegend"
+      >
+      </canvas>
+    </box>
+  </div>
+</div>

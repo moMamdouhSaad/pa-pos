@@ -46,6 +46,9 @@
     },
     "sales-feature": {
       "tags": ["scope:sales", "type:feature"]
+    },
+    "dashboard-ui": {
+      "tags": ["scope:dashboard", "type:ui"]
     }
   }
 }

@@ -1,0 +1,24 @@
+@import '../../../../../../apps/pos/src/variables.scss';
+.title-stats {
+  font-size: 12px;
+  color: $gray-4;
+  font-weight: bold;
+}
+.number-stats {
+  font-size: 18px;
+  color: $gray-5;
+  font-weight: bold;
+}
+.chart-title {
+  color: $primary-text;
+  font-weight: bold;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+#see-all {
+  color: $gray-5;
+  font-size: 14px;
+}
+.task-name {
+  font-size: 14px;
+}

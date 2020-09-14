@@ -57,7 +57,7 @@ Run `nx generate @schematics/angular:component --style=scss --name=sales --proje
 
 ### Generate a UI library :
 
-Run `nx generate @nrwl/angular:library --name=ui --style=scss --directory=user --prefix=sm --tags=scope:user,type:ui --no-interactive` .
+Run `nx generate @nrwl/angular:library --name=ui --style=scss --directory=dashboard --prefix=sm --tags=scope:dashboard,type:ui --no-interactive` .
 
 - Generate a UI component:
 

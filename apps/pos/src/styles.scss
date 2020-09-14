@@ -14,7 +14,28 @@ html,
 body {
   max-width: 100% !important;
   overflow-x: hidden !important;
+  overflow-y: hidden !important;
+
   background-color: $background-color;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 .nav-title {
   font-size: size(12);
@@ -29,4 +50,8 @@ body {
   font-family: 'Lato', sans-serif;
   color: $primary-text;
   font-weight: bold;
+}
+
+.green-text {
+  color: $green;
 }
