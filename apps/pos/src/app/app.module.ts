@@ -6,10 +6,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { CoreUiModule } from '@pa-pos/core/ui';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TestComponent } from './test/test.component';
-
+import { AppRoutingModule } from './app.routing.module';
 @NgModule({
   declarations: [AppComponent, TestComponent],
-  imports: [BrowserModule, HttpClientModule, CoreUiModule, FlexLayoutModule],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    CoreUiModule,
+    FlexLayoutModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

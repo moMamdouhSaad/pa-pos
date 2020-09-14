@@ -4,6 +4,8 @@ import {
   Renderer2,
   OnInit,
   ChangeDetectionStrategy,
+  OnChanges,
+  EventEmitter,
 } from '@angular/core';
 
 @Component({
@@ -15,11 +17,12 @@ import {
     [inlineSVG]="_icon"
   ></i>`,
   styleUrls: ['./icon.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class IconComponent {
+export class IconComponent implements OnChanges {
   public constructor(private readonly renderer: Renderer2) {}
+
   public _icon: string | null = null;
+  public svg: SVGElement;
   @Input() public set icon(icon: string) {
     if (icon) {
       this._icon = `/assets/svg/${icon}.svg`;
@@ -29,7 +32,16 @@ export class IconComponent {
   @Input() public size: number | null = null;
   @Input() public rotate: number | null = null;
 
+  public ngOnChanges(): void {
+    if (this.svg) {
+      this.renderer.setStyle(this.svg, 'fill', this.color);
+      this.renderer.setStyle(this.svg, 'stroke', this.color);
+    }
+  }
+
   public onSvgLoad(svg: SVGElement): void {
+    this.svg = svg;
+
     if (svg) {
       if (this.size) {
         this.renderer.setStyle(svg, 'width', this.size);

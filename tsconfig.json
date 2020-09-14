@@ -18,7 +18,9 @@
     "paths": {
       "@pa-pos/api-interfaces": ["libs/api-interfaces/src/index.ts"],
       "@pa-pos/ui": ["libs/ui/src/index.ts"],
-      "@pa-pos/core/ui": ["libs/core/ui/src/index.ts"]
+      "@pa-pos/core/ui": ["libs/core/ui/src/index.ts"],
+      "@pa-pos/dashboard/feature": ["libs/dashboard/feature/src/index.ts"],
+      "@pa-pos/sales/feature": ["libs/sales/feature/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -16,9 +16,17 @@ body {
   overflow-x: hidden !important;
   background-color: $background-color;
 }
-.m-0 {
-  margin: 0 !important;
+.nav-title {
+  font-size: size(12);
+  font-family: 'Lato', sans-serif;
+  color: $gray-1;
+  :hover {
+    color: $gray-5;
+  }
 }
-.p-0 {
-  padding: 0 !important;
+.topbar-title {
+  font-size: size(16);
+  font-family: 'Lato', sans-serif;
+  color: $primary-text;
+  font-weight: bold;
 }

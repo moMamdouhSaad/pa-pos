@@ -270,6 +270,70 @@
           "style": "scss"
         }
       }
+    },
+    "dashboard-feature": {
+      "projectType": "library",
+      "root": "libs/dashboard/feature",
+      "sourceRoot": "libs/dashboard/feature/src",
+      "prefix": "pa-pos",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/dashboard/feature/tsconfig.lib.json",
+              "libs/dashboard/feature/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/dashboard/feature/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/dashboard/feature/jest.config.js",
+            "tsConfig": "libs/dashboard/feature/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/dashboard/feature/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "sales-feature": {
+      "projectType": "library",
+      "root": "libs/sales/feature",
+      "sourceRoot": "libs/sales/feature/src",
+      "prefix": "pa-pos",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/sales/feature/tsconfig.lib.json",
+              "libs/sales/feature/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/sales/feature/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/sales/feature/jest.config.js",
+            "tsConfig": "libs/sales/feature/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/sales/feature/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "cli": {

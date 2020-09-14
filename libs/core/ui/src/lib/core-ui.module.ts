@@ -5,9 +5,16 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { ImageModule, IconModule } from '@pa-pos/ui';
 import { SideNavItemComponent } from './side-nav/side-nav-item/side-nav-item.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  imports: [CommonModule, ImageModule, IconModule, FlexLayoutModule],
+  imports: [
+    CommonModule,
+    ImageModule,
+    IconModule,
+    FlexLayoutModule,
+    RouterModule,
+  ],
   declarations: [SideNavComponent, TopBarComponent, SideNavItemComponent],
   exports: [SideNavComponent, TopBarComponent, SideNavItemComponent],
 })

@@ -3,12 +3,12 @@
   fxLayoutAlign="space-evenly  center"
   id="sidebar-container"
 >
-  <side-nav-item style="margin-top: 20px;">
-    <icon icon="business-report" slot="icon" size="30" color="#2F80ED"></icon>
-    <span [class.active]="1 == 1" slot="title">{{ 'Dashboard' }}</span>
+  <side-nav-item routerLink="dashboard" style="margin-top: 20px;">
+    <icon icon="business-report" slot="icon" size="30" color="#9C9FA5"></icon>
+    <span slot="title">{{ 'Dashboard' }}</span>
   </side-nav-item>
 
-  <side-nav-item>
+  <side-nav-item routerLink="sales">
     <icon icon="dollar" slot="icon" size="30" color="#9C9FA5"></icon>
     <span slot="title">{{ 'Sales' }}</span>
   </side-nav-item>
@@ -31,6 +31,11 @@
   <side-nav-item>
     <icon icon="personal-computer" slot="icon" size="30" color="#9C9FA5"></icon>
     <span slot="title">{{ 'Accounts' }}</span>
+  </side-nav-item>
+
+  <side-nav-item>
+    <icon icon="expenses" slot="icon" size="30" color="#9C9FA5"></icon>
+    <span slot="title">{{ 'Expenses' }}</span>
   </side-nav-item>
 
   <side-nav-item>

@@ -40,6 +40,12 @@
     },
     "core-ui": {
       "tags": ["scope:core", "type:feature"]
+    },
+    "dashboard-feature": {
+      "tags": ["scope:dashboard", "type:feature"]
+    },
+    "sales-feature": {
+      "tags": ["scope:sales", "type:feature"]
     }
   }
 }
