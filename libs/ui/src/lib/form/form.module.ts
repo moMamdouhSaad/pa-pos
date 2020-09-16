@@ -6,10 +6,24 @@ import { CommonModule } from '@angular/common';
 import { SelectComponent } from './select/select.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
 import { InputGroupComponent } from './input-group/input-group.component';
+import { IconModule } from '../elements';
 
 @NgModule({
-  declarations: [ControlContainerComponent, InputComponent, SelectComponent, CheckboxComponent, InputGroupComponent],
-  exports: [InputComponent, FormsModule, ReactiveFormsModule, SelectComponent, CheckboxComponent, InputGroupComponent],
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  declarations: [
+    ControlContainerComponent,
+    InputComponent,
+    SelectComponent,
+    CheckboxComponent,
+    InputGroupComponent,
+  ],
+  exports: [
+    InputComponent,
+    FormsModule,
+    ReactiveFormsModule,
+    SelectComponent,
+    CheckboxComponent,
+    InputGroupComponent,
+  ],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, IconModule],
 })
 export class FormModule {}

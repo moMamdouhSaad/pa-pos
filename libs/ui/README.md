@@ -109,41 +109,39 @@ tab 2
 </dropdown>
 <!--  -->
 <!-- input -->
-<pa-input
-  [placeholder]="'Enter ur name'"
-  [id]="'nasme'"
-  [leftLabel]="'Name'"
-  [formControl]="testInput"
-  [helpText]="
-    '  Your password spaces, special dasdasdas gfdhfgh fghgfhfgh fghfghfg characters, or emoji.'
-  "
-></pa-input>
+
 <!--  -->
 <!-- select -->
+
 <pa-select
-  [displayValue]="'name'"
-  [arrayList]="testArray"
-  [leftLabel]="'Name'"
-  (selectionChange)="selectItem($event)"
-></pa-select>
+[displayValue]="'name'"
+[arrayList]="testArray"
+[leftLabel]="'Name'"
+(selectionChange)="selectItem(\$event)"
+
+> </pa-select>
+
 <!--  -->
 <!-- checkbox and radio button -->
+
 <pa-checkbox
-  [formControl]="testInput2"
-  id="che"
-  name="name"
-  value="myValue"
-  label="name"
-  type="radio"
-></pa-checkbox>
-<pa-checkbox
-  [formControl]="testInput2"
-  id="che"
-  name="name"
-  value="myValue2"
-  label="name"
-  type="checkbox"
-></pa-checkbox>
+[formControl]="testInput2"
+id="che"
+name="name"
+value="myValue"
+label="name"
+type="radio"
+
+> </pa-checkbox>
+> <pa-checkbox
+>   [formControl]="testInput2"
+>   id="che"
+>   name="name"
+>   value="myValue2"
+>   label="name"
+>   type="checkbox"
+> </pa-checkbox>
+
 <!--  -->
 
 <!-- pa input group -->

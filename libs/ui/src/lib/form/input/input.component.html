@@ -1,6 +1,7 @@
 <control-container
   [helpText]="helpText"
   [leftLabel]="leftLabel"
+  [leftIcon]="leftIcon"
   [id]="id"
   [label]="label"
   [errMsg]="errMsg"
@@ -14,6 +15,7 @@
     [class.is-disabled]="isDisabled"
     [class.is-invalid]="hasError()"
     [class.is-valid]="hasValue()"
+    [class.has-icon]="leftIcon"
     (change)="onChange($event.target.value)"
     (keyup)="onChange($event.target.value)"
     (blur)="onTouched()"

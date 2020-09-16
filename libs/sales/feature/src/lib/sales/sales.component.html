@@ -7,4 +7,49 @@
 </injectable-content>
 
 <!-- // injectables -->
-<p>sales works!</p>
+<box width="100%" height="100%" radius="10px" bgColor="white">
+  <level>
+    <span slot="search" style="width: 100%;">
+      <pa-input
+        [placeholder]="'Enter ur name'"
+        [id]="'name'"
+        [leftIcon]="'search'"
+      ></pa-input>
+    </span>
+
+    <span slot="filter" style="width: 100%;">
+      <button btnColor="outlineSecondary" btnSize="medium" style="width: 100%;">
+        <icon icon="filter" slot="icon" size="25" color="#ced4da"></icon>
+
+        <span>Filters</span>
+      </button>
+    </span>
+
+    <span slot="add-button">
+      <button btnColor="primary" btnSize="medium" style="width: 100%;">
+        <icon icon="add" slot="icon" size="15" color="white"></icon>
+        <span class="add-btn-text">
+          Add Sale
+        </span>
+      </button>
+    </span>
+  </level>
+
+  <div
+    class="container-fluid"
+    fxLayout="row"
+    fxLayoutAlign="center center"
+    style="margin-top: 15px;"
+  >
+    <div class="row">
+      <div class="col-12">
+        <pa-table [data]="tableData">
+          <div paTableColumn [header]="'id'" key="id"></div>
+          <div paTableColumn [header]="'name'" key="name"></div>
+          <div paTableColumn [header]="'class'" key="class"></div>
+          <div paTableColumn [header]="'section'" key="section"></div>
+        </pa-table>
+      </div>
+    </div>
+  </div>
+</box>

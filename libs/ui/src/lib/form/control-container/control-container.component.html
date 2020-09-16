@@ -1,5 +1,5 @@
 <ng-container>
-  <div class="input-group">
+  <div [class.has-icon]="leftIcon" class="input-group">
     <label
       *ngIf="label"
       style="display: inline;"
@@ -10,6 +10,10 @@
 
     <div *ngIf="leftLabel" class="input-group-prepend">
       <div class="input-group-text">{{ leftLabel }}</div>
+    </div>
+
+    <div *ngIf="leftIcon" class="d-flex align-items-center">
+      <icon [icon]="leftIcon" slot="icon" size="30" color="#ced4da"></icon>
     </div>
 
     <ng-content></ng-content>

@@ -20,7 +20,7 @@ export class DashboardComponent implements OnInit {
     'June',
     'July',
   ];
-  public lineChartOptions: any = {
+  public lineChartOptions = {
     responsive: true,
   };
   public lineChartColors: Color[] = [

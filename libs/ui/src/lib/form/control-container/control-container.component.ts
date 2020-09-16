@@ -26,6 +26,8 @@ export class ControlContainerComponent implements OnInit, AfterViewInit {
   @Input() public label: string | null = null;
   @Input() public id: string | null = null;
   @Input() public leftLabel: string | null = null;
+  @Input() public leftIcon: string | null = null;
+
   @Input() public helpText: string | null = null;
   @Input() public errMsg: string | null = null;
 

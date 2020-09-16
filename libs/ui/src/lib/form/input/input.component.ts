@@ -35,6 +35,7 @@ export class InputComponent implements ControlValueAccessor {
   @Input() public inputType: InputType = 'text';
   @Input() public isDisabled = false;
   @Input() public leftLabel: string | null = null;
+  @Input() public leftIcon: string | null = null;
   @Input() public helpText: string | null = null;
   @Input() public errMsg: string | null = null;
 
