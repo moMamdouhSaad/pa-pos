@@ -16,8 +16,18 @@ import { TableColumnDirective } from './table-column.directive';
 })
 export class TableComponent {
   @Input() public data: object[] | null = null;
+  @Input() public itemsPerPage;
+
+  public currentRowIndex = 0;
 
   @ContentChildren(TableColumnDirective) public columns: QueryList<
     TableColumnDirective
   >;
+
+  public onNextPage(currentRowIndex): void {
+    this.currentRowIndex = currentRowIndex;
+  }
+  public onPreviousPage(currentRowIndex): void {
+    this.currentRowIndex = currentRowIndex;
+  }
 }

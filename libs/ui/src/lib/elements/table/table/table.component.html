@@ -6,7 +6,11 @@
   </thead>
 
   <tbody>
-    <tr *ngFor="let row of data">
+    <tr
+      *ngFor="
+        let row of data | slice: currentRowIndex:currentRowIndex + itemsPerPage
+      "
+    >
       <td *ngFor="let column of columns">
         <ng-container *ngIf="column.template; else rawValue">
           <ng-container
@@ -26,3 +30,11 @@
     </tr>
   </tbody>
 </table>
+
+<pagination
+  [dataLength]="data.length"
+  [itemsPerPage]="itemsPerPage"
+  (previous)="onPreviousPage($event)"
+  (next)="onNextPage($event)"
+  (pageNumber)="this.currentRowIndex = $event"
+></pagination>

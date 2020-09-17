@@ -11,6 +11,7 @@ import {
   IconModule,
   TableModule,
 } from '@pa-pos/ui';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import {
     FormModule,
     IconModule,
     TableModule,
+    FlexLayoutModule,
     RouterModule.forChild([{ component: SalesComponent, path: '' }]),
   ],
   declarations: [SalesComponent],

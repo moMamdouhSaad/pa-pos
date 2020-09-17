@@ -35,15 +35,10 @@
     </span>
   </level>
 
-  <div
-    class="container-fluid"
-    fxLayout="row"
-    fxLayoutAlign="center center"
-    style="margin-top: 15px;"
-  >
+  <div class="container-fluid" style="margin-top: 15px;">
     <div class="row">
       <div class="col-12">
-        <pa-table [data]="tableData">
+        <pa-table [data]="tableData" [itemsPerPage]="10">
           <div paTableColumn [header]="'id'" key="id"></div>
           <div paTableColumn [header]="'name'" key="name"></div>
           <div paTableColumn [header]="'class'" key="class"></div>

@@ -15,13 +15,13 @@
   <!-- side nav and content -->
   <div class="row" style="height: 90vh;">
     <!-- side nav -->
-    <div class="col-1" id="sidebar-wrapper">
+    <div class="col-1" fxHide.lt-sm="true" id="sidebar-wrapper">
       <side-nav> </side-nav>
     </div>
 
     <!-- content -->
     <div class="col-11" id="content-wrapper">
-      <div class="container-fluid" style="height: 90%;">
+      <div class="container-fluid">
         <router-outlet></router-outlet>
       </div>
     </div>

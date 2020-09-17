@@ -1,0 +1,22 @@
+<nav aria-label="Page navigation" fxLayout="row" fxLayoutAlign="end center">
+  <ul class="pagination">
+    <li class="page-item">
+      <a (click)="onPrevious()" class="page-link">Previous</a>
+    </li>
+    <li
+      *ngFor="let pageNo of getPagesNo()"
+      (click)="goToPage(pageNo)"
+      class="page-item selected"
+    >
+      <a
+        [class.selected]="currentRowIndex / itemsPerPage === pageNo"
+        class="page-link"
+        >{{ pageNo }}</a
+      >
+    </li>
+
+    <li class="page-item">
+      <a class="page-link" (click)="onNext()">Next</a>
+    </li>
+  </ul>
+</nav>

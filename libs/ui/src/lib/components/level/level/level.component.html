@@ -1,25 +1,27 @@
 <div
   class="container-fluid"
   fxLayout="row"
+  fxLayout.lt-sm="column"
+  fxLayoutAlign.lt-sm="center stretch"
+  fxLayoutGap.lt-sm="10px"
   fxLayoutAlign="center start"
   style="margin-top: 15px;"
 >
-  <div class="row w-100">
-    <div class="col-4 p-0" fxLayoutAlign="start start">
-      <ng-content select="[slot=search]"></ng-content>
-    </div>
+  <div fxFlexOrder="1" fxFlex.lt-sm="100" fxFlex="30%">
+    <ng-content select="[slot=search]"></ng-content>
+  </div>
 
-    <div class="col-2" fxLayoutAlign="center center">
-      <ng-content select="[slot=filter]"></ng-content>
-    </div>
+  <div fxFlexOrder="2" fxFlex.lt-sm="100" fxFlexOffset="20px">
+    <ng-content select="[slot=filter]"></ng-content>
+  </div>
 
-    <div class="col-4"></div>
-    <!-- <div fxLayoutAlign="center center" class="col-1">
+  <!-- <div fxLayoutAlign="center center" class="col-1">
       <ng-content select="[slot=view]"></ng-content>
     </div> -->
 
-    <div class="col-2 p-0" fxLayout="row" fxLayoutAlign="end end">
-      <ng-content select="[slot=add-button]"></ng-content>
-    </div>
+  <span fxFlex fxFill fxFlexOrder="3" fxHide.lt-sm="true"></span>
+
+  <div fxFlexOrder="4">
+    <ng-content select="[slot=add-button]"></ng-content>
   </div>
 </div>
