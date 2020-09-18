@@ -1,0 +1,35 @@
+<tabs>
+  <tab
+    (click)="onTabClick('items')"
+    [isActive]="currentTabName == 'items' ? true : false"
+    tabTitle="Items"
+    tablabel="201"
+  >
+  </tab>
+  <tab
+    (click)="onTabClick('categories')"
+    [isActive]="currentTabName == 'categories' ? true : false"
+    tabTitle="Categories"
+    tablabel="74"
+  ></tab>
+  <tab
+    (click)="onTabClick('suppliers')"
+    [isActive]="currentTabName == 'suppliers' ? true : false"
+    tabTitle="Suppliers"
+    tablabel="66"
+  ></tab>
+  <tab
+    (click)="onTabClick('clients')"
+    [isActive]="currentTabName == 'clients' ? true : false"
+    tabTitle="Clients"
+    tablabel="38"
+  ></tab>
+</tabs>
+
+<ng-container *ngIf="currentTabName == 'items'">
+  <items-list></items-list>
+</ng-container>
+
+<ng-container *ngIf="currentTabName == 'categories'">
+  Categories
+</ng-container>

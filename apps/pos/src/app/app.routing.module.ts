@@ -18,6 +18,14 @@ export const routes: Routes = [
       import('@pa-pos/sales/feature').then((m) => m.SalesFeatureModule),
   },
 
+  {
+    path: 'basic-data',
+    loadChildren: () =>
+      import('@pa-pos/basic-data/feature').then(
+        (m) => m.BasicDataFeatureModule
+      ),
+  },
+
   // Fallback when no prior routes is matched
   { path: '**', redirectTo: '/auth/login', pathMatch: 'full' },
 ];

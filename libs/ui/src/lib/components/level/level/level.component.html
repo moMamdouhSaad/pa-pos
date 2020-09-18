@@ -1,5 +1,4 @@
 <div
-  class="container-fluid"
   fxLayout="row"
   fxLayout.lt-sm="column"
   fxLayoutAlign.lt-sm="center stretch"
@@ -14,10 +13,6 @@
   <div fxFlexOrder="2" fxFlex.lt-sm="100" fxFlexOffset="20px">
     <ng-content select="[slot=filter]"></ng-content>
   </div>
-
-  <!-- <div fxLayoutAlign="center center" class="col-1">
-      <ng-content select="[slot=view]"></ng-content>
-    </div> -->
 
   <span fxFlex fxFill fxFlexOrder="3" fxHide.lt-sm="true"></span>
 

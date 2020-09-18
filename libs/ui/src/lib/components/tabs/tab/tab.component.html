@@ -1,0 +1,12 @@
+<div fxLayout="column" fxLayoutAlign="start start">
+  <span class="tab-item" [class.is-active]="isActive"
+    >{{ tabTitle }}
+    <badge class="mx-2" [color]="isActive ? '#2F80ED' : '#9CC2F6'">{{
+      tablabel
+    }}</badge>
+  </span>
+
+  <div [hidden]="!isActive">
+    <ng-content></ng-content>
+  </div>
+</div>

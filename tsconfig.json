@@ -21,7 +21,8 @@
       "@pa-pos/core/ui": ["libs/core/ui/src/index.ts"],
       "@pa-pos/dashboard/feature": ["libs/dashboard/feature/src/index.ts"],
       "@pa-pos/sales/feature": ["libs/sales/feature/src/index.ts"],
-      "@pa-pos/dashboard/ui": ["libs/dashboard/ui/src/index.ts"]
+      "@pa-pos/dashboard/ui": ["libs/dashboard/ui/src/index.ts"],
+      "@pa-pos/basic-data/feature": ["libs/basic-data/feature/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

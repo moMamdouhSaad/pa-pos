@@ -24,6 +24,10 @@ export class BadgeComponent {
     this.renderer.addClass(this.el.nativeElement, 'badge');
     if (color && BadgeColors[color]) {
       this.renderer.addClass(this.el.nativeElement, BadgeColors[color]);
+    } else {
+      this.renderer.setStyle(this.el.nativeElement, 'color', 'white');
+
+      this.renderer.setStyle(this.el.nativeElement, 'background-color', color);
     }
   }
 }

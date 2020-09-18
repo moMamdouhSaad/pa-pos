@@ -366,6 +366,38 @@
           "style": "scss"
         }
       }
+    },
+    "basic-data-feature": {
+      "projectType": "library",
+      "root": "libs/basic-data/feature",
+      "sourceRoot": "libs/basic-data/feature/src",
+      "prefix": "pa-pos",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/basic-data/feature/tsconfig.lib.json",
+              "libs/basic-data/feature/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/basic-data/feature/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/basic-data/feature/jest.config.js",
+            "tsConfig": "libs/basic-data/feature/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/basic-data/feature/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "cli": {

@@ -1,0 +1,12 @@
+@import '../../../../../../../apps/pos/src/variables.scss';
+.tab-item {
+  cursor: pointer;
+  display: inline;
+  background: $blue-1;
+  border-radius: 7px 7px 0px 0px;
+  padding: 0.5rem 1rem;
+  margin-right: 0.3rem;
+}
+.is-active {
+  background: white !important;
+}
