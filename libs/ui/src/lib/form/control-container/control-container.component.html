@@ -1,13 +1,6 @@
 <ng-container>
+  <div *ngIf="label">{{ label + ' :' }}</div>
   <div [class.has-icon]="leftIcon" class="input-group">
-    <label
-      *ngIf="label"
-      style="display: inline;"
-      class="col-form-label"
-      [for]="id"
-      >{{ label + ' :' }}</label
-    >
-
     <div *ngIf="leftLabel" class="input-group-prepend">
       <div class="input-group-text">{{ leftLabel }}</div>
     </div>

@@ -1,0 +1,28 @@
+@import '../../../../../../apps/pos/src/variables.scss';
+
+:host {
+  display: block;
+}
+
+#main-container {
+  background-color: $gray-0;
+  border-radius: 10px;
+  display: block;
+}
+#header-container {
+  border-radius: 10px 10px 0 0;
+  background-color: white;
+  padding: 10px !important;
+  -webkit-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 2;
+  font-weight: bold;
+}
+#buttons-container {
+  padding: 10px 40px;
+}
+#inputs-container {
+  padding: 10px 40px;
+}

@@ -11,13 +11,11 @@
     <span slot="filter">
       <button btnColor="outlineLight" btnSize="medium">
         <icon icon="filter" slot="icon" size="25" color="#ced4da"></icon>
-
-        <!-- <span>Filters</span> -->
       </button>
     </span>
 
     <span slot="add-button">
-      <button btnColor="primary" btnSize="medium">
+      <button btnColor="primary" btnSize="medium" (click)="newItem()">
         <icon icon="add" slot="icon" size="15" color="white"></icon>
         <span class="add-btn-text">
           Add Sale

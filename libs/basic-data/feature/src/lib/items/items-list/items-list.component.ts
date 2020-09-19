@@ -1,4 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ModalService } from '@pa-pos/ui';
+import { ItemFormComponent } from '../item-form/item-form.component';
 
 @Component({
   selector: 'items-list',
@@ -7,7 +9,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ItemsListComponent implements OnInit {
-  public constructor() {}
+  public constructor(private readonly modalService: ModalService) {}
   public tableData = [
     { id: 1, class: 'test', section: 'section', name: 'paapy' },
     { id: 2, class: 'test', section: 'section', name: 'paapy' },
@@ -34,4 +36,11 @@ export class ItemsListComponent implements OnInit {
     { id: 24, class: 'test', section: 'section', name: 'paapy' },
   ];
   public ngOnInit(): void {}
+
+  public newItem(): void {
+    this.modalService.showOverlay(
+      { width: '400px', height: '600px' },
+      ItemFormComponent
+    );
+  }
 }
