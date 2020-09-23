@@ -14,7 +14,7 @@ export const itemsSchema = new mongoose.Schema({
 });
 
 export interface Item extends mongoose.Document {
-  id: string;
+  _id: string;
   name: string;
   barcode: string;
   image: string;

@@ -7,7 +7,7 @@ export const categoriesSchema = new mongoose.Schema({
 });
 
 export interface Category extends mongoose.Document {
-  id: string;
+  _id: string;
   name: string;
   image: string;
   description: string;
