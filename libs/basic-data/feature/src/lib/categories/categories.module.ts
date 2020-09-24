@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ItemsListComponent } from './items-list/items-list.component';
+import { CategoriesListComponent } from './categories-list/categories-list.component';
+import { RouterModule } from '@angular/router';
 import {
   BoxModule,
   LevelModule,
@@ -12,18 +13,16 @@ import {
   FormContainerModule,
 } from '@pa-pos/ui';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
-import { ItemFormComponent } from './item-form/item-form.component';
-import { RouterModule } from '@angular/router';
+import { CategoryFormComponent } from './category-form/category-form.component';
 
 @NgModule({
-  declarations: [ItemsListComponent, ItemFormComponent],
+  declarations: [CategoriesListComponent, CategoryFormComponent],
   imports: [
     CommonModule,
     RouterModule.forChild([
       {
         path: '',
-        component: ItemsListComponent,
+        component: CategoriesListComponent,
       },
     ]),
     FlexLayoutModule,
@@ -36,6 +35,5 @@ import { RouterModule } from '@angular/router';
     ModalModule,
     FormContainerModule,
   ],
-  exports: [ItemsListComponent],
 })
-export class ItemsModule {}
+export class CategoriesModule {}

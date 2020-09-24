@@ -1,0 +1,33 @@
+<box radius="0px 7px" bgColor="white">
+  <level>
+    <span slot="search">
+      <pa-input
+        [placeholder]="'Enter ur name'"
+        [id]="'name'"
+        [leftIcon]="'search'"
+      ></pa-input>
+    </span>
+
+    <span slot="filter">
+      <button btnColor="outlineLight" btnSize="medium">
+        <icon icon="filter" slot="icon" size="25" color="#ced4da"></icon>
+      </button>
+    </span>
+
+    <span slot="add-button">
+      <button btnColor="primary" btnSize="medium" (click)="newCategory()">
+        <icon icon="add" slot="icon" size="15" color="white"></icon>
+        <span class="add-btn-text">
+          Add category
+        </span>
+      </button>
+    </span>
+  </level>
+
+  <pa-table [data]="tableData" [itemsPerPage]="8">
+    <div paTableColumn [header]="'id'" key="id"></div>
+    <div paTableColumn [header]="'name'" key="name"></div>
+    <div paTableColumn [header]="'class'" key="class"></div>
+    <div paTableColumn [header]="'section'" key="section"></div>
+  </pa-table>
+</box>

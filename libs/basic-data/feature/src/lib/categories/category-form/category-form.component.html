@@ -1,0 +1,70 @@
+<form-container>
+  <span slot="title">
+    Add new category
+  </span>
+
+  <div
+    id="inputs-container"
+    fxLayout="column"
+    fxLayoutAlign="center center"
+    fxLayoutGap="10px"
+  >
+    <pa-input
+      class="w-100"
+      [placeholder]="'Enter ur name'"
+      [id]="'name'"
+      [label]="'item name'"
+    ></pa-input>
+
+    <pa-input
+      class="w-100"
+      [placeholder]="'Enter ur name'"
+      [id]="'name'"
+      [label]="'item name'"
+    ></pa-input>
+
+    <div
+      class="w-100"
+      fxLayout="row"
+      fxLayoutAlign="start start"
+      fxLayoutGap="10px"
+    >
+      <pa-input
+        fxFlex="1 1 auto"
+        [placeholder]="'Enter ur name'"
+        [id]="'name'"
+        [label]="'item name'"
+      ></pa-input>
+
+      <pa-input
+        fxFlex="4 1 auto"
+        [placeholder]="'Enter ur name'"
+        [id]="'name'"
+        [label]="'item name'"
+      ></pa-input>
+    </div>
+    <pa-input
+      class="w-100"
+      [placeholder]="'Enter ur name'"
+      [id]="'name'"
+      [label]="'item name'"
+    ></pa-input>
+  </div>
+
+  <button
+    btnColor="outlineSecondary"
+    btnSize="medium"
+    slot="cancel-btn"
+    (click)="close()"
+  >
+    <span class="add-btn-text">
+      Cancel
+    </span>
+  </button>
+
+  <button btnColor="primary" btnSize="medium" slot="action-btn">
+    <span class="add-btn-text">
+      Add new item
+    </span>
+  </button>
+</form-container>

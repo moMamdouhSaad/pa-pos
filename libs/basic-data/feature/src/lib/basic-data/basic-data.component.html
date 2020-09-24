@@ -1,5 +1,6 @@
 <tabs>
   <tab
+    routerLink="items"
     (click)="onTabClick('items')"
     [isActive]="currentTabName == 'items' ? true : false"
     tabTitle="Items"
@@ -7,6 +8,7 @@
   >
   </tab>
   <tab
+    routerLink="categories"
     (click)="onTabClick('categories')"
     [isActive]="currentTabName == 'categories' ? true : false"
     tabTitle="Categories"
@@ -26,10 +28,13 @@
   ></tab>
 </tabs>
 
+<router-outlet></router-outlet>
+
+<!-- 
 <ng-container *ngIf="currentTabName == 'items'">
   <items-list></items-list>
 </ng-container>
 
 <ng-container *ngIf="currentTabName == 'categories'">
   Categories
-</ng-container>
+</ng-container> -->
