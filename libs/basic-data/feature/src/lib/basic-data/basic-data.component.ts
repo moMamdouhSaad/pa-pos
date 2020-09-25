@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'pa-pos-basic-data',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./basic-data.component.scss'],
 })
 export class BasicDataComponent implements OnInit {
-  public constructor() {}
-  public currentTabName = 'items';
+  public constructor(
+    private readonly activatedRoute: ActivatedRoute,
+    private readonly router: Router
+  ) {}
+  public currentTabName: string;
 
-  public ngOnInit(): void {}
+  public ngOnInit(): void {
+    const url = this.router.url.split('/');
+    this.currentTabName = url[2];
+  }
 
   public onTabClick(tabName: string): void {
     this.currentTabName = tabName;

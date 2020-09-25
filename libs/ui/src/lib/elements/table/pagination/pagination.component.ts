@@ -24,7 +24,5 @@ export class PaginationComponent implements OnInit {
 
   public currentRowIndex = 0;
 
-  public ngOnInit(): void {
-    console.log(this.pager);
-  }
+  public ngOnInit(): void {}
 }

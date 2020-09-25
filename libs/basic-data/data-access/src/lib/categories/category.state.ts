@@ -8,7 +8,6 @@ export class CategoryState {
   private readonly categoriesSubject = new BehaviorSubject<Category[]>(null);
 
   public setCategories(categories: Category[]): void {
-    console.log(categories);
     this.categoriesSubject.next(categories);
   }
   public getGateories(): Observable<Category[]> {

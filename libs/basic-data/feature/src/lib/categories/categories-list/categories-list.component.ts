@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Category } from '@pa-pos/api-interfaces';
 import { CategoryService } from '@pa-pos/basic-data/data-access';
@@ -20,7 +21,7 @@ export class CategoriesListComponent implements OnInit {
     public readonly pagerService: PagerService,
     private readonly route: ActivatedRoute
   ) {}
-
+  public readonly searchInp = new FormControl();
   public ngOnInit(): void {
     this.route.queryParams.subscribe((x) =>
       this.categoryService.loadCategories(x.page || 1)

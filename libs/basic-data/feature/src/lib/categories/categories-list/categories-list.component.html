@@ -2,7 +2,8 @@
   <level>
     <span slot="search">
       <pa-input
-        [placeholder]="'Enter ur name'"
+        [formControl]="searchInp"
+        [placeholder]="'Search categories'"
         [id]="'name'"
         [leftIcon]="'search'"
       ></pa-input>
@@ -30,10 +31,10 @@
     [itemsPerPage]="8"
   >
     <div paTableColumn size="10%" [header]="'image'" key="image"></div>
-    <div paTableColumn size="20%" [header]="'name'" key="name"></div>
+    <div paTableColumn size="30%" [header]="'name'" key="name"></div>
     <div
       paTableColumn
-      size="60%"
+      size="50%"
       [header]="'description'"
       key="description"
     ></div>

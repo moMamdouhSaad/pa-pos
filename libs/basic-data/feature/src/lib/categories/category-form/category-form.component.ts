@@ -90,9 +90,7 @@ export class CategoryFormComponent implements OnInit {
         this.imgUrl = this._sanitizer.bypassSecurityTrustResourceUrl(
           reader.result.toString()
         );
-        console.log(this.imgUrl);
         this.imgLoading = false;
-        console.log(this.imgLoading);
       };
     }
   }
