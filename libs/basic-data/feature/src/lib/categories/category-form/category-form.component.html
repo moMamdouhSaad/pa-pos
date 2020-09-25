@@ -4,6 +4,7 @@
   </span>
 
   <div
+    [formGroup]="formGroup"
     id="inputs-container"
     fxLayout="column"
     fxLayoutAlign="center center"
@@ -13,42 +14,41 @@
       class="w-100"
       [placeholder]="'Enter ur name'"
       [id]="'name'"
-      [label]="'item name'"
+      [label]="'Name'"
+      formControlName="name"
     ></pa-input>
 
     <pa-input
       class="w-100"
       [placeholder]="'Enter ur name'"
-      [id]="'name'"
-      [label]="'item name'"
+      [id]="'description'"
+      [label]="'Description'"
+      formControlName="description"
     ></pa-input>
 
-    <div
+    <input
+      style="display: none;"
+      accept="image/*"
+      type="file"
+      (change)="onFileChanged($event)"
+      #fileInput
+    />
+    <button
       class="w-100"
-      fxLayout="row"
-      fxLayoutAlign="start start"
-      fxLayoutGap="10px"
+      btnColor="secondary"
+      btnSize="medium"
+      (click)="fileInput.click()"
     >
-      <pa-input
-        fxFlex="1 1 auto"
-        [placeholder]="'Enter ur name'"
-        [id]="'name'"
-        [label]="'item name'"
-      ></pa-input>
+      <span
+        class="spinner-grow spinner-grow-sm"
+        role="status"
+        aria-hidden="true"
+        *ngIf="imgLoading"
+      ></span>
 
-      <pa-input
-        fxFlex="4 1 auto"
-        [placeholder]="'Enter ur name'"
-        [id]="'name'"
-        [label]="'item name'"
-      ></pa-input>
-    </div>
-    <pa-input
-      class="w-100"
-      [placeholder]="'Enter ur name'"
-      [id]="'name'"
-      [label]="'item name'"
-    ></pa-input>
+      Select Image
+    </button>
+    <img *ngIf="imgUrl" [src]="imgUrl" height="200" />
   </div>
 
   <button
@@ -62,9 +62,15 @@
     </span>
   </button>
 
-  <button btnColor="primary" btnSize="medium" slot="action-btn">
+  <button
+    [disabled]="formGroup.invalid"
+    btnColor="primary"
+    btnSize="medium"
+    slot="action-btn"
+    (click)="onSubmit()"
+  >
     <span class="add-btn-text">
-      Add new item
+      Add new category
     </span>
   </button>
 </form-container>

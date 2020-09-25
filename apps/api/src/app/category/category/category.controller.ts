@@ -19,6 +19,7 @@ import {
 } from '../../utils/file-uploading.utils';
 import { Category } from './category.model';
 import { CategoryService } from './category.service';
+import { PagerResponse } from '@pa-pos/api-interfaces';
 
 @Controller('categories')
 export class CategoryController {
@@ -67,7 +68,7 @@ export class CategoryController {
   }
 
   @Get()
-  public async getCategories(@Query('page') page): Promise<Category[]> {
+  public async getCategories(@Query('page') page): Promise<PagerResponse> {
     const categories = await this.categoryService.getCategories(page, '8');
     return categories;
   }

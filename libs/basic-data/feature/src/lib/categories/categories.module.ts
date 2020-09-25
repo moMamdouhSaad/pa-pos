@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CategoriesListComponent } from './categories-list/categories-list.component';
 import { RouterModule } from '@angular/router';
+
 import {
   BoxModule,
   LevelModule,

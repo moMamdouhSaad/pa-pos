@@ -1,22 +1,44 @@
 <nav aria-label="Page navigation" fxLayout="row" fxLayoutAlign="end center">
   <ul class="pagination">
     <li class="page-item">
-      <a (click)="onPrevious()" class="page-link">Previous</a>
+      <a [routerLink]="['../']" [queryParams]="{ page: 1 }" class="page-link"
+        >First</a
+      >
     </li>
-    <li
-      *ngFor="let pageNo of getPagesNo()"
-      (click)="goToPage(pageNo)"
-      class="page-item selected"
-    >
+
+    <li class="page-item">
       <a
-        [class.selected]="currentRowIndex / itemsPerPage === pageNo"
+        [routerLink]="['../']"
+        [queryParams]="{ page: pager?.currentPage - 1 }"
         class="page-link"
+        >-</a
+      >
+    </li>
+    <li *ngFor="let pageNo of pager?.pages" class="page-item selected">
+      <a
+        [class.selected]="pager?.currentPage === pageNo"
+        class="page-link"
+        [routerLink]="['../']"
+        [queryParams]="{ page: pageNo }"
         >{{ pageNo }}</a
       >
     </li>
 
     <li class="page-item">
-      <a class="page-link" (click)="onNext()">Next</a>
+      <a
+        [routerLink]="['../']"
+        [queryParams]="{ page: pager?.currentPage + 1 }"
+        class="page-link"
+        >+</a
+      >
+    </li>
+    <li class="page-item">
+      <a
+        [routerLink]="['../']"
+        [queryParams]="{ page: pager?.totalPages }"
+        class="page-link"
+        >Last</a
+      >
     </li>
   </ul>
 </nav>

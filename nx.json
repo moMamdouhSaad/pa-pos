@@ -52,6 +52,12 @@
     },
     "basic-data-feature": {
       "tags": ["scope:basicData", "type:feature"]
+    },
+    "basic-data-data-access": {
+      "tags": ["scope:basic-data", "type:data-access"]
+    },
+    "shared-data-access": {
+      "tags": ["scope:shared", "type:data-access"]
     }
   }
 }

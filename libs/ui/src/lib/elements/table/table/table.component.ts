@@ -6,6 +6,8 @@ import {
   Input,
 } from '@angular/core';
 import { TableColumnDirective } from './table-column.directive';
+import { Pager } from '@pa-pos/api-interfaces';
+import { environment } from '../../../../../../../apps/pos/src/environments/environment';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -17,9 +19,10 @@ import { TableColumnDirective } from './table-column.directive';
 export class TableComponent {
   @Input() public data: object[] | null = null;
   @Input() public itemsPerPage;
+  @Input() public pager: Pager;
 
   public currentRowIndex = 0;
-
+  public imgPath = environment.api + '/img';
   @ContentChildren(TableColumnDirective) public columns: QueryList<
     TableColumnDirective
   >;

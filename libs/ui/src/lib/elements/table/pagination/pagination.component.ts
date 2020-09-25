@@ -6,6 +6,7 @@ import {
   EventEmitter,
   Input,
 } from '@angular/core';
+import { Pager } from '@pa-pos/api-interfaces';
 
 @Component({
   selector: 'pagination',
@@ -18,38 +19,12 @@ export class PaginationComponent implements OnInit {
 
   @Output() public readonly next = new EventEmitter<number>();
   @Output() public readonly previous = new EventEmitter<number>();
-  @Output() public readonly pageNumber = new EventEmitter<number>();
 
-  @Input() public itemsPerPage;
-  @Input() public dataLength;
+  @Input() public readonly pager: Pager;
 
   public currentRowIndex = 0;
 
-  public ngOnInit(): void {}
-
-  public getPagesNo(): number[] {
-    return Array.from(
-      Array(Math.round(this.dataLength / this.itemsPerPage)).keys()
-    );
-  }
-  public goToPage(pageNo): void {
-    this.currentRowIndex = pageNo * this.itemsPerPage;
-    this.pageNumber.emit(this.currentRowIndex);
-  }
-  public onNext(): void {
-    const currentRows = this.currentRowIndex + this.itemsPerPage;
-    if (currentRows >= this.dataLength) {
-      return;
-    } else {
-      this.next.emit((this.currentRowIndex += this.itemsPerPage));
-    }
-  }
-
-  public onPrevious(): void {
-    if (this.currentRowIndex - this.itemsPerPage < 0) {
-      return;
-    } else {
-      this.previous.emit((this.currentRowIndex -= this.itemsPerPage));
-    }
+  public ngOnInit(): void {
+    console.log(this.pager);
   }
 }

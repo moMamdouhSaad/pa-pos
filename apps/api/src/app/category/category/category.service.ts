@@ -2,7 +2,8 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Category } from './category.model';
-
+import paginate from 'jw-paginate';
+import { PagerResponse } from '@pa-pos/api-interfaces';
 @Injectable()
 export class CategoryService {
   public constructor(
@@ -21,17 +22,16 @@ export class CategoryService {
   public async getCategories(
     pageNo: string,
     limit: string
-  ): Promise<Category[]> {
-    const pageOptions = {
-      page: parseInt(pageNo, 10) || 0,
-      limit: parseInt(limit, 10) || 8,
-    };
-    const categories = await this.categoryModel
-      .find()
-      .skip(pageOptions.page * pageOptions.limit)
-      .limit(pageOptions.limit)
-      .exec();
-    return categories;
+  ): Promise<PagerResponse> {
+    const page = parseInt(pageNo, 10) || 1;
+    const pageSize = parseInt(limit, 10);
+    const allCategories = await this.categoryModel.find().exec();
+    const pager = paginate(allCategories.length, page, pageSize);
+    const categories = allCategories.slice(
+      pager.startIndex,
+      pager.endIndex + 1
+    );
+    return { pager, data: categories };
   }
 
   // ##########################

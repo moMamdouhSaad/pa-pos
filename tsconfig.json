@@ -22,7 +22,11 @@
       "@pa-pos/dashboard/feature": ["libs/dashboard/feature/src/index.ts"],
       "@pa-pos/sales/feature": ["libs/sales/feature/src/index.ts"],
       "@pa-pos/dashboard/ui": ["libs/dashboard/ui/src/index.ts"],
-      "@pa-pos/basic-data/feature": ["libs/basic-data/feature/src/index.ts"]
+      "@pa-pos/basic-data/feature": ["libs/basic-data/feature/src/index.ts"],
+      "@pa-pos/basic-data/data-access": [
+        "libs/basic-data/data-access/src/index.ts"
+      ],
+      "@pa-pos/shared/data-access": ["libs/shared/data-access/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

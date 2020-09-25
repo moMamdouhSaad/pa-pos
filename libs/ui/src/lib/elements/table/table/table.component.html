@@ -1,17 +1,15 @@
 <table class="table">
   <thead class="thead-light">
     <tr>
-      <th *ngFor="let column of columns">{{ column.header }}</th>
+      <th [style.width]="column.size" *ngFor="let column of columns">
+        {{ column.header }}
+      </th>
     </tr>
   </thead>
 
   <tbody>
-    <tr
-      *ngFor="
-        let row of data | slice: currentRowIndex:currentRowIndex + itemsPerPage
-      "
-    >
-      <td *ngFor="let column of columns">
+    <tr *ngFor="let row of data">
+      <td valign="middle" *ngFor="let column of columns">
         <ng-container *ngIf="column.template; else rawValue">
           <ng-container
             *ngTemplateOutlet="
@@ -23,8 +21,28 @@
             "
           ></ng-container>
         </ng-container>
+
         <ng-template #rawValue>
-          <span [class]="column.classes">{{ row[column.key] }}</span>
+          <span
+            [class]="column.classes"
+            *ngIf="column.key != 'image'; else img"
+            >{{ row[column.key] }}</span
+          >
+          <ng-template #img>
+            <div [class]="column.classes">
+              <image
+                *ngIf="row[column.key]"
+                [src]="imgPath + '/' + row[column.key]"
+                width="30"
+              ></image>
+              <image
+                [placeholder]="'as'"
+                src
+                *ngIf="!row[column.key]"
+                width="30"
+              ></image>
+            </div>
+          </ng-template>
         </ng-template>
       </td>
     </tr>
@@ -32,9 +50,7 @@
 </table>
 
 <pagination
-  [dataLength]="data.length"
-  [itemsPerPage]="itemsPerPage"
+  [pager]="pager"
   (previous)="onPreviousPage($event)"
   (next)="onNextPage($event)"
-  (pageNumber)="this.currentRowIndex = $event"
 ></pagination>

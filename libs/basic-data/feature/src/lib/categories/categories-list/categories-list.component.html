@@ -24,10 +24,25 @@
     </span>
   </level>
 
-  <pa-table [data]="tableData" [itemsPerPage]="8">
-    <div paTableColumn [header]="'id'" key="id"></div>
-    <div paTableColumn [header]="'name'" key="name"></div>
-    <div paTableColumn [header]="'class'" key="class"></div>
-    <div paTableColumn [header]="'section'" key="section"></div>
+  <pa-table
+    [pager]="pagerService.getPager() | async"
+    [data]="categoryService.categories$() | async"
+    [itemsPerPage]="8"
+  >
+    <div paTableColumn size="10%" [header]="'image'" key="image"></div>
+    <div paTableColumn size="20%" [header]="'name'" key="name"></div>
+    <div
+      paTableColumn
+      size="60%"
+      [header]="'description'"
+      key="description"
+    ></div>
+    <div paTableColumn>
+      <ng-template let-row>
+        <button btnColor="outlineLight" btnSize="medium">
+          <icon icon="pencil" size="16" color="#1D3557"></icon>
+        </button>
+      </ng-template>
+    </div>
   </pa-table>
 </box>

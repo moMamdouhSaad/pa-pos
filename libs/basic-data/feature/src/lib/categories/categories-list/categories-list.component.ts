@@ -1,4 +1,9 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Category } from '@pa-pos/api-interfaces';
+import { CategoryService } from '@pa-pos/basic-data/data-access';
+import { PagerService } from '@pa-pos/shared/data-access';
 import { ModalService } from '@pa-pos/ui';
 import { CategoryFormComponent } from '../category-form/category-form.component';
 
@@ -9,38 +14,22 @@ import { CategoryFormComponent } from '../category-form/category-form.component'
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CategoriesListComponent implements OnInit {
-  public constructor(private readonly modalService: ModalService) {}
-  public tableData = [
-    { id: 1, class: 'test', section: 'section', name: 'paapy' },
-    { id: 2, class: 'test', section: 'section', name: 'paapy' },
-    { id: 3, class: 'test', section: 'section', name: 'paapy' },
-    { id: 4, class: 'test', section: 'section', name: 'paapy' },
-    { id: 5, class: 'test', section: 'section', name: 'paapy' },
-    { id: 6, class: 'test', section: 'section', name: 'paapy' },
-    { id: 7, class: 'test', section: 'section', name: 'paapy' },
-    { id: 9, class: 'test', section: 'section', name: 'paapy' },
-    { id: 10, class: 'test', section: 'section', name: 'paapy' },
-    { id: 11, class: 'test', section: 'section', name: 'paapy' },
-    { id: 12, class: 'test', section: 'section', name: 'paapy' },
-    { id: 13, class: 'test', section: 'section', name: 'paapy' },
-    { id: 14, class: 'test', section: 'section', name: 'paapy' },
-    { id: 15, class: 'test', section: 'section', name: 'paapy' },
-    { id: 16, class: 'test', section: 'section', name: 'paapy' },
-    { id: 17, class: 'test', section: 'section', name: 'paapy' },
-    { id: 18, class: 'test', section: 'section', name: 'paapy' },
-    { id: 19, class: 'test', section: 'section', name: 'paapy' },
-    { id: 20, class: 'test', section: 'section', name: 'paapy' },
-    { id: 21, class: 'test', section: 'section', name: 'paapy' },
-    { id: 22, class: 'test', section: 'section', name: 'paapy' },
-    { id: 23, class: 'test', section: 'section', name: 'paapy' },
-    { id: 24, class: 'test', section: 'section', name: 'paapy' },
-  ];
+  public constructor(
+    private readonly modalService: ModalService,
+    public readonly categoryService: CategoryService,
+    public readonly pagerService: PagerService,
+    private readonly route: ActivatedRoute
+  ) {}
 
-  public ngOnInit(): void {}
+  public ngOnInit(): void {
+    this.route.queryParams.subscribe((x) =>
+      this.categoryService.loadCategories(x.page || 1)
+    );
+  }
 
   public newCategory(): void {
     this.modalService.showOverlay(
-      { width: '400px', height: '600px' },
+      { width: '400px', height: '600px', data: { category: new Category() } },
       CategoryFormComponent
     );
   }

@@ -7,6 +7,7 @@ import { ContentChild, Directive, Input, TemplateRef } from '@angular/core';
 export class TableColumnDirective {
   @Input() public key: string | null = null;
   @Input() public header: string | null = null;
+  @Input() public size: string | null = null;
   @Input() public enableFullObject = false;
   @Input() public classes: string | null = null;
 

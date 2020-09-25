@@ -4,10 +4,11 @@ import { BasicDataComponent } from './basic-data/basic-data.component';
 import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TabsModule } from '@pa-pos/ui';
-
+import { BasicDataDataAccessModule } from '@pa-pos/basic-data/data-access';
 @NgModule({
   imports: [
     CommonModule,
+    BasicDataDataAccessModule,
     RouterModule.forChild([
       {
         component: BasicDataComponent,
@@ -37,5 +38,6 @@ import { TabsModule } from '@pa-pos/ui';
     TabsModule,
   ],
   declarations: [BasicDataComponent],
+  providers: [],
 })
 export class BasicDataFeatureModule {}

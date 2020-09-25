@@ -1,14 +1,17 @@
 <figure
-  class="image"
   [style.width]="width + 'px'"
   [style.height]="width + 'px'"
+  style="margin: 0 !important;"
 >
   <div
     *ngIf="src; else emptyHolder"
     class="image-container"
     [class.is-rounded]="isRounded"
     [style.background-image]="'url(' + src + ')'"
-  ></div>
+    id="img"
+  >
+    &nbsp;
+  </div>
 
   <ng-template #emptyHolder>
     <div [ngClass]="background" [ngStyle]="{ 'font-size': initialsFontSize }">

@@ -65,7 +65,7 @@ Run `nx generate @schematics/angular:component --name=buttonGroup --project=ui-e
 
 ### Generate a Data-Access library :
 
-Run `nx generate @nrwl/angular:library --name=data-access --style=scss --directory=academic --prefix=sm --tags=scope:academic,type:data-access --no-interactive` .
+Run `nx generate @nrwl/angular:library --name=data-access --style=scss --directory=shared --prefix=sm --tags=scope:shared,type:data-access --no-interactive` .
 
 ### Generate a Util library :
 

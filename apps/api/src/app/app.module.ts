@@ -7,6 +7,7 @@ import { CategoryModule } from './category/category.module';
 import { MulterModule } from '@nestjs/platform-express';
 import { SupplierModule } from './supplier/supplier.module';
 import { ClientModule } from './client/client.module';
+import { NestFactory } from '@nestjs/core';
 
 @Module({
   imports: [
