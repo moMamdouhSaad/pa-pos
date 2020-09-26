@@ -68,8 +68,15 @@ export class CategoryController {
   }
 
   @Get()
-  public async getCategories(@Query('page') page): Promise<PagerResponse> {
-    const categories = await this.categoryService.getCategories(page, '8');
+  public async getCategories(
+    @Query('page') page,
+    @Query('search') search
+  ): Promise<PagerResponse> {
+    const categories = await this.categoryService.getCategories(
+      page,
+      '8',
+      search
+    );
     return categories;
   }
 

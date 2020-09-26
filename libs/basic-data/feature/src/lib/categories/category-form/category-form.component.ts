@@ -61,12 +61,9 @@ export class CategoryFormComponent implements OnInit {
     formData.append('name', this.formGroup.get('name').value);
     formData.append('description', this.formGroup.get('description').value);
     this.categoriesService.addNewCategory(formData).subscribe((res) => {
+      this.modalRef.close({ successfully: true });
       this.categoriesService.addCategoryState(res.data);
-      this.close();
     });
-    this.route.queryParams.subscribe((x) =>
-      this.categoriesService.loadCategories(x.page || 1)
-    );
   }
 
   public onFileChanged(event): void {
@@ -83,9 +80,7 @@ export class CategoryFormComponent implements OnInit {
       this.imgLoading = true;
       const file = event.target.files[0];
       this.formGroup.patchValue({ image: file });
-
       reader.readAsDataURL(file);
-
       reader.onload = () => {
         this.imgUrl = this._sanitizer.bypassSecurityTrustResourceUrl(
           reader.result.toString()

@@ -21,11 +21,22 @@ export class CategoryService {
   //   Get all categories
   public async getCategories(
     pageNo: string,
-    limit: string
+    limit: string,
+    search: string
   ): Promise<PagerResponse> {
     const page = parseInt(pageNo, 10) || 1;
     const pageSize = parseInt(limit, 10);
-    const allCategories = await this.categoryModel.find().exec();
+    let allCategories: Category[];
+
+    if (typeof search !== 'undefined' && search !== 'undefined') {
+      allCategories = await this.categoryModel
+        .find()
+        .or([{ name: { $regex: search } }, { description: { $regex: search } }])
+        .exec();
+    } else {
+      allCategories = await this.categoryModel.find().exec();
+    }
+
     const pager = paginate(allCategories.length, page, pageSize);
     const categories = allCategories.slice(
       pager.startIndex,

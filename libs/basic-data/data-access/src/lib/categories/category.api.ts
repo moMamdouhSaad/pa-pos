@@ -9,8 +9,13 @@ export class CategoryApi {
   public constructor(private readonly http: HttpClient) {}
   private readonly api = environment.api;
 
-  public getCategoriesApi(page): Observable<PagerResponse> {
-    return this.http.get<PagerResponse>(`${this.api}/categories?page=${page}`);
+  public getCategoriesApi(page, search?): Observable<PagerResponse> {
+    return this.http.get<PagerResponse>(`${this.api}/categories`, {
+      params: {
+        page,
+        search,
+      },
+    });
   }
 
   public addCategory(categoryFormData): Observable<any> {

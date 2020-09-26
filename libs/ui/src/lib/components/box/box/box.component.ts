@@ -30,6 +30,12 @@ export class BoxComponent {
     }
   }
 
+  @Input() public set padding(value: string) {
+    if (value) {
+      this.renderer.setStyle(this.el.nativeElement, 'padding', value);
+    }
+  }
+
   @Input() public set height(value: string) {
     if (value) {
       this.renderer.setStyle(this.el.nativeElement, 'height', value);

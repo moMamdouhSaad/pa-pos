@@ -15,7 +15,7 @@ export class BasicDataComponent implements OnInit {
 
   public ngOnInit(): void {
     const url = this.router.url.split('/');
-    this.currentTabName = url[2];
+    this.currentTabName = url[2].split('?')[0];
   }
 
   public onTabClick(tabName: string): void {

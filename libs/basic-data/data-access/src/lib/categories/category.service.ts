@@ -12,8 +12,8 @@ export class CategoryService {
     private readonly categoryState: CategoryState,
     private readonly pagerService: PagerService
   ) {}
-  public loadCategories(page): void {
-    this.categoryApi.getCategoriesApi(page).subscribe((res) => {
+  public loadCategories(page, search?): void {
+    this.categoryApi.getCategoriesApi(page, search).subscribe((res) => {
       this.categoryState.setCategories(res.data);
       this.pagerService.setPager(res.pager);
     });
