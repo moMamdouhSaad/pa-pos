@@ -24,3 +24,9 @@ export class Category {
   public image: string;
   public description: string;
 }
+
+export interface IQueryParams {
+  sort?: string;
+  search?: string;
+  page?: string;
+}

@@ -1,7 +1,11 @@
 <nav aria-label="Page navigation" fxLayout="row" fxLayoutAlign="end center">
   <ul class="pagination">
     <li class="page-item">
-      <a [routerLink]="['../']" [queryParams]="{ page: 1 }" class="page-link"
+      <a
+        [routerLink]="['../']"
+        queryParamsHandling="merge"
+        [queryParams]="{ page: 1 }"
+        class="page-link"
         >First</a
       >
     </li>
@@ -19,6 +23,7 @@
         [class.selected]="pager?.currentPage === pageNo"
         class="page-link"
         [routerLink]="['../']"
+        queryParamsHandling="merge"
         [queryParams]="{ page: pageNo }"
         >{{ pageNo }}</a
       >
@@ -26,6 +31,7 @@
 
     <li class="page-item">
       <a
+        queryParamsHandling="merge"
         [routerLink]="['../']"
         [queryParams]="{ page: pager?.currentPage + 1 }"
         class="page-link"
@@ -34,6 +40,7 @@
     </li>
     <li class="page-item">
       <a
+        queryParamsHandling="merge"
         [routerLink]="['../']"
         [queryParams]="{ page: pager?.totalPages }"
         class="page-link"

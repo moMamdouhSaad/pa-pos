@@ -10,6 +10,7 @@ import {
   HttpStatus,
   UseInterceptors,
   UploadedFile,
+  Req,
 } from '@nestjs/common';
 import { diskStorage } from 'multer';
 import { FileInterceptor } from '@nestjs/platform-express';
@@ -20,6 +21,7 @@ import {
 import { Category } from './category.model';
 import { CategoryService } from './category.service';
 import { PagerResponse } from '@pa-pos/api-interfaces';
+import { Request } from 'express';
 
 @Controller('categories')
 export class CategoryController {
@@ -68,15 +70,8 @@ export class CategoryController {
   }
 
   @Get()
-  public async getCategories(
-    @Query('page') page,
-    @Query('search') search
-  ): Promise<PagerResponse> {
-    const categories = await this.categoryService.getCategories(
-      page,
-      '8',
-      search
-    );
+  public async getCategories(@Req() request: Request): Promise<PagerResponse> {
+    const categories = await this.categoryService.getCategories(request.query);
     return categories;
   }
 

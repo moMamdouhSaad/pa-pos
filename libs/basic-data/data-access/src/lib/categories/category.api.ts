@@ -9,12 +9,9 @@ export class CategoryApi {
   public constructor(private readonly http: HttpClient) {}
   private readonly api = environment.api;
 
-  public getCategoriesApi(page, search?): Observable<PagerResponse> {
+  public getCategoriesApi(filters): Observable<PagerResponse> {
     return this.http.get<PagerResponse>(`${this.api}/categories`, {
-      params: {
-        page,
-        search,
-      },
+      params: filters,
     });
   }
 

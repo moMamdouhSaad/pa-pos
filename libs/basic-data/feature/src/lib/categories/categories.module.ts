@@ -12,6 +12,8 @@ import {
   ButtonModule,
   ModalModule,
   FormContainerModule,
+  DropdownModule,
+  FilterItemModule,
 } from '@pa-pos/ui';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { CategoryFormComponent } from './category-form/category-form.component';
@@ -35,6 +37,8 @@ import { CategoryFormComponent } from './category-form/category-form.component';
     ButtonModule,
     ModalModule,
     FormContainerModule,
+    DropdownModule,
+    FilterItemModule,
   ],
 })
 export class CategoriesModule {}

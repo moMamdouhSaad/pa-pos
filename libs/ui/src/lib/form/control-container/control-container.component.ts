@@ -25,6 +25,8 @@ export class ControlContainerComponent implements OnInit, AfterViewInit {
   public isRequired = false;
   @Input() public label: string | null = null;
   @Input() public id: string | null = null;
+  @Input() public toggleLabel: string | null = null;
+
   @Input() public leftLabel: string | null = null;
   @Input() public leftIcon: string | null = null;
 

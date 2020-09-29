@@ -19,23 +19,63 @@ export class CategoryService {
   // ##########################
 
   //   Get all categories
-  public async getCategories(
-    pageNo: string,
-    limit: string,
-    search: string
-  ): Promise<PagerResponse> {
-    const page = parseInt(pageNo, 10) || 1;
-    const pageSize = parseInt(limit, 10);
+  public async getCategories(queryObj): Promise<PagerResponse> {
     let allCategories: Category[];
+    const match = { search: [] };
+    let sortByName: string | null;
+    const page = parseInt(queryObj.page, 10) || 1;
+    const pageSize = 8;
 
-    if (typeof search !== 'undefined' && search !== 'undefined') {
-      allCategories = await this.categoryModel
-        .find()
-        .or([{ name: { $regex: search } }, { description: { $regex: search } }])
-        .exec();
-    } else {
-      allCategories = await this.categoryModel.find().exec();
+    // search
+    switch (true) {
+      case queryObj.search !== 'undefined':
+        match.search = [
+          {
+            name: {
+              $regex: queryObj.search,
+            },
+          },
+          {
+            description: {
+              $regex: queryObj.search,
+            },
+          },
+        ];
+        break;
+
+      default:
+        match.search = [
+          {
+            name: {
+              $regex: '',
+            },
+          },
+          {
+            description: {
+              $regex: '',
+            },
+          },
+        ];
+        break;
     }
+    switch (true) {
+      case queryObj.sort === 'asc':
+        sortByName = 'name';
+        break;
+      case queryObj.sort === 'desc':
+        sortByName = '-name';
+        break;
+
+      default:
+        sortByName = '-created_at';
+        break;
+    }
+
+    allCategories = await this.categoryModel
+      .find()
+      .or(match.search)
+      .sort(sortByName)
+      .exec();
 
     const pager = paginate(allCategories.length, page, pageSize);
     const categories = allCategories.slice(

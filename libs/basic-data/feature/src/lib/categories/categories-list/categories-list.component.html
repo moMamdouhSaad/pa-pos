@@ -1,4 +1,8 @@
 <box radius="0px 7px" bgColor="white" padding="6px 25px">
+  <div id="ahmed" #any style="display: none;">
+    aa
+  </div>
+
   <level>
     <span slot="search">
       <pa-input
@@ -10,9 +14,34 @@
     </span>
 
     <span slot="filter">
-      <button btnColor="outlineLight" btnSize="medium">
+      <filter>
+        <filter-item-container
+          (changeFilter)="applyFilter($event)"
+          queryParamsHandling="merge"
+          [routerLink]="['../']"
+          [queryParams]="{ sort: sort !== 'none' ? sort : null, page: 1 }"
+          [filterName]="'name'"
+        >
+          <filter-item value="asc" itemName="ascending"></filter-item>
+          <filter-item
+            queryParamsHandling="merge"
+            [routerLink]="['../']"
+            [queryParams]="{ name: 'desc' }"
+            value="desc"
+            itemName="descending"
+          ></filter-item>
+        </filter-item-container>
+      </filter>
+
+      <!-- <button
+        btnColor="outlineLight"
+        btnSize="medium"
+        data-toggle="popover"
+        data-placement="right"
+        [attr.data-content]="any.innerHTML"
+      >
         <icon icon="filter" slot="icon" size="25" color="#ced4da"></icon>
-      </button>
+      </button> -->
     </span>
 
     <span slot="add-button">

@@ -12,7 +12,7 @@ export type InputType = 'text' | 'email' | 'password' | 'tel' | 'number';
 
 @Component({
   // tslint:disable-next-line: component-selector
-  selector: 'pa-input',
+  selector: 'pa-input, [pa-input]',
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -31,9 +31,12 @@ export class InputComponent implements ControlValueAccessor {
 
   @Input() public id: string;
   @Input() public label: string;
+  @Input() public name: string;
+  @Input() public class: string;
   @Input() public placeholder = '';
   @Input() public inputType: InputType = 'text';
   @Input() public isDisabled = false;
+  @Input() public toggleLabel: string | null = null;
   @Input() public leftLabel: string | null = null;
   @Input() public leftIcon: string | null = null;
   @Input() public helpText: string | null = null;

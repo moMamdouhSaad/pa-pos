@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy, HostBinding } from '@angular/core';
 
 @Component({
-  selector: 'pa-pos-button-group',
+  selector: 'button-group',
   template: '<ng-content></ng-content>',
   styleUrls: ['./button-group.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -9,5 +9,6 @@ import { Component, ChangeDetectionStrategy, HostBinding } from '@angular/core';
 export class ButtonGroupComponent {
   public constructor() {}
 
-  @HostBinding('class.btn-group') public defaultClass = true;
+  @HostBinding('class') public defaultClasses = 'btn-group btn-group-toggle';
+  @HostBinding('attr.data-toggle') public btns = 'buttons';
 }

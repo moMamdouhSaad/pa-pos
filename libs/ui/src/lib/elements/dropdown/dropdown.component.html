@@ -1,4 +1,4 @@
-<div class="dropdown">
+<div class="dropdown" style="position: initial;">
   <div
     type="button"
     id="dropdownMenuButton"
@@ -8,7 +8,9 @@
   >
     <ng-content select="[dropdown-btn]"></ng-content>
   </div>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <ng-content select="[dropdown-item]"></ng-content>
-  </div>
+  <form>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <ng-content select="[dropdown-item]"></ng-content>
+    </div>
+  </form>
 </div>

@@ -21,3 +21,4 @@ export * from './table/table.module';
 export * from './image/image.module';
 export * from './icon/icon.module';
 export * from './injectable-content/injectable-content.module';
+export * from './popover/popover.module';
