@@ -26,7 +26,8 @@
       "@pa-pos/basic-data/data-access": [
         "libs/basic-data/data-access/src/index.ts"
       ],
-      "@pa-pos/shared/data-access": ["libs/shared/data-access/src/index.ts"]
+      "@pa-pos/shared/data-access": ["libs/shared/data-access/src/index.ts"],
+      "@pa-pos/shared/ui": ["libs/shared/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -58,6 +58,9 @@
     },
     "shared-data-access": {
       "tags": ["scope:shared", "type:data-access"]
+    },
+    "shared-ui": {
+      "tags": ["scope:shared", "type:ui"]
     }
   }
 }

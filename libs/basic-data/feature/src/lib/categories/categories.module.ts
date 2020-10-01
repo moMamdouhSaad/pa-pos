@@ -17,11 +17,13 @@ import {
 } from '@pa-pos/ui';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { CategoryFormComponent } from './category-form/category-form.component';
+import { SharedDataAccessModule } from '@pa-pos/shared/data-access';
 
 @NgModule({
   declarations: [CategoriesListComponent, CategoryFormComponent],
   imports: [
     CommonModule,
+    SharedDataAccessModule,
     RouterModule.forChild([
       {
         path: '',

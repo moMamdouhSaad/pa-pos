@@ -57,7 +57,7 @@ Run `nx generate @schematics/angular:component --style=scss --name=basicData --p
 
 ### Generate a UI library :
 
-Run `nx generate @nrwl/angular:library --name=ui --style=scss --directory=dashboard --prefix=sm --tags=scope:dashboard,type:ui --no-interactive` .
+Run `nx generate @nrwl/angular:library --name=ui --style=scss --directory=shared --prefix=sm --tags=scope:shared,type:ui --no-interactive` .
 
 - Generate a UI component:
 

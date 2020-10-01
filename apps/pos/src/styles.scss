@@ -63,3 +63,18 @@ td {
   vertical-align: middle !important;
   padding: 3px !important;
 }
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+.blue-snackbar {
+  background: #2196f3;
+}
+.err-snackbar {
+  background: #f32121;
+}

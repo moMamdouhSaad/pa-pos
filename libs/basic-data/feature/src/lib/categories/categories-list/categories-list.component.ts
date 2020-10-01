@@ -3,7 +3,7 @@ import { FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Category } from '@pa-pos/api-interfaces';
 import { CategoryService } from '@pa-pos/basic-data/data-access';
-import { PagerService } from '@pa-pos/shared/data-access';
+import { PagerService, SnackBarService } from '@pa-pos/shared/data-access';
 import { ModalService } from '@pa-pos/ui';
 import { debounceTime, switchMap } from 'rxjs/operators';
 import { CategoryFormComponent } from '../category-form/category-form.component';
@@ -20,6 +20,7 @@ export class CategoriesListComponent implements OnInit {
     private readonly modalService: ModalService,
     public readonly categoryService: CategoryService,
     public readonly pagerService: PagerService,
+    private readonly snackbarService: SnackBarService,
     private readonly route: ActivatedRoute,
     private readonly router: Router
   ) {}
@@ -55,11 +56,10 @@ export class CategoriesListComponent implements OnInit {
     );
     modalRef.afterClosed$.subscribe((data) => {
       if (data.data.successfully) {
-        // this.router.navigate(['.'], {
-        //   relativeTo: this.route,
-        //   queryParams: { page: 1 },
-        //   queryParamsHandling: 'merge',
-        // });
+        this.snackbarService.openSnackBar(
+          'Category added successfully',
+          'success'
+        );
         this.categoryService.loadCategories(this.filters);
       }
     });
