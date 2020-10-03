@@ -9,9 +9,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { Category } from '@pa-pos/api-interfaces';
-import { CategoryService } from '@pa-pos/basic-data/data-access';
 import { PagerService } from '@pa-pos/shared/data-access';
 import { ModalRef } from '@pa-pos/ui';
+import { environment } from 'apps/pos/src/environments/environment';
 
 @Component({
   selector: 'pa-pos-category-form',
@@ -24,12 +24,13 @@ export class CategoryFormComponent implements OnInit {
   public category: Category = this.modalRef.data.category;
   public imgUrl: SafeUrl = './assets/img-placeholder.jpg';
   public imgLoading = false;
+  public modalTitle: string;
+  public modalSubmitBtn: string;
+
   public constructor(
     private readonly modalRef: ModalRef,
     private readonly fb: FormBuilder,
-    private readonly categoriesService: CategoryService,
     public readonly pagerService: PagerService,
-    private readonly route: ActivatedRoute,
     private readonly _sanitizer: DomSanitizer
   ) {}
 
@@ -38,6 +39,19 @@ export class CategoryFormComponent implements OnInit {
   }
 
   private initCategoryForm(): void {
+    let mode: string;
+    if ('_id' in this.category) {
+      mode = 'edit';
+      this.modalTitle = 'Edit category';
+      this.modalSubmitBtn = 'Update category';
+      if (this.category.image) {
+        this.imgUrl = `${environment.api}/img/${this.category.image}`;
+      }
+    } else {
+      mode = 'add';
+      this.modalTitle = 'Add category';
+      this.modalSubmitBtn = 'Add new category';
+    }
     const { _id, name, description, image } = this.category;
 
     this.formGroup = this.fb.group({
@@ -57,12 +71,17 @@ export class CategoryFormComponent implements OnInit {
         this.formGroup.get('image').value.name
       );
     }
-
     formData.append('name', this.formGroup.get('name').value);
     formData.append('description', this.formGroup.get('description').value);
-    this.categoriesService.addNewCategory(formData).subscribe((res) => {
-      this.modalRef.close({ successfully: true });
-      this.categoriesService.addCategoryState(res.data);
+
+    // this.categoriesService.addNewCategory(formData).subscribe((res) => {
+    //   this.modalRef.close({ successfully: true });
+    //   this.categoriesService.addCategoryState(res.data);
+    // });
+    this.modalRef.close({
+      successfully: true,
+      category: formData,
+      catId: this.category._id,
     });
   }
 
@@ -80,13 +99,14 @@ export class CategoryFormComponent implements OnInit {
       this.imgLoading = true;
       const file = event.target.files[0];
       this.formGroup.patchValue({ image: file });
-      reader.readAsDataURL(file);
-      reader.onload = () => {
+
+      reader.onload = (e) => {
         this.imgUrl = this._sanitizer.bypassSecurityTrustResourceUrl(
           reader.result.toString()
         );
         this.imgLoading = false;
       };
+      reader.readAsDataURL(file);
     }
   }
   public close(): void {

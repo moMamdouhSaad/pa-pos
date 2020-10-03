@@ -29,4 +29,12 @@ export class CategoryService {
   public addCategoryState(category: Category): void {
     this.categoryState.addCategory(category);
   }
+
+  public updateCategory(formData: FormData, catId: string): Observable<any> {
+    console.log(catId);
+    return this.categoryApi.updateCategory(formData, catId);
+  }
+  public updateCategoryState(category: Category): void {
+    this.categoryState.uodateCategory(category);
+  }
 }

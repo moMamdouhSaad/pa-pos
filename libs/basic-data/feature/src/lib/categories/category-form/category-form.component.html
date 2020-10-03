@@ -1,7 +1,5 @@
 <form-container>
-  <span slot="title">
-    Add new category
-  </span>
+  <span slot="title"> {{ modalTitle }} </span>
 
   <div
     [formGroup]="formGroup"
@@ -48,6 +46,7 @@
 
       Select Image
     </button>
+    {{ imgUrl }}
     <img *ngIf="imgUrl" [src]="imgUrl" height="200" />
   </div>
 
@@ -69,8 +68,6 @@
     slot="action-btn"
     (click)="onSubmit()"
   >
-    <span class="add-btn-text">
-      Add new category
-    </span>
+    <span class="add-btn-text"> {{ modalSubmitBtn }} </span>
   </button>
 </form-container>

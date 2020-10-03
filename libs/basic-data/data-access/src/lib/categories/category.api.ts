@@ -18,4 +18,8 @@ export class CategoryApi {
   public addCategory(categoryFormData): Observable<any> {
     return this.http.post(`${this.api}/categories`, categoryFormData);
   }
+
+  public updateCategory(categoryFormData, catId: string): Observable<any> {
+    return this.http.patch(`${this.api}/categories/${catId}`, categoryFormData);
+  }
 }

@@ -56,10 +56,38 @@ export class CategoriesListComponent implements OnInit {
     );
     modalRef.afterClosed$.subscribe((data) => {
       if (data.data.successfully) {
-        this.snackbarService.openSnackBar(
-          'Category added successfully',
-          'success'
-        );
+        this.categoryService
+          .addNewCategory(data.data.category)
+          .subscribe((res) => {
+            this.categoryService.addCategoryState(res.data);
+            this.snackbarService.openSnackBar(
+              'Category added successfully',
+              'success'
+            );
+          });
+
+        this.categoryService.loadCategories(this.filters);
+      }
+    });
+  }
+
+  public editCategory(row): void {
+    const modalRef = this.modalService.showOverlay(
+      { width: '400px', height: '600px', data: { category: row } },
+      CategoryFormComponent
+    );
+    modalRef.afterClosed$.subscribe((data) => {
+      if (data.data.successfully) {
+        this.categoryService
+          .updateCategory(data.data.category, data.data.catId)
+          .subscribe((res) => {
+            this.categoryService.updateCategoryState(res.category);
+            this.snackbarService.openSnackBar(
+              'Category updated successfully',
+              'success'
+            );
+          });
+
         this.categoryService.loadCategories(this.filters);
       }
     });

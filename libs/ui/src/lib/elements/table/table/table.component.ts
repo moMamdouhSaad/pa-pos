@@ -4,6 +4,7 @@ import {
   ChangeDetectionStrategy,
   QueryList,
   Input,
+  AfterViewInit,
 } from '@angular/core';
 import { TableColumnDirective } from './table-column.directive';
 import { Pager } from '@pa-pos/api-interfaces';

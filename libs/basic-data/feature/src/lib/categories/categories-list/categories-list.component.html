@@ -69,7 +69,11 @@
     ></div>
     <div paTableColumn>
       <ng-template let-row>
-        <button btnColor="outlineLight" btnSize="medium">
+        <button
+          btnColor="outlineLight"
+          btnSize="medium"
+          (click)="editCategory(row)"
+        >
           <icon icon="pencil" size="16" color="#1D3557"></icon>
         </button>
       </ng-template>

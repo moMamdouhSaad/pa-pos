@@ -15,11 +15,11 @@
             *ngTemplateOutlet="
               column.template;
               context: {
-                row: row,
-                $implicit: column.enableFullObject ? row : row[column.key]
+                $implicit: row
               }
             "
           ></ng-container>
+          {{ row[column.key] }}
         </ng-container>
 
         <ng-template #rawValue>

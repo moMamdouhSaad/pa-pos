@@ -18,4 +18,15 @@ export class CategoryState {
     const categories = this.categoriesSubject.getValue();
     this.categoriesSubject.next([...categories, category]);
   }
+
+  public uodateCategory(updateCategory: Category): void {
+    const categories = this.categoriesSubject.getValue();
+    if (categories) {
+      const indexOfUpdated = categories.findIndex(
+        (category) => category._id === updateCategory._id
+      );
+      categories[indexOfUpdated] = updateCategory;
+      this.categoriesSubject.next([...categories]);
+    }
+  }
 }
