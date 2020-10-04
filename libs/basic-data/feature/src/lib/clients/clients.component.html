@@ -1,0 +1,67 @@
+<box radius="0px 7px" bgColor="white" padding="6px 25px">
+  <level>
+    <span slot="search">
+      <pa-input
+        [formControl]="searchInp"
+        [placeholder]="'Search clients'"
+        [id]="'name'"
+        [leftIcon]="'search'"
+      >
+      </pa-input>
+    </span>
+
+    <span slot="filter">
+      <filter>
+        <filter-item-container
+          (changeFilter)="applyFilter($event)"
+          queryParamsHandling="merge"
+          [routerLink]="['../']"
+          [queryParams]="{ sort: sort !== 'none' ? sort : null, page: 1 }"
+          [filterName]="'name'"
+        >
+          <filter-item value="asc" itemName="ascending"></filter-item>
+          <filter-item
+            queryParamsHandling="merge"
+            [routerLink]="['../']"
+            [queryParams]="{ name: 'desc' }"
+            value="desc"
+            itemName="descending"
+          ></filter-item>
+        </filter-item-container>
+      </filter>
+    </span>
+
+    <span slot="add-button">
+      <button btnColor="primary" btnSize="medium" (click)="newClient()">
+        <icon icon="add" slot="icon" size="15" color="white"></icon>
+        <span class="add-btn-text">
+          Add Client
+        </span>
+      </button>
+    </span>
+  </level>
+
+  <pa-table
+    [pager]="pagerService.getPager() | async"
+    [data]="clientService.clients$() | async"
+    [itemsPerPage]="8"
+  >
+    <div paTableColumn size="10%" [header]="'image'" key="image"></div>
+    <div paTableColumn size="30%" [header]="'name'" key="name"></div>
+    <div paTableColumn size="20%" [header]="'phone'" key="phone"></div>
+    <div paTableColumn size="20%" [header]="'address'" key="address"></div>
+    <div paTableColumn size="20%" [header]="'notes'" key="notes"></div>
+
+    <div paTableColumn>
+      <ng-template let-row>
+        <button
+          btnColor="outlineLight"
+          btnSize="medium"
+          (click)="editClient(row)"
+        >
+          <icon icon="pencil" size="16" color="#1D3557"></icon>
+        </button>
+      </ng-template>
+    </div>
+  </pa-table>
+</box>

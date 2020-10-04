@@ -34,6 +34,16 @@ export class Supplier {
   public notes: string;
 }
 
+// tslint:disable-next-line: max-classes-per-file
+export class Client {
+  public _id: string;
+  public name: string;
+  public image: string;
+  public address: string;
+  public phone: string;
+  public notes: string;
+}
+
 export interface IQueryParams {
   sort?: string;
   search?: string;

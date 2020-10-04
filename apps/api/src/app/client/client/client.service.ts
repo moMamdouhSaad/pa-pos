@@ -1,7 +1,10 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
+import { PagerResponse } from '@pa-pos/api-interfaces';
 import { Model } from 'mongoose';
 import { Client } from './client.model';
+import paginate from 'jw-paginate';
+
 @Injectable()
 export class ClientService {
   @InjectModel('Client') private readonly clientModel: Model<Client>;
@@ -12,17 +15,65 @@ export class ClientService {
     return result;
   }
 
-  public async getClients(pageNo: string, limit: string): Promise<Client[]> {
-    const pageOptions = {
-      page: parseInt(pageNo, 10) || 0,
-      limit: parseInt(limit, 10) || 8,
+  public async getClients(queryObj): Promise<PagerResponse> {
+    let allClients: Client[];
+    const match = {
+      search: [],
     };
-    const clients = await this.clientModel
+    let sortByName: string | null;
+    const page = parseInt(queryObj.page, 10) || 1;
+    const pageSize = 8;
+    // search
+    switch (true) {
+      case queryObj.search !== 'undefined':
+        match.search = [
+          {
+            name: {
+              $regex: queryObj.search,
+            },
+          },
+        ];
+        break;
+
+      default:
+        match.search = [
+          {
+            name: {
+              $regex: '',
+            },
+          },
+          {
+            description: {
+              $regex: '',
+            },
+          },
+        ];
+        break;
+    }
+    switch (true) {
+      case queryObj.sort === 'asc':
+        sortByName = 'name';
+        break;
+      case queryObj.sort === 'desc':
+        sortByName = '-name';
+        break;
+
+      default:
+        sortByName = '-created_at';
+        break;
+    }
+    allClients = await this.clientModel
       .find()
-      .skip(pageOptions.page * pageOptions.limit)
-      .limit(pageOptions.limit)
+      .or(match.search)
+      .sort(sortByName)
       .exec();
-    return clients;
+
+    const pager = paginate(allClients.length, page, pageSize);
+    const clients = allClients.slice(pager.startIndex, pager.endIndex + 1);
+    return {
+      pager,
+      data: clients,
+    };
   }
 
   public async getSingleClient(clientId: string): Promise<Client> {

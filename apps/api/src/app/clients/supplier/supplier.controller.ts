@@ -6,6 +6,7 @@ import {
   Param,
   Patch,
   Delete,
+  Query,
   HttpStatus,
   UseInterceptors,
   UploadedFile,
@@ -17,14 +18,14 @@ import {
   editFileName,
   imageFileFilter,
 } from '../../utils/file-uploading.utils';
-import { ClientService } from './client.service';
-import { Client } from './client.model';
+import { SupplierService } from './supplier.service';
+import { Supplier } from './supplier.model';
 import { PagerResponse } from '@pa-pos/api-interfaces';
 import { Request } from 'express';
 
-@Controller('clients')
-export class ClientController {
-  public constructor(private readonly clientService: ClientService) {}
+@Controller('suppliers')
+export class SupplierController {
+  public constructor(private readonly supplierService: SupplierService) {}
   @Post()
   @UseInterceptors(
     FileInterceptor('image', {
@@ -35,20 +36,20 @@ export class ClientController {
       fileFilter: imageFileFilter,
     })
   )
-  public async addClient(
+  public async addSupplier(
     @UploadedFile() file,
     @Body('name') name: string,
     @Body('address') address: string,
     @Body('phone') phone: string,
     @Body('notes') notes: string
-  ): Promise<{ statusCode: HttpStatus; message: string; data: Client }> {
-    let client;
+  ): Promise<{ statusCode: HttpStatus; message: string; data: Supplier }> {
+    let supplier;
     if (file) {
       const savedFile = {
         originalname: file.originalname,
         filename: file.filename,
       };
-      client = {
+      supplier = {
         name,
         address,
         phone,
@@ -56,30 +57,30 @@ export class ClientController {
         image: savedFile.filename,
       };
     } else {
-      client = {
+      supplier = {
         name,
         address,
         phone,
         notes,
       };
     }
-    const addedClient = await this.clientService.insertClient(client);
+    const addedSupplier = await this.supplierService.insertSupplier(supplier);
     return {
       statusCode: HttpStatus.OK,
-      message: 'Client added successfully',
-      data: addedClient,
+      message: 'Supplier added successfully',
+      data: addedSupplier,
     };
   }
 
   @Get()
-  public async getClients(@Req() request: Request): Promise<PagerResponse> {
-    const suppliers = await this.clientService.getClients(request.query);
+  public async getSuppliers(@Req() request: Request): Promise<PagerResponse> {
+    const suppliers = await this.supplierService.getSuppliers(request.query);
     return suppliers;
   }
 
   @Get(':id')
-  public async getClient(@Param('id') clientId: string): Promise<Client> {
-    return this.clientService.getSingleClient(clientId);
+  public async getSupplier(@Param('id') supplierId: string): Promise<Supplier> {
+    return this.supplierService.getSingleSupplier(supplierId);
   }
 
   @Patch(':id')
@@ -92,21 +93,21 @@ export class ClientController {
       fileFilter: imageFileFilter,
     })
   )
-  public async updateClient(
-    @Param('id') clientId: string,
+  public async updateSupplier(
+    @Param('id') supplierId: string,
     @Body('name') name: string,
     @Body('address') address: string,
     @Body('phone') phone: string,
     @Body('notes') notes: string,
     @UploadedFile() file
-  ): Promise<{ statusCode: HttpStatus; message: string; client: Client }> {
-    let client;
+  ): Promise<{ statusCode: HttpStatus; message: string; supplier: Supplier }> {
+    let supplier;
     if (file) {
       const savedFile = {
         originalname: file.originalname,
         filename: file.filename,
       };
-      client = {
+      supplier = {
         name,
         address,
         phone,
@@ -114,7 +115,7 @@ export class ClientController {
         image: savedFile.filename,
       };
     } else {
-      client = {
+      supplier = {
         name,
         address,
         phone,
@@ -122,26 +123,26 @@ export class ClientController {
       };
     }
 
-    const updatedClient = await this.clientService.updateClient(
-      client,
-      clientId
+    const updatedSupplier = await this.supplierService.updateSupplier(
+      supplier,
+      supplierId
     );
     return {
       statusCode: HttpStatus.OK,
-      message: 'client updated successfully',
-      client: updatedClient,
+      message: 'Supplier updated successfully',
+      supplier: updatedSupplier,
     };
   }
 
   @Delete(':id')
-  public async removeClient(
-    @Param('id') clientId: string
+  public async removeSupplier(
+    @Param('id') supplierId: string
   ): Promise<{ statusCode: HttpStatus; message: string }> {
-    const isDeleted = await this.clientService.deleteClient(clientId);
+    const isDeleted = await this.supplierService.deleteSupplier(supplierId);
     if (isDeleted) {
       return {
         statusCode: HttpStatus.OK,
-        message: 'Client deleted successfully',
+        message: 'Supplier deleted successfully',
       };
     }
   }

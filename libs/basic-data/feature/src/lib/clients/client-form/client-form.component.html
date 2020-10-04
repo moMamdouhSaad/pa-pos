@@ -1,0 +1,89 @@
+<form-container>
+  <span slot="title"> {{ modalTitle }} </span>
+
+  <div
+    [formGroup]="formGroup"
+    id="inputs-container"
+    fxLayout="column"
+    fxLayoutAlign="center center"
+    fxLayoutGap="10px"
+  >
+    <pa-input
+      class="w-100"
+      [placeholder]="'ex : Mohamed mamdouh'"
+      [id]="'name'"
+      [label]="'Name'"
+      formControlName="name"
+    >
+    </pa-input>
+
+    <pa-input
+      class="w-100"
+      [placeholder]="'ex : 01066219698'"
+      [id]="'phone'"
+      [label]="'Phone'"
+      formControlName="phone"
+    ></pa-input>
+    <pa-input
+      class="w-100"
+      [placeholder]="'ex : masaken montaser'"
+      [id]="'address'"
+      [label]="'Address'"
+      formControlName="address"
+    >
+    </pa-input>
+    <pa-input
+      class="w-100"
+      [placeholder]="'ex : notes..'"
+      [id]="'notes'"
+      [label]="'Notes'"
+      formControlName="notes"
+    >
+    </pa-input>
+
+    <input
+      style="display: none;"
+      accept="image/*"
+      type="file"
+      (change)="onFileChanged($event)"
+      #fileInput
+    />
+    <button
+      class="w-100"
+      btnColor="secondary"
+      btnSize="medium"
+      (click)="fileInput.click()"
+    >
+      <span
+        class="spinner-grow spinner-grow-sm"
+        role="status"
+        aria-hidden="true"
+        *ngIf="imgLoading"
+      ></span>
+
+      Select Image
+    </button>
+    <img *ngIf="imgUrl" [src]="imgUrl" height="200" />
+  </div>
+
+  <button
+    btnColor="outlineSecondary"
+    btnSize="medium"
+    slot="cancel-btn"
+    (click)="close()"
+  >
+    <span class="add-btn-text">
+      Cancel
+    </span>
+  </button>
+
+  <button
+    [disabled]="formGroup.invalid"
+    btnColor="primary"
+    btnSize="medium"
+    slot="action-btn"
+    (click)="onSubmit()"
+  >
+    <span class="add-btn-text"> {{ modalSubmitBtn }} </span>
+  </button>
+</form-container>

@@ -38,6 +38,11 @@ import { BasicDataDataAccessModule } from '@pa-pos/basic-data/data-access';
                 (m) => m.SuppliersModule
               ),
           },
+          {
+            path: 'clients',
+            loadChildren: () =>
+              import('./clients/clients.module').then((m) => m.ClientsModule),
+          },
         ],
       },
     ]),
