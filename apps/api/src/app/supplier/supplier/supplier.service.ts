@@ -2,6 +2,9 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Supplier } from './supplier.model';
+import paginate from 'jw-paginate';
+import { PagerResponse } from '@pa-pos/api-interfaces';
+
 @Injectable()
 export class SupplierService {
   public constructor(
@@ -14,20 +17,65 @@ export class SupplierService {
     return result;
   }
 
-  public async getSuppliers(
-    pageNo: string,
-    limit: string
-  ): Promise<Supplier[]> {
-    const pageOptions = {
-      page: parseInt(pageNo, 10) || 0,
-      limit: parseInt(limit, 10) || 8,
+  public async getSuppliers(queryObj): Promise<PagerResponse> {
+    let allSuppliers: Supplier[];
+    const match = {
+      search: [],
     };
-    const suppliers = await this.supplierModel
+    let sortByName: string | null;
+    const page = parseInt(queryObj.page, 10) || 1;
+    const pageSize = 8;
+    // search
+    switch (true) {
+      case queryObj.search !== 'undefined':
+        match.search = [
+          {
+            name: {
+              $regex: queryObj.search,
+            },
+          },
+        ];
+        break;
+
+      default:
+        match.search = [
+          {
+            name: {
+              $regex: '',
+            },
+          },
+          {
+            description: {
+              $regex: '',
+            },
+          },
+        ];
+        break;
+    }
+    switch (true) {
+      case queryObj.sort === 'asc':
+        sortByName = 'name';
+        break;
+      case queryObj.sort === 'desc':
+        sortByName = '-name';
+        break;
+
+      default:
+        sortByName = '-created_at';
+        break;
+    }
+    allSuppliers = await this.supplierModel
       .find()
-      .skip(pageOptions.page * pageOptions.limit)
-      .limit(pageOptions.limit)
+      .or(match.search)
+      .sort(sortByName)
       .exec();
-    return suppliers;
+
+    const pager = paginate(allSuppliers.length, page, pageSize);
+    const suppliers = allSuppliers.slice(pager.startIndex, pager.endIndex + 1);
+    return {
+      pager,
+      data: suppliers,
+    };
   }
 
   public async getSingleSupplier(supplierId: string): Promise<Supplier> {

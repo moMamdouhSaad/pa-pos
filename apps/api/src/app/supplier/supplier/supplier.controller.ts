@@ -10,6 +10,7 @@ import {
   HttpStatus,
   UseInterceptors,
   UploadedFile,
+  Req,
 } from '@nestjs/common';
 import { diskStorage } from 'multer';
 import { FileInterceptor } from '@nestjs/platform-express';
@@ -19,6 +20,9 @@ import {
 } from '../../utils/file-uploading.utils';
 import { SupplierService } from './supplier.service';
 import { Supplier } from './supplier.model';
+import { PagerResponse } from '@pa-pos/api-interfaces';
+import { Request } from 'express';
+
 @Controller('suppliers')
 export class SupplierController {
   public constructor(private readonly supplierService: SupplierService) {}
@@ -69,8 +73,8 @@ export class SupplierController {
   }
 
   @Get()
-  public async getSuppliers(@Query('page') page): Promise<Supplier[]> {
-    const suppliers = await this.supplierService.getSuppliers(page, '8');
+  public async getSuppliers(@Req() request: Request): Promise<PagerResponse> {
+    const suppliers = await this.supplierService.getSuppliers(request.query);
     return suppliers;
   }
 

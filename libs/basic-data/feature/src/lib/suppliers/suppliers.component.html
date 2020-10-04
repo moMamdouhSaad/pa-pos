@@ -3,10 +3,11 @@
     <span slot="search">
       <pa-input
         [formControl]="searchInp"
-        [placeholder]="'Search categories'"
+        [placeholder]="'Search suppliers'"
         [id]="'name'"
         [leftIcon]="'search'"
-      ></pa-input>
+      >
+      </pa-input>
     </span>
 
     <span slot="filter">
@@ -31,10 +32,10 @@
     </span>
 
     <span slot="add-button">
-      <button btnColor="primary" btnSize="medium" (click)="newCategory()">
+      <button btnColor="primary" btnSize="medium" (click)="newSupplier()">
         <icon icon="add" slot="icon" size="15" color="white"></icon>
         <span class="add-btn-text">
-          Add category
+          Add Supplier
         </span>
       </button>
     </span>
@@ -42,23 +43,21 @@
 
   <pa-table
     [pager]="pagerService.getPager() | async"
-    [data]="categoryService.categories$() | async"
+    [data]="supplierService.suppliers$() | async"
     [itemsPerPage]="8"
   >
     <div paTableColumn size="10%" [header]="'image'" key="image"></div>
     <div paTableColumn size="30%" [header]="'name'" key="name"></div>
-    <div
-      paTableColumn
-      size="50%"
-      [header]="'description'"
-      key="description"
-    ></div>
+    <div paTableColumn size="20%" [header]="'phone'" key="phone"></div>
+    <div paTableColumn size="20%" [header]="'address'" key="address"></div>
+    <div paTableColumn size="20%" [header]="'notes'" key="notes"></div>
+
     <div paTableColumn>
       <ng-template let-row>
         <button
           btnColor="outlineLight"
           btnSize="medium"
-          (click)="editCategory(row)"
+          (click)="editSupplier(row)"
         >
           <icon icon="pencil" size="16" color="#1D3557"></icon>
         </button>

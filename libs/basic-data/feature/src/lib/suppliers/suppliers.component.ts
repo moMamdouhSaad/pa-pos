@@ -1,31 +1,31 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Category, IQueryParams } from '@pa-pos/api-interfaces';
-import { CategoryService } from '@pa-pos/basic-data/data-access';
+import { IQueryParams, Supplier } from '@pa-pos/api-interfaces';
+import { SupplierService } from '@pa-pos/basic-data/data-access';
 import { PagerService, SnackBarService } from '@pa-pos/shared/data-access';
 import { ModalService } from '@pa-pos/ui';
-import { debounceTime, switchMap } from 'rxjs/operators';
-import { CategoryFormComponent } from '../category-form/category-form.component';
+import { debounceTime } from 'rxjs/operators';
+import { SupplierFormComponent } from './supplier-form/supplier-form.component';
 
 @Component({
-  selector: 'pa-pos-categories-list',
-  templateUrl: './categories-list.component.html',
-  styleUrls: ['./categories-list.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  selector: 'pa-pos-suppliers',
+  templateUrl: './suppliers.component.html',
+  styleUrls: ['./suppliers.component.scss'],
 })
-export class CategoriesListComponent implements OnInit {
+export class SuppliersComponent implements OnInit {
   public constructor(
-    private readonly modalService: ModalService,
-    public readonly categoryService: CategoryService,
     public readonly pagerService: PagerService,
-    private readonly snackbarService: SnackBarService,
+    public readonly supplierService: SupplierService,
     private readonly route: ActivatedRoute,
-    private readonly router: Router
+    private readonly router: Router,
+    private readonly snackbarService: SnackBarService,
+    private readonly modalService: ModalService
   ) {}
   public readonly searchInp = new FormControl();
   public sort: string;
   private filters: IQueryParams;
+
   public ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {
       const filters: IQueryParams = {
@@ -34,7 +34,7 @@ export class CategoriesListComponent implements OnInit {
         sort: params.sort || 'undefined',
       };
       this.filters = filters;
-      this.categoryService.loadCategories(filters);
+      this.supplierService.loadSuppliers(filters);
     });
 
     this.searchInp.valueChanges
@@ -48,46 +48,45 @@ export class CategoriesListComponent implements OnInit {
       });
   }
 
-  public newCategory(): void {
+  public newSupplier(): void {
     const modalRef = this.modalService.showOverlay(
-      { width: '400px', height: '600px', data: { category: new Category() } },
-      CategoryFormComponent
+      { width: '400px', height: '600px', data: { supplier: new Supplier() } },
+      SupplierFormComponent
     );
     modalRef.afterClosed$.subscribe((data) => {
       if (data.data.successfully) {
-        this.categoryService
-          .addNewCategory(data.data.category)
+        this.supplierService
+          .addNewSupplier(data.data.supplier)
           .subscribe((res) => {
-            this.categoryService.addCategoryState(res.data);
+            this.supplierService.addSupplierState(res.data);
             this.snackbarService.openSnackBar(
-              'Category added successfully',
+              'Supplier added successfully',
               'success'
             );
           });
 
-        this.categoryService.loadCategories(this.filters);
+        this.supplierService.loadSuppliers(this.filters);
       }
     });
   }
-
-  public editCategory(row): void {
+  public editSupplier(row): void {
     const modalRef = this.modalService.showOverlay(
-      { width: '400px', height: '600px', data: { category: row } },
-      CategoryFormComponent
+      { width: '400px', height: '600px', data: { supplier: row } },
+      SupplierFormComponent
     );
     modalRef.afterClosed$.subscribe((data) => {
       if (data.data.successfully) {
-        this.categoryService
-          .updateCategory(data.data.category, data.data.catId)
+        this.supplierService
+          .updateSupplier(data.data.supplier, data.data.supplierId)
           .subscribe((res) => {
-            this.categoryService.updateCategoryState(res.category);
+            this.supplierService.updateSupplierState(res.supplier);
             this.snackbarService.openSnackBar(
-              'Category updated successfully',
+              'Supplier updated successfully',
               'success'
             );
           });
 
-        this.categoryService.loadCategories(this.filters);
+        this.supplierService.loadSuppliers(this.filters);
       }
     });
   }

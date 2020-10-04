@@ -6,7 +6,6 @@ import {
   Param,
   Patch,
   Delete,
-  Query,
   HttpStatus,
   UseInterceptors,
   UploadedFile,

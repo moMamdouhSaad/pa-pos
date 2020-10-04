@@ -24,6 +24,15 @@ export class Category {
   public image: string;
   public description: string;
 }
+// tslint:disable-next-line: max-classes-per-file
+export class Supplier {
+  public _id: string;
+  public name: string;
+  public image: string;
+  public address: string;
+  public phone: string;
+  public notes: string;
+}
 
 export interface IQueryParams {
   sort?: string;
