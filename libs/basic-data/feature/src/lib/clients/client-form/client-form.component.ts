@@ -16,7 +16,6 @@ export class ClientFormComponent implements OnInit {
   public constructor(
     private readonly modalRef: ModalRef,
     private readonly fb: FormBuilder,
-    public readonly pagerService: PagerService,
     private readonly _sanitizer: DomSanitizer
   ) {}
   public formGroup: FormGroup;

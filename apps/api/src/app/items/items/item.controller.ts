@@ -6,14 +6,16 @@ import {
   Param,
   Patch,
   Delete,
-  Query,
   HttpStatus,
   UseInterceptors,
   UploadedFile,
+  Req,
 } from '@nestjs/common';
 import { Item } from './item.model';
 import { ItemService } from './item.service';
 import { diskStorage } from 'multer';
+import { PagerResponse } from '@pa-pos/api-interfaces';
+import { Request } from 'express';
 
 import { FileInterceptor } from '@nestjs/platform-express';
 import {
@@ -71,8 +73,8 @@ export class ItemController {
   }
 
   @Get()
-  public async getItems(@Query('page') page): Promise<Item[]> {
-    const items = await this.itemsService.getItems(page, '8');
+  public async getItems(@Req() request: Request): Promise<PagerResponse> {
+    const items = await this.itemsService.getItems(request.query);
     return items;
   }
 

@@ -15,19 +15,26 @@
             *ngTemplateOutlet="
               column.template;
               context: {
-                $implicit: row
+                $implicit: column.enableFullObject ? row : row[column.key]
               }
             "
           ></ng-container>
-          {{ row[column.key] }}
         </ng-container>
 
         <ng-template #rawValue>
-          <span
-            [class]="column.classes"
-            *ngIf="column.key != 'image'; else img"
-            >{{ row[column.key] }}</span
-          >
+          <ng-container *ngIf="column.key != 'image'; else img">
+            <span
+              [class]="column.classes"
+              *ngIf="column.isObject == true; else notObj"
+            >
+              {{ row[column.key][column.objProperty] }}
+            </span>
+            <ng-template #notObj>
+              <span>
+                {{ row[column.key] }}
+              </span>
+            </ng-template>
+          </ng-container>
           <ng-template #img>
             <div [class]="column.classes">
               <image

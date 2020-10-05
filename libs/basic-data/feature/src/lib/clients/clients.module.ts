@@ -16,7 +16,6 @@ import {
   FilterItemModule,
 } from '@pa-pos/ui';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { SharedDataAccessModule } from '@pa-pos/shared/data-access';
 import { ClientFormComponent } from './client-form/client-form.component';
 
 @NgModule({

@@ -31,7 +31,6 @@ export class CategoryService {
   }
 
   public updateCategory(formData: FormData, catId: string): Observable<any> {
-    console.log(catId);
     return this.categoryApi.updateCategory(formData, catId);
   }
   public updateCategoryState(category: Category): void {

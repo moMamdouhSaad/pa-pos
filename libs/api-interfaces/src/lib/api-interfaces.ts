@@ -24,6 +24,17 @@ export class Category {
   public image: string;
   public description: string;
 }
+
+// tslint:disable-next-line: max-classes-per-file
+export class Item {
+  public _id: string;
+  public name: string;
+  public image: string;
+  public description: string;
+  public barcode: string;
+  // tslint:disable-next-line: variable-name
+  public category_id: string;
+}
 // tslint:disable-next-line: max-classes-per-file
 export class Supplier {
   public _id: string;

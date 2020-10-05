@@ -1,33 +1,79 @@
-<box radius="0px 7px" bgColor="white">
+<box radius="0px 7px" bgColor="white" padding="6px 25px">
   <level>
     <span slot="search">
       <pa-input
-        [placeholder]="'Enter ur name'"
+        [formControl]="searchInp"
+        [placeholder]="'Search items'"
         [id]="'name'"
         [leftIcon]="'search'"
-      ></pa-input>
+      >
+      </pa-input>
     </span>
 
     <span slot="filter">
-      <button btnColor="outlineLight" btnSize="medium">
-        <icon icon="filter" slot="icon" size="25" color="#ced4da"></icon>
-      </button>
+      <filter>
+        <filter-item-container
+          (changeFilter)="applyFilter($event)"
+          queryParamsHandling="merge"
+          [routerLink]="['../']"
+          [queryParams]="{ sort: sort !== 'none' ? sort : null, page: 1 }"
+          [filterName]="'name'"
+        >
+          <filter-item value="asc" itemName="ascending"></filter-item>
+          <filter-item
+            queryParamsHandling="merge"
+            [routerLink]="['../']"
+            [queryParams]="{ name: 'desc' }"
+            value="desc"
+            itemName="descending"
+          ></filter-item>
+        </filter-item-container>
+      </filter>
     </span>
 
     <span slot="add-button">
-      <button btnColor="primary" btnSize="medium" (click)="newItem()">
+      <button btnColor="primary" btnSize="medium" (click)="newSupplier()">
         <icon icon="add" slot="icon" size="15" color="white"></icon>
         <span class="add-btn-text">
-          Add Sale
+          Add Item
         </span>
       </button>
     </span>
   </level>
 
-  <pa-table [data]="tableData" [itemsPerPage]="8">
-    <div paTableColumn [header]="'id'" key="id"></div>
-    <div paTableColumn [header]="'name'" key="name"></div>
-    <div paTableColumn [header]="'class'" key="class"></div>
-    <div paTableColumn [header]="'section'" key="section"></div>
+  <pa-table
+    [pager]="pagerService.getPager() | async"
+    [data]="itemService.items$() | async"
+    [itemsPerPage]="8"
+  >
+    <div paTableColumn size="10%" [header]="'image'" key="image"></div>
+    <div paTableColumn size="30%" [header]="'name'" key="name"></div>
+    <div
+      paTableColumn
+      size="20%"
+      [header]="'description'"
+      key="description"
+    ></div>
+    <div paTableColumn size="20%" [header]="'barcode'" key="barcode"></div>
+    <div
+      paTableColumn
+      size="20%"
+      [header]="'category'"
+      [isObject]="true"
+      [objProperty]="'name'"
+      key="category"
+    ></div>
+
+    <div paTableColumn>
+      <ng-template let-row>
+        <button
+          btnColor="outlineLight"
+          btnSize="medium"
+          (click)="editSupplier(row)"
+        >
+          <icon icon="pencil" size="16" color="#1D3557"></icon>
+        </button>
+      </ng-template>
+    </div>
   </pa-table>
 </box>

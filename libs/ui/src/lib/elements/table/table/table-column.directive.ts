@@ -10,6 +10,8 @@ export class TableColumnDirective {
   @Input() public size: string | null = null;
   @Input() public enableFullObject = false;
   @Input() public classes: string | null = null;
+  @Input() public isObject: boolean | null = null;
+  @Input() public objProperty: string | null = null;
 
   @ContentChild(TemplateRef) public template!: TemplateRef<unknown>;
 }

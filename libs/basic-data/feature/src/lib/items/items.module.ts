@@ -10,11 +10,13 @@ import {
   ButtonModule,
   ModalModule,
   FormContainerModule,
+  FilterItemModule,
 } from '@pa-pos/ui';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { ItemFormComponent } from './item-form/item-form.component';
 import { RouterModule } from '@angular/router';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [ItemsListComponent, ItemFormComponent],
@@ -30,11 +32,13 @@ import { RouterModule } from '@angular/router';
     BoxModule,
     LevelModule,
     IconModule,
+    FilterItemModule,
     TableModule,
     FormModule,
     ButtonModule,
     ModalModule,
     FormContainerModule,
+    MatAutocompleteModule,
   ],
   exports: [ItemsListComponent],
 })

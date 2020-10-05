@@ -1,8 +1,9 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
+import { PagerResponse } from '@pa-pos/api-interfaces';
 import { Model } from 'mongoose';
 import { Item } from './item.model';
-
+import paginate from 'jw-paginate';
 @Injectable()
 export class ItemService {
   public constructor(
@@ -15,18 +16,68 @@ export class ItemService {
     return result;
   }
 
-  public async getItems(pageNo: string, limit: string): Promise<Item[]> {
-    const pageOptions = {
-      page: parseInt(pageNo, 10) || 0,
-      limit: parseInt(limit, 10) || 8,
-    };
-    const items = await this.itemModel
+  public async getItems(queryObj): Promise<PagerResponse> {
+    let allItems: Item[];
+    const match = { search: [] };
+    let sortByName: string | null;
+    const page = parseInt(queryObj.page, 10) || 1;
+    const pageSize = 8;
+
+    // search
+    switch (true) {
+      case queryObj.search !== 'undefined':
+        match.search = [
+          {
+            name: {
+              $regex: queryObj.search,
+            },
+          },
+          {
+            description: {
+              $regex: queryObj.search,
+            },
+          },
+        ];
+        break;
+
+      default:
+        match.search = [
+          {
+            name: {
+              $regex: '',
+            },
+          },
+          {
+            description: {
+              $regex: '',
+            },
+          },
+        ];
+        break;
+    }
+    switch (true) {
+      case queryObj.sort === 'asc':
+        sortByName = 'name';
+        break;
+      case queryObj.sort === 'desc':
+        sortByName = '-name';
+        break;
+
+      default:
+        sortByName = '-created_at';
+        break;
+    }
+
+    allItems = await this.itemModel
       .find()
-      .skip(pageOptions.page * pageOptions.limit)
-      .limit(pageOptions.limit)
+      .or(match.search)
+      .sort(sortByName)
       .populate('category')
       .exec();
-    return items;
+
+    const pager = paginate(allItems.length, page, pageSize);
+    const items = allItems.slice(pager.startIndex, pager.endIndex + 1);
+    return { pager, data: items };
   }
 
   public async getSingleItem(categoryId: string): Promise<Item> {
