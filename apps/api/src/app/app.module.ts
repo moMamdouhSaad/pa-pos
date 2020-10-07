@@ -8,6 +8,7 @@ import { MulterModule } from '@nestjs/platform-express';
 import { SupplierModule } from './supplier/supplier.module';
 import { ClientModule } from './client/client.module';
 import { NestFactory } from '@nestjs/core';
+import { InventoryModule } from './inventory/inventory.module';
 
 @Module({
   imports: [
@@ -21,12 +22,13 @@ import { NestFactory } from '@nestjs/core';
     CategoryModule,
     SupplierModule,
     ClientModule,
+    InventoryModule,
   ],
   controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}
-// ng g @nestjs/schematics:module client --path app --source-root apps/api/src
-// ng g @nestjs/schematics:controller client --path app/client  --source-root apps/api/src -d
-// ng g @nestjs/schematics:service client --path app/client --source-root apps/api/src -d
+// ng g @nestjs/schematics:module inventory --path app --source-root apps/api/src
+// ng g @nestjs/schematics:controller inventory --path app/inventory  --source-root apps/api/src -d
+// ng g @nestjs/schematics:service inventory --path app/inventory --source-root apps/api/src -d
 // ng g @nestjs/schematics:class match/match.entity --path app/game --source-root apps/api/src --spec -d

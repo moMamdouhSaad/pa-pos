@@ -4,15 +4,25 @@ import { PagerResponse } from '@pa-pos/api-interfaces';
 import { Model } from 'mongoose';
 import { Item } from './item.model';
 import paginate from 'jw-paginate';
+import { Inventory } from '../../inventory/inventory/inventory.model';
 @Injectable()
 export class ItemService {
   public constructor(
-    @InjectModel('Item') private readonly itemModel: Model<Item>
+    @InjectModel('Item') private readonly itemModel: Model<Item>,
+    @InjectModel('Inventory') private readonly inventoryModel: Model<Inventory>
   ) {}
 
   public async insertItem(item: Item): Promise<Item> {
     const newItem = new this.itemModel(item);
     const result = await newItem.save();
+    const invItem = {
+      item: result._id,
+      cost: 0,
+      qty: 0,
+      reorderPoint: 0,
+    };
+    const newInvItem = new this.inventoryModel(invItem);
+    await newInvItem.save();
     return result;
   }
 
