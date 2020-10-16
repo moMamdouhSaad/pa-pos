@@ -19,5 +19,6 @@ export interface Inventory extends mongoose.Document {
   _id: string;
   item: Item;
   qty: number;
+  cost: number;
   reorderPoint: number;
 }

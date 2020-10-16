@@ -54,6 +54,26 @@ export class Client {
   public phone: string;
   public notes: string;
 }
+export interface OrderItem {
+  item: Item;
+  qty: number;
+  price: number;
+  total: number;
+}
+// tslint:disable-next-line: max-classes-per-file
+export class Order {
+  public type: string;
+  public discount: number;
+  public total: number;
+  public orderItems: [OrderItem];
+}
+export interface InventoryItem {
+  _id: string;
+  item: Item;
+  qty: number;
+  cost: number;
+  reorderPoint: number;
+}
 
 export interface IQueryParams {
   sort?: string;

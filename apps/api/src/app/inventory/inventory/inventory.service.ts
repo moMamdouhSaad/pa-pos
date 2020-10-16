@@ -1,9 +1,14 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { PagerResponse } from '@pa-pos/api-interfaces';
 import { Model } from 'mongoose';
 import { Inventory } from './inventory.model';
 import paginate from 'jw-paginate';
+import {
+  Order as OrderModel,
+  OrderItem,
+  PagerResponse,
+  InventoryItem,
+} from '@pa-pos/api-interfaces';
 
 @Injectable()
 export class InventoryService {
@@ -27,7 +32,6 @@ export class InventoryService {
             $regex: queryObj.search,
           },
         };
-
         break;
 
       default:
@@ -74,5 +78,43 @@ export class InventoryService {
       pager,
       data: items,
     };
+  }
+
+  public async updateInventoryItem(orderItems: OrderItem[]): Promise<string> {
+    const ObjectId = require('mongoose').Types.ObjectId;
+
+    for (const orderItem of orderItems) {
+      const currentQty = await (await this.findInventoryItem(orderItem.item))
+        .qty;
+      const currentCost = await (await this.findInventoryItem(orderItem.item))
+        .cost;
+      await this.inventoryModel.findOneAndUpdate(
+        {
+          item: ObjectId(orderItem.item),
+        },
+        {
+          qty: currentQty + orderItem.qty,
+          cost: (currentCost + orderItem.price) / 2,
+        }
+      );
+    }
+    return;
+  }
+
+  private async findInventoryItem(id): Promise<InventoryItem> {
+    const ObjectId = require('mongoose').Types.ObjectId;
+
+    let inventoryItem;
+    try {
+      inventoryItem = await this.inventoryModel
+        .findOne({ item: ObjectId(id) })
+        .exec();
+    } catch (error) {
+      throw new NotFoundException('Could not find inventoryItem.');
+    }
+    if (!inventoryItem) {
+      throw new NotFoundException('Could not find inventoryItem.');
+    }
+    return inventoryItem;
   }
 }
