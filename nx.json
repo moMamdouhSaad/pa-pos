@@ -61,6 +61,12 @@
     },
     "shared-ui": {
       "tags": ["scope:shared", "type:ui"]
+    },
+    "inventory-feature": {
+      "tags": ["scope:inventory", "type:feature"]
+    },
+    "inventory-data-access": {
+      "tags": ["scope:inventory", "type:data-access"]
     }
   }
 }

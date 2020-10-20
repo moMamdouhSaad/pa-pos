@@ -15,7 +15,6 @@ export class ItemService {
   public loadItems(filters): void {
     this.itemApi.getItemsApi(filters).subscribe((res) => {
       this.itemState.setItems(res.data);
-      console.log(res.data);
       this.pagerService.setPager(res.pager);
     });
   }

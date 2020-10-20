@@ -2,19 +2,8 @@
   <div class="filter-name">
     {{ filterName | titlecase }}
   </div>
+  
   <button-group>
-    <label (click)="someMethod($event)" class="btn btn-secondary active">
-      <input
-        type="radio"
-        [name]="filterName"
-        id="none"
-        autocomplete="off"
-        [value]="'none'"
-        checked
-      />
-      none
-    </label>
-
     <ng-container *ngFor="let column of filterItems">
       <label class="btn btn-secondary" (click)="someMethod($event)">
         <input

@@ -49,11 +49,11 @@ When using Nx, you can create multiple applications and libraries in the same wo
 
 ### Generate a Feature library :
 
-Run `nx generate @nrwl/angular:library --name=feature --style=scss --directory=basicData --tags=scope:basicData,type:feature --no-interactive` .
+Run `nx generate @nrwl/angular:library --name=feature --style=scss --directory=inventory --tags=scope:inventory,type:feature --no-interactive` .
 
 - Generate a Feature component:
 
-Run `nx generate @schematics/angular:component --style=scss --name=basicData --project=basic-data-feature --no-interactive`
+Run `nx generate @schematics/angular:component --style=scss --name=inventory --project=inventory-feature --no-interactive`
 
 ### Generate a UI library :
 
@@ -65,7 +65,7 @@ Run `nx generate @schematics/angular:component --name=buttonGroup --project=ui-e
 
 ### Generate a Data-Access library :
 
-Run `nx generate @nrwl/angular:library --name=data-access --style=scss --directory=shared --prefix=sm --tags=scope:shared,type:data-access --no-interactive` .
+Run `nx generate @nrwl/angular:library --name=data-access --style=scss --directory=inventory --prefix=sm --tags=scope:inventory,type:data-access --no-interactive` .
 
 ### Generate a Util library :
 

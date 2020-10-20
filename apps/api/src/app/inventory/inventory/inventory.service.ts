@@ -28,7 +28,7 @@ export class InventoryService {
     switch (true) {
       case queryObj.search !== 'undefined':
         match.search = {
-          name: {
+          'item.name': {
             $regex: queryObj.search,
           },
         };
@@ -36,7 +36,7 @@ export class InventoryService {
 
       default:
         match.search = {
-          name: {
+          'item.name': {
             $regex: '',
           },
         };
@@ -49,6 +49,18 @@ export class InventoryService {
         break;
       case queryObj.sort === 'desc':
         sortByName = { 'item.name': -1 };
+        break;
+      case queryObj.sort === 'h-cost':
+        sortByName = { cost: -1 };
+        break;
+      case queryObj.sort === 'l-cost':
+        sortByName = { cost: 1 };
+        break;
+      case queryObj.sort === 'h-qty':
+        sortByName = { qty: -1 };
+        break;
+      case queryObj.sort === 'l-qty':
+        sortByName = { qty: 1 };
         break;
 
       default:
@@ -63,9 +75,17 @@ export class InventoryService {
         foreignField: '_id',
         as: 'item',
       })
+      .unwind('$item')
+      .lookup({
+        from: 'categories',
+        localField: 'item.category',
+        foreignField: '_id',
+        as: 'category',
+      })
+      .unwind('$category')
+      .match(match.search)
       .sort(sortByName)
       .exec();
-
     const pager = paginate(
       allItems.filter((item) => item.item !== null).length,
       page,
