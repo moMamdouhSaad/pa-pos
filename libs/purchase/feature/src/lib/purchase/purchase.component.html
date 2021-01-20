@@ -1,0 +1,74 @@
+<box radius="0px 7px" bgColor="white" padding="6px 25px">
+    <level>
+        <span slot="search">
+            <pa-input [formControl]="searchInp" [placeholder]="'Search purchases'" [id]="'name'" [leftIcon]="'search'">
+            </pa-input>
+        </span>
+
+        <span slot="filter">
+            <filter>
+
+                <filter-item-container (changeFilter)="applyFilter($event)" queryParamsHandling="merge"
+                    [routerLink]="['./']" [queryParams]="{ sort: sort == 'name-none' ? null : sort, page: 1 }"
+                    [filterName]="'name'">
+
+                    <filter-item queryParamsHandling="merge" [routerLink]="['./']" value="asc" itemName="Ascending">
+                    </filter-item>
+                    <filter-item queryParamsHandling="merge" [routerLink]="['./']" value="desc" itemName="Descending">
+                    </filter-item>
+
+                </filter-item-container>
+
+                <filter-item-container (changeFilter)="applyFilter($event)" queryParamsHandling="merge"
+                    [routerLink]="['./']" [queryParams]="{ sort: sort == 'cost-none'  ? null : sort, page: 1 }"
+                    [filterName]="'Cost'">
+                    <filter-item queryParamsHandling="merge" [routerLink]="['./']" value="h-cost"
+                        itemName="Higher cost"></filter-item>
+                    <filter-item queryParamsHandling="merge" [routerLink]="['./']" value="l-cost" itemName="Lower cost">
+                    </filter-item>
+                </filter-item-container>
+
+                <filter-item-container (changeFilter)="applyFilter($event)" queryParamsHandling="merge"
+                    [routerLink]="['./']" [queryParams]="{ sort: sort == 'qty-none'  ? null : sort, page: 1 }"
+                    [filterName]="'Qty'">
+                    <filter-item queryParamsHandling="merge" [routerLink]="['./']" value="h-qty" itemName="Higher qty">
+                    </filter-item>
+                    <filter-item queryParamsHandling="merge" [routerLink]="['./']" value="l-qty" itemName="Lower qty">
+                    </filter-item>
+                </filter-item-container>
+
+            </filter>
+        </span>
+
+        <span slot="add-button">
+<button btnColor="primary" btnSize="medium" (click)="newPurchase()">
+    <icon icon="add" slot="icon" size="15" color="white"></icon>
+    <span class="add-btn-text">
+        Add Purchase
+    </span>
+</button>
+        </span>
+    </level>
+
+    <pa-table
+        [itemsPerPage]="8">
+        <!-- <div paTableColumn size="20%" [header]="'Item'" [isObject]="true" [objProperty]="'name'" key="item">
+        </div>
+        <div paTableColumn size="20%" [header]="'Category'" [isObject]="true" [objProperty]="'name'" key="category">
+        </div>
+
+        <div paTableColumn size="10%" [header]="'Qty'" key="qty"></div>
+        <div paTableColumn size="20%" [header]="'Cost'" key="cost"></div>
+
+        <div paTableColumn size="30%" [header]="'Re order point'" key="reorderPoint"></div> -->
+
+
+        <div paTableColumn>
+            <ng-template let-row>
+                <button btnColor="outlineLight" btnSize="medium">
+                    <icon icon="pencil" size="16" color="#1D3557"></icon>
+                </button>
+            </ng-template>
+        </div>
+    </pa-table>
+</box>

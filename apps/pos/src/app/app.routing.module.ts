@@ -30,6 +30,11 @@ export const routes: Routes = [
     loadChildren: () =>
       import('@pa-pos/inventory/feature').then((m) => m.InventoryFeatureModule),
   },
+  {
+    path: 'purchase',
+    loadChildren: () =>
+      import('@pa-pos/purchase/feature').then((m) => m.PurchaseFeatureModule),
+  },
 
   // Fallback when no prior routes is matched
   { path: '**', redirectTo: '/auth/login', pathMatch: 'full' },

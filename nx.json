@@ -67,6 +67,12 @@
     },
     "inventory-data-access": {
       "tags": ["scope:inventory", "type:data-access"]
+    },
+    "purchase-feature": {
+      "tags": ["scope:purchase", "type:feature"]
+    },
+    "purchase-data-access": {
+      "tags": ["scope:purchase", "type:data-access"]
     }
   }
 }

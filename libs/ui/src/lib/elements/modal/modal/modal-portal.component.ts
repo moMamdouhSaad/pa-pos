@@ -49,5 +49,6 @@ export class ModalPortalComponent implements OnInit {
 
   public ngOnInit(): void {
     this.content = this.modalRef.content;
+    console.log(this.content);
   }
 }

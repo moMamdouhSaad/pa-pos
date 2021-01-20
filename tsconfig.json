@@ -31,7 +31,9 @@
       "@pa-pos/inventory/feature": ["libs/inventory/feature/src/index.ts"],
       "@pa-pos/inventory/data-access": [
         "libs/inventory/data-access/src/index.ts"
-      ]
+      ],
+      "@pa-pos/purchase/feature": ["libs/purchase/feature/src/index.ts"],
+      "@pa-pos/purchase/data-access": ["libs/purchase/data-access/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

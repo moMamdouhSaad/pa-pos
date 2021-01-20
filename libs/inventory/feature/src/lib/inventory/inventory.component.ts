@@ -22,9 +22,9 @@ export class InventoryComponent implements OnInit {
 
     public readonly inventoryService: InventoryService
   ) {}
+
   public readonly searchInp = new FormControl();
   public sort: string;
-  public checkedItem: string;
   public filters: IQueryParams;
 
   public ngOnInit(): void {
@@ -51,6 +51,5 @@ export class InventoryComponent implements OnInit {
 
   public applyFilter(filter: string): void {
     this.sort = filter;
-    this.checkedItem = filter;
   }
 }
