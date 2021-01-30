@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { NavigationLink } from '../models/navigation-link-model';
+import { NavigationService } from '../services/navigation.service';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -7,7 +10,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./top-bar.component.scss'],
 })
 export class TopBarComponent implements OnInit {
-  public constructor() {}
+  navLinks: Observable<NavigationLink[]>;
 
-  public ngOnInit(): void {}
+  public constructor(private navService: NavigationService) {}
+
+  public ngOnInit(): void {
+    this.navLinks = this.navService.navLinks$();
+    this.navService.navLinks$().subscribe((data) => console.log(data));
+  }
 }

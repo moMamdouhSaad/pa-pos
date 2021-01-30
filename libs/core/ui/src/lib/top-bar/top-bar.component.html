@@ -1,40 +1,44 @@
-<div
-  fxLayout="row"
-  fxLayoutAlign="center center"
-  style="height: 100%;"
-  class="m-0 p-0"
->
-  <!-- logo wrapper -->
-  <div
-    class="col-1"
-    id="logo-wrapper"
-    fxLayout="row"
-    fxLayoutAlign="center center"
-  >
-    <img src="./assets/logo.png" height="70px" />
-  </div>
+<div id="main-wrapper" fxLayout="row" fxLayoutAlign="space-between center">
+  <!-- Logo-Nav-items Container -->
 
-  <div class="col-11">
-    <div class="row">
-      <div class="col-10">
-        <span id="topbar-title"> </span>
-      </div>
-      <div
-        id="user-wrapper"
-        class="col-2"
-        fxLayout="row"
-        fxLayoutAlign="end end"
-      >
-        <div fxLayout="row" fxLayoutAlign="center center">
-          <icon icon="user-1" slot="icon" size="15" color="#1D3557"></icon>
-        </div>
-        <div style="padding: 0 5px;" fxLayout="row" fxLayoutAlign="end end">
-          <span class="m-0" style="padding: 0 3px;" id="user-name"
-            >mamdouh</span
-          >
-          <icon icon="arrow-down" slot="icon" size="8" color="#1D3557"></icon>
-        </div>
-      </div>
+  <div fxLayout="row" fxLayoutAlign="start stretch" fxLayoutGap="2.2rem">
+    <!--Logo & Brand Container  -->
+    <div
+      fxLayout="row"
+      fxLayoutAlign="start stretch"
+      fxLayoutGap="0.2rem"
+      class="px-2"
+      role="button"
+    >
+      <!-- Logo -->
+      <span class="header-1 gray-2 center">Shareef</span>
+      <!-- END -->
+      <!-- Brand Name  -->
+      <span class="header-3 center brand-color">
+        Inventory
+      </span>
+
+      <!-- END -->
     </div>
+    <!-- End -->
+
+    <!-- Nav links Container  -->
+    <div
+      fxLayout="row"
+      fxLayoutAlign="start center"
+      fxHide
+      fxShow.gt-sm
+      fxLayoutGap="1.4rem"
+    >
+      <span role="button" *ngFor="let item of navLinks | async">
+        {{ item.title }}
+      </span>
+    </div>
+    <!-- END  -->
+
+    <!--END  -->
   </div>
+  <!-- Burger -->
+  <div fxHide fxShow.lt-md>Burger</div>
+  <!-- End -->
 </div>

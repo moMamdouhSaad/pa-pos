@@ -1,19 +1,24 @@
 @import './variables.scss';
 
+.header-1 {
+  font-size: size(20);
+  font-weight: $font-bold;
+}
 .header-2 {
   font-size: size(22);
+  font-weight: $font-bold;
 }
-
 .header-3 {
-  font-size: size(18);
+  font-size: size(24);
+  font-weight: $font-bold;
 }
-
 .header-4 {
-  font-size: size(20);
+  font-size: size(26);
+  font-weight: $font-bold;
 }
-
 .header-5 {
-  font-size: size(16);
+  font-size: size(28);
+  font-weight: $font-bold;
 }
 
 .text-8 {
@@ -151,4 +156,8 @@
 
 .black {
   color: $black;
+}
+
+.brand-color {
+  color: $yellow;
 }

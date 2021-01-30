@@ -1,14 +1,23 @@
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700&display=swap');
-@import url('https://fonts.googleapis.com/css?family=PT+Mono&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Cairo:300;400;600;700&display=swap');
-
+/* Size Function */
 @function size($pixels) {
   $rems: $pixels / 16;
   @return #{$rems}rem;
 }
+/* END */
 
-// Set your brand colors
+/* Font Weights */
+$font-thin: 100;
+$font-extra-light: 200;
+$font-light: 300;
+$font-normal: 400;
+$font-medium: 500;
+$font-semi-bold: 600;
+$font-bold: 700;
+$font-extra-bold: 800;
 
+/* */
+
+/* Set your brand colors */
 $theme-color: #7b5470;
 $primary-color: #00a09d;
 $light-1: #e9ecef;
@@ -16,10 +25,10 @@ $light-2: #fcfcfc;
 $dark-1: #212529;
 $dark-2: #1c1f23;
 $off-white: #f9f9f9;
-//
 $background-color: $off-white;
+/* END */
 
-// Colors
+/* Gray Colors */
 $gray-1: #9c9fa5;
 $gray-2: #f4f6fb;
 $gray-3: #dadfea;
@@ -27,11 +36,15 @@ $gray-4: #939da2;
 $gray-5: #656f79;
 $gray-6: #2b2b2b;
 $gray-7: #2b304b;
+/* END */
 
+/* Black & white colors */
 $black: #181c32;
 $white: #ffffff;
 $white-2: #eef0f8;
+/* END */
 
+/* Other Colors */
 $salmon: #ef6f6c;
 $red: #e74141;
 $red-faded: #fad9d9;
@@ -41,3 +54,4 @@ $green: #46cba5;
 $teal: #08bdbd;
 $blue: #4087f2;
 $purple: #894ffc;
+/* END */

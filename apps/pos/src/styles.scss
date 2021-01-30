@@ -43,5 +43,21 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  font-family: Roboto, serif;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h7 {
+  padding: 0px;
+  margin: 0px;
+}
+.center {
+  display: flex;
+  align-items: center;
+  align-content: center;
 }
