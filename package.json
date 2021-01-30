@@ -56,6 +56,8 @@
     "ng-inline-svg": "^11.0.0",
     "ng2-charts": "^2.4.1",
     "popper.js": "^1.16.1",
+    "primeicons": "^4.1.0",
+    "primeng": "^11.2.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^6.5.5",
     "rxjs-tslint-rules": "^4.34.0",

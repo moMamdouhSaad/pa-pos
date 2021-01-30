@@ -2,7 +2,6 @@
 @import '~bootstrap/dist/css/bootstrap.css';
 $fa-font-path: '../../../node_modules/font-awesome/fonts';
 @import '~font-awesome/scss/font-awesome.scss';
-@import '~@angular/cdk/overlay-prebuilt.css';
 @import './variables.scss';
 @import './typography.scss';
 button:focus {
@@ -37,32 +36,6 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
-.nav-title {
-  font-size: size(12);
-  font-family: 'Lato', sans-serif;
-  color: $gray-1;
-  :hover {
-    color: $gray-5;
-  }
-}
-.topbar-title {
-  font-size: size(16);
-  font-family: 'Lato', sans-serif;
-  color: $primary-text;
-  font-weight: bold;
-}
-
-.green-text {
-  color: $green;
-}
-.add-btn-text {
-  font-size: 14px;
-  font-family: 'Lato', sans-serif;
-}
-td {
-  vertical-align: middle !important;
-  padding: 3px !important;
-}
 
 html,
 body {
@@ -71,10 +44,4 @@ body {
 body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
-}
-.blue-snackbar {
-  background: #2196f3;
-}
-.err-snackbar {
-  background: #f32121;
 }

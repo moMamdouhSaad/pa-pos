@@ -79,3 +79,76 @@
 .text-45 {
   font-size: size(45);
 }
+
+// Colors
+.theme-color {
+  color: $theme-color;
+}
+.theme-bg {
+  background-color: $theme-color;
+}
+
+.primary {
+  color: $primary-color;
+}
+.primary-bg {
+  background-color: $primary-color;
+}
+
+.light-1 {
+  color: $light-1;
+}
+.light-1-bg {
+  background-color: $light-1;
+}
+
+.light-2 {
+  color: $light-2;
+}
+.light-2-bg {
+  background-color: $light-2;
+}
+
+.dark-1 {
+  color: $dark-1;
+}
+.dark-1-bg {
+  background-color: $dark-1;
+}
+
+.dark-2 {
+  color: $dark-2;
+}
+.dark-2-bg {
+  background-color: $dark-2;
+}
+
+.off-white {
+  background-color: $off-white;
+}
+
+.gray-1 {
+  color: $gray-1;
+}
+.gray-2 {
+  color: $gray-2;
+}
+.gray-3 {
+  color: $gray-3;
+}
+.gray-4 {
+  color: $gray-4;
+}
+.gray-5 {
+  color: $gray-5;
+}
+.gray-6 {
+  color: $gray-6;
+}
+.gray-7 {
+  color: $gray-7;
+}
+
+.black {
+  color: $black;
+}

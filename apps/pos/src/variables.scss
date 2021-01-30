@@ -9,13 +9,17 @@
 
 // Set your brand colors
 
-$background-color: #f7f9fd;
+$theme-color: #7b5470;
+$primary-color: #00a09d;
+$light-1: #e9ecef;
+$light-2: #fcfcfc;
+$dark-1: #212529;
+$dark-2: #1c1f23;
+$off-white: #f9f9f9;
+//
+$background-color: $off-white;
 
-$main-blue: #2f80ed;
-$primary-text: #1d3557;
-$blue-1: #e4eefc;
-$gray-0: #f9fbfc;
-
+// Colors
 $gray-1: #9c9fa5;
 $gray-2: #f4f6fb;
 $gray-3: #dadfea;
