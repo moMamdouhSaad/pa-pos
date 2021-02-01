@@ -1,20 +1,25 @@
 <div id="main-wrapper" fxLayout="row" fxLayoutAlign="space-between center">
   <!-- Logo-Nav-items Container -->
 
-  <div fxLayout="row" fxLayoutAlign="start stretch" fxLayoutGap="2.2rem">
+  <div
+    fxLayout="row"
+    fxLayoutAlign="start stretch"
+    class="h-100 w-100"
+    fxLayoutGap="2.2rem"
+  >
     <!--Logo & Brand Container  -->
     <div
       fxLayout="row"
       fxLayoutAlign="start stretch"
       fxLayoutGap="0.2rem"
-      class="px-2"
+      class="px-3 brand-container"
       role="button"
     >
       <!-- Logo -->
-      <span class="header-1 gray-2 center">Shareef</span>
+      <span class="header-1 gray-2 center theme-opacity">Shareef</span>
       <!-- END -->
       <!-- Brand Name  -->
-      <span class="header-3 center brand-color">
+      <span class="header-3 center brand-color mx-2 theme-opacity">
         Inventory
       </span>
 
@@ -22,17 +27,40 @@
     </div>
     <!-- End -->
 
-    <!-- Nav links Container  -->
+    <!-- Nav links & user Container  -->
     <div
       fxLayout="row"
-      fxLayoutAlign="start center"
+      fxLayoutAlign="space-between center"
       fxHide
       fxShow.gt-sm
-      fxLayoutGap="1.4rem"
+      class="w-100"
     >
-      <span role="button" *ngFor="let item of navLinks | async">
-        {{ item.title }}
-      </span>
+      <div fxLayout="row" fxLayoutAlign="start center" class="h-100">
+        <!-- Navigation -->
+        <span
+          class="nav-link center text-14 px-3 h-100"
+          *ngFor="let item of navLinks | async"
+        >
+          {{ item.title }}
+        </span>
+        <!-- END -->
+      </div>
+
+      <div class="h-100">
+        <!-- Username -->
+        <div class="nav-link" fxLayout="row" fxLayoutAlign="start center">
+          <span class="mx-2">
+            <img
+              src="assets/img.jpg"
+              height="32"
+              width="32"
+              style="border-radius: 50%;"
+            />
+          </span>
+          <span>Mohamed Mamdouh</span>
+        </div>
+        <!-- End -->
+      </div>
     </div>
     <!-- END  -->
 
