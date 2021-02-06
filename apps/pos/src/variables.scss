@@ -18,8 +18,8 @@ $font-extra-bold: 800;
 /* */
 
 /* Set your brand colors */
-$theme-color: rgb(123, 84, 112);
-$theme-color-opacity: rgba(61, 25, 52, 0.384);
+$theme-color: #2a2a2a;
+// $theme-color-opacity: rgba(61, 25, 52, 0.384);
 
 $primary-color: #00a09d;
 $light-1: #e9ecef;
@@ -27,7 +27,7 @@ $light-2: #fcfcfc;
 $dark-1: #212529;
 $dark-2: #1c1f23;
 $off-white: #f9f9f9;
-$background-color: $off-white;
+$background-color: var(--gray-7);
 /* END */
 
 /* Gray Colors */
@@ -57,3 +57,17 @@ $teal: #08bdbd;
 $blue: #4087f2;
 $purple: #894ffc;
 /* END */
+
+:root {
+  --gray-dk: rgb(38, 38, 38); //Header background
+
+  --gray-0: rgb(3, 3, 3); // topbar active title
+
+  --gray-1: rgb(42, 42, 42); //Header background
+  --gray-2: rgb(54, 54, 54); //toolabar title
+  --gray-3: rgb(75, 75, 75);
+  --gray-4: rgb(170, 170, 170); //icon
+  --gray-5: rgb(116, 116, 116); //topbar title
+  --gray-6: rgb(249, 249, 249); // content background
+  --gray-7: rgb(221, 221, 221); //tolbar background;
+}

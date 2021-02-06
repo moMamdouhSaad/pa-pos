@@ -23,8 +23,8 @@ export class NavigationService {
 
 const NAV_LINKS: NavigationLink[] = [
   { title: 'Overview', url: 'dashboard' },
-  { title: 'Sales', url: 'Sales' },
-  { title: 'Purchases', url: 'purchases' },
+  { title: 'Sales Entries', url: 'sales' },
+  { title: 'Purchases Entries', url: 'purchase' },
   { title: 'Reports', url: 'reports' },
   { title: 'Configuration', url: 'configuration' },
 ];

@@ -4,19 +4,40 @@
   height: 3.5rem;
   background-color: $theme-color;
   color: $white;
-  .nav-link {
-    opacity: 0.9;
-    height: 100%;
-    cursor: pointer;
-    &:hover {
-      background-color: $theme-color-opacity;
-      opacity: 1;
+  #links-wrapper {
+    .nav-link {
+      color: var(--gray-4);
+      cursor: pointer;
+      &:hover {
+        // background-color: $theme-color-opacity;
+        color: white;
+      }
+    }
+
+    .active {
+      background-color: var(--gray-7);
+      color: var(--gray-0);
+      border-radius: 6px 6px 0 0;
+      font-weight: 600;
+
+      &:hover {
+        // background-color: $theme-color-opacity;
+        color: var(--gray-0);
+      }
     }
   }
 
   .brand-container {
     &:hover {
-      background-color: $theme-color-opacity;
+      // background-color: $theme-color-opacity;
     }
+  }
+}
+
+#user-pic-wrapper {
+  background-color: var(--gray-dk);
+  cursor: pointer;
+  &:hover {
+    background-color: var(--gray-2);
   }
 }
