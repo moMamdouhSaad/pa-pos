@@ -1,0 +1,25 @@
+:host {
+  display: block;
+}
+
+#wrapper {
+  #name {
+    color: var(--gray-4);
+    font-weight: bold;
+    font-size: 0.8rem;
+    cursor: default;
+  }
+}
+
+.enabled {
+  cursor: pointer;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.082);
+  }
+  #name {
+    color: var(--gray-2) !important;
+    font-weight: bold;
+    font-size: 0.8rem;
+    cursor: pointer !important;
+  }
+}

@@ -10,6 +10,7 @@ import {
   ButtonModule,
   IconModule,
   TableModule,
+  ActionBarModule,
 } from '@pa-pos/ui';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -23,6 +24,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     FormModule,
     IconModule,
     TableModule,
+    ActionBarModule,
     FlexLayoutModule,
     RouterModule.forChild([{ component: SalesComponent, path: '' }]),
   ],

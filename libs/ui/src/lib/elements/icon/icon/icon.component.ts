@@ -28,6 +28,14 @@ export class IconComponent implements OnChanges {
       this._icon = `/assets/svg/${icon}.svg`;
     }
   }
+
+  @Input() public set disabled(value: boolean) {
+    if (!value) {
+      this.color = '#16a596';
+    } else {
+      this.color = 'rgb(170, 170, 170)';
+    }
+  }
   @Input() public color: string | null = null;
   @Input() public size: number | null = null;
   @Input() public rotate: number | null = null;
