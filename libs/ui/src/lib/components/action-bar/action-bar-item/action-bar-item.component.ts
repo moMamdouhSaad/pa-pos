@@ -15,6 +15,7 @@ export class ActionBarItemComponent implements OnInit {
   @Input() icon: string;
   @Input() name: string;
   @Input() disabled: boolean;
+  @Input() sideBorder: boolean;
   constructor() {}
 
   ngOnInit(): void {}

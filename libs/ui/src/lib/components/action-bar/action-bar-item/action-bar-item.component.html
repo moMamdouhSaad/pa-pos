@@ -2,10 +2,18 @@
   id="wrapper"
   fxLayout="column"
   fxLayoutAlign="center center"
-  class="h-100 px-3"
+  class="h-100"
   [class.enabled]="!disabled"
+  [ngClass]="{ enabled: !disabled, 'side-border-100': sideBorder && !disabled }"
 >
-  <icon [disabled]="disabled" [icon]="'circle-plus2'"></icon>
-  <span class="p-1"></span>
-  <span id="name">{{ name }}</span>
+  <div
+    fxLayout="column"
+    fxLayoutAlign="center center"
+    [ngClass]="{ 'side-border': sideBorder }"
+    class="w-100"
+  >
+    <icon [size]="32" [disabled]="disabled" [icon]="icon"></icon>
+    <span class="p-1"></span>
+    <span id="name">{{ name }}</span>
+  </div>
 </div>

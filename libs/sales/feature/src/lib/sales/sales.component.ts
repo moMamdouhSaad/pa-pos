@@ -40,6 +40,22 @@ export class SalesComponent implements OnInit {
 }
 
 const ACTIONS_BAR_ITEMS: ActionBarItem[] = [
-  { icon: 'fa fa-plus-circle', name: 'Add Sale', disabled: false },
-  { icon: 'fa fa-id-card', name: 'Add', disabled: true },
+  { icon: 'car', name: 'Add Sale', disabled: false, sideBorder: false },
+  { icon: 'circle-plus2', name: 'Add', disabled: true, sideBorder: true },
+  { icon: 'dollar', name: 'Dollar', disabled: true, sideBorder: false },
+  { icon: 'down-arrow', name: 'Add', disabled: false, sideBorder: false },
+  { icon: 'download', name: 'Add', disabled: true, sideBorder: false },
+  { icon: 'items', name: 'Items', disabled: true, sideBorder: true },
+  { icon: 'items', name: 'Items', disabled: true, sideBorder: false },
+  { icon: 'items', name: 'Items', disabled: false, sideBorder: false },
+  { icon: 'items', name: 'Items', disabled: true, sideBorder: false },
+  { icon: 'items', name: 'Items', disabled: false, sideBorder: true },
+  { icon: 'items', name: 'Items', disabled: false, sideBorder: false },
+  { icon: 'money', name: 'Money', disabled: true, sideBorder: true },
+  {
+    icon: 'notification',
+    name: 'Notification',
+    disabled: false,
+    sideBorder: false,
+  },
 ];

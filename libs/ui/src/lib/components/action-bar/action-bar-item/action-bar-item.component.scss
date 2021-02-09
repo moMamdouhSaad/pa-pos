@@ -1,5 +1,11 @@
 :host {
   display: block;
+  width: 100%;
+  &:hover {
+    .side-border-100 {
+      border-inline-end: 2px dotted var(--gray-4) !important; /* new */
+    }
+  }
 }
 
 #wrapper {
@@ -15,6 +21,9 @@
   cursor: pointer;
   &:hover {
     background-color: rgba(0, 0, 0, 0.082);
+    .side-border {
+      border-inline-end: 0px dotted var(--gray-4); /* new */
+    }
   }
   #name {
     color: var(--gray-2) !important;
@@ -22,4 +31,10 @@
     font-size: 0.8rem;
     cursor: pointer !important;
   }
+}
+.side-border-100 {
+  // border-inline-end: 0px solid var(--gray-4); /* new */
+}
+.side-border {
+  border-inline-end: 2px dotted var(--gray-4); /* new */
 }
